@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace XaviGames.UICore
+namespace XaviGames.UI
 {
     public class FpsDisplay : MonoBehaviour
     {

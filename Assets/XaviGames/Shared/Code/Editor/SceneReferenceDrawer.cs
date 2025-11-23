@@ -1,7 +1,8 @@
 using UnityEditor;
 using UnityEngine;
+using XaviGames.Scenes;
 
-namespace XaviGames.Shared
+namespace XaviGames.Editor
 {
     [CustomPropertyDrawer(typeof(SceneReference))]
     public class SceneReferenceDrawer : PropertyDrawer

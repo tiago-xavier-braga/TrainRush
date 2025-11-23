@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 
-namespace XaviGames.Shared
+namespace XaviGames.Scenes
 {
     [Serializable]
     public class SceneReference

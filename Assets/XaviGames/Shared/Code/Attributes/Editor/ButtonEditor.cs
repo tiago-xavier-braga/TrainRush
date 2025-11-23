@@ -1,9 +1,8 @@
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using XaviGames.Shared;
 
-namespace XaviGames.Editor
+namespace XaviGames.Attributes
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(MonoBehaviour), true)]

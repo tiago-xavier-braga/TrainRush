@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace XaviGames.Shared
+namespace XaviGames.Scenes
 {
     [System.Serializable]
     [CreateAssetMenu(fileName = "SceneBundle_", menuName = "Xavi Essencials/SceneBundle")]

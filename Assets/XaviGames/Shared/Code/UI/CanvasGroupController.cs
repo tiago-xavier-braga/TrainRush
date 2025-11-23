@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.Events;
-using XaviGames.Shared;
+using XaviGames.Attributes;
 
-namespace XaviGames.UICore
+namespace XaviGames.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class CanvasGroupController : MonoBehaviour

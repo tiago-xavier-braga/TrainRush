@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace XaviGames.UICore
+namespace XaviGames.UI
 {
     [CreateAssetMenu(fileName = "UICoreSettings", menuName = "Xavi Games/Ui/UICoreSettings")]
     public class UICoreSettings : ScriptableObject

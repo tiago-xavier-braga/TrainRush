@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace XaviGames.Shared
+namespace XaviGames.Attributes
 {
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
     public class ReadOnlyDrawer : PropertyDrawer

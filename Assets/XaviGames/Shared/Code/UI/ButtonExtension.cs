@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using XaviGames.Audio;
 
-namespace XaviGames.UICore
+namespace XaviGames.UI
 {
     public class ButtonExtension : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
     {

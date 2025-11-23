@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace XaviGames.Shared
+namespace XaviGames.Attributes
 {
     public class ReadOnlyAttribute : PropertyAttribute
     {
