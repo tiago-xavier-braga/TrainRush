@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using AudioSettings = XaviGames.Audio.AudioSettings;
 
 namespace XaviGames.UI
 {
@@ -9,19 +10,19 @@ namespace XaviGames.UI
         private UICoreSettings _uiCoreSettings;
 
         [SerializeField]
-        private AudioData _audioData;
+        private AudioSettings _audioSettings;
 
         [SerializeField]
         private AudioSource _audioSource;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            _audioSource.PlayOneShot(_uiCoreSettings.ButtonClickSound, _audioData.Volume);
+            _audioSource.PlayOneShot(_uiCoreSettings.ButtonClickSound, _audioSettings.MasterVolume);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _audioSource.PlayOneShot(_uiCoreSettings.ButtonReleaseSound, _audioData.Volume);
+            _audioSource.PlayOneShot(_uiCoreSettings.ButtonReleaseSound, _audioSettings.MasterVolume);
         }
     }
 }
