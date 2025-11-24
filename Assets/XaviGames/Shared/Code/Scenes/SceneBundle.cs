@@ -62,5 +62,10 @@ namespace XaviGames.Scenes
 
             onTotalProgress?.Invoke(1f);
         }
+
+        public void LoadScenesAsync()
+        {
+            LoadScenesAsync(true, null);
+        }
     }
 }

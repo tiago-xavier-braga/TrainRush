@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 276c468a062e65d4981440a6e0aa6a2e, type: 3}
-  m_Name: MovementSpeed
+  m_Script: {fileID: 11500000, guid: 73f875dedab14b848a6475e11dea59b6, type: 3}
+  m_Name: ScreenOrientationMiddleware
   m_EditorClassIdentifier: 
-  _value: 15
-  <Value>k__BackingField: 15
+  _isFinished: 0
