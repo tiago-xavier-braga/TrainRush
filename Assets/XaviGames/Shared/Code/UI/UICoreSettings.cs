@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace XaviGames.UI
 {
-    [CreateAssetMenu(fileName = "UICoreSettings", menuName = "Xavi Games/Ui/UICoreSettings")]
+    [CreateAssetMenu(fileName = "UICoreSettings", menuName = "XaviGames/Ui/UICoreSettings")]
     public class UICoreSettings : ScriptableObject
     {
         [field: Header("Canvas Group Controller")]

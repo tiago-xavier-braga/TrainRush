@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace XaviGames.Events
 {
-    [CreateAssetMenu(fileName = "VoidEventChannel", menuName = "XaviGames/VoidEventChannel")]
+    [CreateAssetMenu(fileName = "VoidEventChannel", menuName = "XaviGames/Events/VoidEventChannel")]
     public class VoidEventChannel : ScriptableObject
     {
         private UnityAction _event;
