@@ -150,7 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startMiddlewares:
   - {fileID: 11400000, guid: 36bb085df56cb82478ec6afe5e33833c, type: 2}
-  _finishMiddlewares: []
+  _finishMiddlewares:
+  - {fileID: 11400000, guid: 36bb085df56cb82478ec6afe5e33833c, type: 2}
   _gameSceneBundle: {fileID: 11400000, guid: feea67a08cc79d0438be6febb777abd7, type: 2}
 --- !u!4 &122864316
 Transform:

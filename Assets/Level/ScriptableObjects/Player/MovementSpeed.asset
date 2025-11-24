@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276c468a062e65d4981440a6e0aa6a2e, type: 3}
   m_Name: MovementSpeed
   m_EditorClassIdentifier: 
-  _value: 15
-  <Value>k__BackingField: 15
+  _value: 5
+  <Value>k__BackingField: 5
