@@ -7,7 +7,7 @@ namespace XaviGames.Audio
     public class AudioSettings : ScriptableObject
     {
         [field: SerializeField]
-        [Range(0, 1f)]
+        [field: Range(0, 1f)]
         public float MasterVolume { get; private set; } = 1f;
 
         [SerializeField]
