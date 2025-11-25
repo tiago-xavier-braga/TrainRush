@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f875dedab14b848a6475e11dea59b6, type: 3}
-  m_Name: ScreenOrientationMiddleware
+  m_Script: {fileID: 11500000, guid: 8da8ffd5ec7fa004ba52b4b5b6c70dc9, type: 3}
+  m_Name: DataController
   m_EditorClassIdentifier: 
-  _isFinished: 0
+  _models:
+  - {fileID: 11400000, guid: 793889c759ff1a140abfc74cc5ad1853, type: 2}

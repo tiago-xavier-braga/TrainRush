@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startMiddlewares:
-  - {fileID: 11400000, guid: 36bb085df56cb82478ec6afe5e33833c, type: 2}
+  - {fileID: 11400000, guid: b3ac028033867834ab94b7f46888dcbb, type: 2}
   _finishMiddlewares:
-  - {fileID: 11400000, guid: 36bb085df56cb82478ec6afe5e33833c, type: 2}
+  - {fileID: 11400000, guid: f5d768519e48c3a498ddf36bd7af9322, type: 2}
   _gameSceneBundle: {fileID: 11400000, guid: feea67a08cc79d0438be6febb777abd7, type: 2}
 --- !u!4 &122864316
 Transform:

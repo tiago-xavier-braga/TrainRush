@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using XaviGames.Attributes;
 using XaviGames.Scenes;
 
 namespace XaviGames.Applications
@@ -34,6 +35,7 @@ namespace XaviGames.Applications
             InitializeApplication();
         }
 
+        [Button(true)]
         public void InitializeApplication()
         {
             _startMiddlewares.ForEach(middleware => middleware.Initialize
@@ -45,6 +47,7 @@ namespace XaviGames.Applications
             );
         }
 
+        [Button(true)]
         public void ShutdownApplication()
         {
             _finishMiddlewares.ForEach(middleware => middleware.Initialize
