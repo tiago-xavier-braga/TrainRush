@@ -3,15 +3,15 @@ using XaviGames.Attributes;
 
 namespace XaviGames.ObjectVariables
 {
-    [CreateAssetMenu(fileName = "FloatVariable", menuName = "XaviGames/ObjectVariables/FloatVariable")]
-    public class FloatVariable : ScriptableObject
+    [CreateAssetMenu(fileName = "IntVariable", menuName = "XaviGames/ObjectVariables/IntVariable")]
+    public class IntVariable : ScriptableObject
     {
         [SerializeField]
-        private float _value;
+        private int _value;
 
         [field: SerializeField]
         [field: ReadOnly]
-        public float Value;
+        public int Value;
 
         private void OnEnable()
         {
