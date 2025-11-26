@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08df7939c1bfdf247b7d1ad132de4fb7, type: 3}
-  m_Name: MasterVolume
+  m_Script: {fileID: 11500000, guid: 9ae653499200ddc47b9a89d9b7027fad, type: 3}
+  m_Name: PlayerCoins
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: MasterVolume
-  <Type>k__BackingField: 1
+  _value: 0
+  Value: 0
