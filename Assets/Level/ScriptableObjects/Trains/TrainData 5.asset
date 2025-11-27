@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c0c158c34867943baae25a104172ee, type: 3}
+  m_Name: TrainData 5
+  m_EditorClassIdentifier: 
+  <TrainOrder>k__BackingField: 5
+  <TrainPrefab>k__BackingField: {fileID: 7932058036075787130, guid: 534e26fca97adaf47adc0b3605720407, type: 3}
+  <MinSpeed>k__BackingField: 0
+  <MaxSpeed>k__BackingField: 0
+  <InitialWagons>k__BackingField: []
