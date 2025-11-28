@@ -475,6 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trainState: 0
+  _trainData: {fileID: 11400000, guid: f6337710b11687a4a88e1641e3c8d0ad, type: 2}
+  <Speed>k__BackingField: 6
 --- !u!1 &6009488431614625736
 GameObject:
   m_ObjectHideFlags: 0
