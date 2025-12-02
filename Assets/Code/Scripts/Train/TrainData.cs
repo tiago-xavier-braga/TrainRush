@@ -13,12 +13,6 @@ namespace XaviGames.Train
         public GameObject TrainPrefab { get; private set; }
 
         [field: SerializeField]
-        public float MinSpeed { get; private set; }
-
-        [field: SerializeField]
-        public float MaxSpeed { get; private set; }
-
-        [field: SerializeField]
-        public List<WagonData> InitialWagons { get; private set; } = new();
+        public float MaxUpdateSpeed { get; private set; }
     }
 }

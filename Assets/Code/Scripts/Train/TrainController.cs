@@ -1,106 +1,120 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Attributes;
 using XaviGames.Managers;
+using XaviGames.SaveSystem;
 
 namespace XaviGames.Train
 {
     public class TrainController : MonoBehaviour
     {
-        [Serializable]
-        private enum TrainState
-        {
-            Approaching = 0,
-            WaitingTrafficLight = 1,
-            Departing = 2,
-        }
-
-        [SerializeField]
-        [ReadOnly]
-        private TrainState _trainState = TrainState.Approaching;
+        [field: SerializeField]
+        public float Speed { get; private set; }
 
         [SerializeField]
         private TrainData _trainData;
 
-        [field: SerializeField]
-        public float Speed { get; private set; }
+        [SerializeField]
+        private Transform _modelTransform;
+        
+        [Space(8f)]
+        [SerializeField]
+        private List<TrainData> _allTrainData;
 
-        private TrainLoopController _trainLoopController;
-        private TrafficLightController _trafficLightController;
-        private GameManager _gameManager;
+        [Header("Spawn Animation")]
+        [SerializeField]
+        private float _spawnDuration = 1f;
 
-        private Transform _startPosition;
-        private Transform _stationPosition;
-        private Transform _endPosition;
+        [SerializeField]
+        private LeanTweenType _spawnEaseType;
 
-        public void Initialize(TrainLoopController trainLoopController)
+        [Header("Save System")]
+        [SerializeField]
+        private Model _trainOrderSaveModel = null;
+
+        private GameObject _currentTrainModel;
+
+        private void Start()
         {
-            _trainLoopController = trainLoopController;
-            _trafficLightController = _trainLoopController.TrafficLightController;
-            _gameManager = GameManager.Instance;
-            Speed = _trainData.MinSpeed;
-            _startPosition = _trainLoopController.StartTransform;
-            _stationPosition = _trainLoopController.StationTransform;
-            _endPosition = _trainLoopController.EndTransform;
+            LoadData();
+            CreateTrainModel();
         }
 
-        private void FixedUpdate()
+        public void IncreaseSpeed(float amount)
         {
-            if (_gameManager.GameState != GameState.Running)
+            if (GameManager.Instance.GameState != GameState.Running)
             {
                 return;
             }
 
-            switch (_trainState)
+            Speed += amount;
+            VerifyTrainUpgrade();
+        }
+
+        private void LoadData()
+        {
+            int trainOrder = 0;
+
+            if (_trainOrderSaveModel != null)
             {
-                case TrainState.Approaching:
-                    RunApproach();
-                    break;
-                case TrainState.WaitingTrafficLight:
-                    WaitingTrafficLight();
-                    break;
-                case TrainState.Departing:
-                    RunDeparting();
-                    break;
+                trainOrder = (int)_trainOrderSaveModel.Value;
+            }
+
+            _trainData = _allTrainData.Find(td => td.TrainOrder == trainOrder);
+
+            if (_trainData == null)
+            {
+                Debug.LogWarning($"No TrainData found for order {trainOrder}. Using the first in the list.");
+                _trainData = _allTrainData[0];
             }
         }
 
-        private void RunApproach()
+        private void SaveData()
         {
-            float speed = EaseAcceleration(_startPosition.position.z, _stationPosition.position.z, transform.position.z);
-            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
-
-            if (Vector3.Distance(transform.position, _trainLoopController.StationTransform.position) < 0.1f)
-            {
-                _trainState = TrainState.WaitingTrafficLight;
-            }
-        }
-
-        private void WaitingTrafficLight()
-        {
-            if (_trafficLightController.IsRedLight)
+            if (_trainData == null)
             {
                 return;
             }
 
-            _trainState = TrainState.Departing;
+            _trainOrderSaveModel.Value = _trainData.TrainOrder;
         }
 
-        private void RunDeparting()
+        private void VerifyTrainUpgrade()
         {
-            float speed = EaseAcceleration(_stationPosition.position.z, _endPosition.position.z, transform.position.z);
-            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
-
-            if (Vector3.Distance(transform.position, _trainLoopController.EndTransform.position) < 0.1f)
+            if (Speed < _trainData.MaxUpdateSpeed)
             {
-                Destroy(gameObject);
+                return;
             }
+
+            if (_trainData.TrainOrder >= _allTrainData.Count - 1)
+            {
+                return;
+            }
+
+            _trainData = _allTrainData.Find(td => td.TrainOrder == _trainData.TrainOrder + 1);
+
+            SaveData();
+            CreateTrainModel();
         }
 
-        private float EaseAcceleration(float from, float to, float current)
+        [Button()]
+        private void CreateTrainModel()
         {
-            float value = Mathf.InverseLerp(from, to, current);
-            return Mathf.Lerp(_trainData.MinSpeed, _trainData.MaxSpeed, value);
+            if (_currentTrainModel != null)
+            {
+                Destroy(_currentTrainModel);
+            }
+
+            _currentTrainModel = Instantiate(_trainData.TrainPrefab, _modelTransform);
+            _currentTrainModel.transform.localScale = Vector3.zero;
+
+            LeanTween.scale(_currentTrainModel, Vector3.one, _spawnDuration).setEase(_spawnEaseType);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(transform.position, 0.5f);
         }
     }
 }
