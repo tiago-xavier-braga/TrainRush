@@ -439,7 +439,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3833059489415353140}
-  - component: {fileID: 3557746374834747410}
   m_Layer: 0
   m_Name: Train 1
   m_TagString: Untagged
@@ -463,21 +462,6 @@ Transform:
   - {fileID: 6637609598426235066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3557746374834747410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930897631468614393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _trainState: 0
-  _trainData: {fileID: 11400000, guid: f6337710b11687a4a88e1641e3c8d0ad, type: 2}
-  <Speed>k__BackingField: 6
 --- !u!1 &6009488431614625736
 GameObject:
   m_ObjectHideFlags: 0

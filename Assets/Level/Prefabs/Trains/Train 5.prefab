@@ -327,3 +327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Speed>k__BackingField: 0
+  _trainData: {fileID: 0}
+  ModelTransform: {fileID: 0}
+  _allTrainData: []
+  _trainModel: {fileID: 0}
+  _currentTrainModel: {fileID: 0}
