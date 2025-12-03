@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Attributes;
-using XaviGames.Audio;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
+using AudioSettings = XaviGames.Audio.AudioSettings;
 
 namespace XaviGames.Train
 {
@@ -31,7 +31,17 @@ namespace XaviGames.Train
 
         [Header("Audio Settings")]
         [SerializeField]
-        private SoundEffect _trainUnlockSoundEffect;
+        private AudioClip _trainUnlockClip;
+
+        [SerializeField]
+        private AudioSource _audioSource;
+
+        [SerializeField]
+        private AudioSettings _audioSettings;
+
+        [SerializeField]
+        [Range(0f, 1f)]
+        private float _volume;
 
         [Header("Save System")]
         [SerializeField]
@@ -118,7 +128,9 @@ namespace XaviGames.Train
 
             if (!_isFirstSpawn)
             {
-                _trainUnlockSoundEffect.Play();
+                _audioSource.clip = _trainUnlockClip;
+                _audioSource.volume = _volume * _audioSettings.MasterVolume;
+                _audioSource.Play();
                 return;
             }
 
