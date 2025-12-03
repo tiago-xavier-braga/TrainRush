@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Attributes;
+using XaviGames.Audio;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
 
@@ -28,11 +29,16 @@ namespace XaviGames.Train
         [SerializeField]
         private LeanTweenType _spawnEaseType;
 
+        [Header("Audio Settings")]
+        [SerializeField]
+        private SoundEffect _trainUnlockSoundEffect;
+
         [Header("Save System")]
         [SerializeField]
         private Model _trainOrderSaveModel = null;
 
         private GameObject _currentTrainModel;
+        private bool _isFirstSpawn = true;
 
         private void Start()
         {
@@ -109,6 +115,14 @@ namespace XaviGames.Train
             _currentTrainModel.transform.localScale = Vector3.zero;
 
             LeanTween.scale(_currentTrainModel, Vector3.one, _spawnDuration).setEase(_spawnEaseType);
+
+            if (!_isFirstSpawn)
+            {
+                _trainUnlockSoundEffect.Play();
+                return;
+            }
+
+            _isFirstSpawn = false;
         }
 
         private void OnDrawGizmos()
