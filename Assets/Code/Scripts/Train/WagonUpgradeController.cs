@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using XaviGames.Animation;
 using XaviGames.Attributes;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
@@ -24,10 +25,7 @@ namespace XaviGames.Train
 
         [Header("Spawn Animation")]
         [SerializeField]
-        private float _spawnDuration = 1f;
-
-        [SerializeField]
-        private LeanTweenType _spawnEaseType;
+        private SpawnAnimation _spawnAnimation;
 
         [Header("Save System")]
         [SerializeField]
@@ -124,7 +122,7 @@ namespace XaviGames.Train
             _currentWagonModel = Instantiate(_wagonData.WagonPrefab, _modelTransform);
             _currentWagonModel.transform.localScale = Vector3.zero;
 
-            LeanTween.scale(_currentWagonModel, Vector3.one, _spawnDuration).setEase(_spawnEaseType);
+            _spawnAnimation.Animate(_currentWagonModel, Vector3.zero, Vector3.one);
 
             if (!_isFirstSpawn)
             {

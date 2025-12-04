@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using XaviGames.Animation;
 using XaviGames.Attributes;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
@@ -22,12 +23,8 @@ namespace XaviGames.Train
         [SerializeField]
         private List<TrainData> _allTrainData;
 
-        [Header("Spawn Animation")]
         [SerializeField]
-        private float _spawnDuration = 1f;
-
-        [SerializeField]
-        private LeanTweenType _spawnEaseType;
+        private SpawnAnimation _spawnAnimation;
 
         [Header("Audio Settings")]
         [SerializeField]
@@ -124,7 +121,7 @@ namespace XaviGames.Train
             _currentTrainModel = Instantiate(_trainData.TrainPrefab, _modelTransform);
             _currentTrainModel.transform.localScale = Vector3.zero;
 
-            LeanTween.scale(_currentTrainModel, Vector3.one, _spawnDuration).setEase(_spawnEaseType);
+            _spawnAnimation.Animate(_currentTrainModel, Vector3.zero, Vector3.one);
 
             if (!_isFirstSpawn)
             {
