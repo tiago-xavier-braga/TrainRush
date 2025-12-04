@@ -170,8 +170,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6198096693316275002}
   - component: {fileID: 1423326777096270516}
+  - component: {fileID: 928514450812522521}
   m_Layer: 0
-  m_Name: Wagon
+  m_Name: Wagon Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,10 +219,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1394d628a4f586749b25c1a7ef931001, type: 2}
   - {fileID: 11400000, guid: 77196ef79772e3c4e838e8a2ca1fb866, type: 2}
   - {fileID: 11400000, guid: db411f0874ddc494db164804460edbac, type: 2}
-  _spawnDuration: 1
-  _spawnEaseType: 0
+  _spawnAnimation: {fileID: 928514450812522521}
   _wagonOrderSaveModel: {fileID: 0}
   _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 3936981118919736803}
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _volume: 0.5
+--- !u!114 &928514450812522521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064838444966919377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1642bb55e461d54fa1de5fea4f3a6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 1
+  _leanTweenType: 30
