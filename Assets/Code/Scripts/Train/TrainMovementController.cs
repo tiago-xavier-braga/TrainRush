@@ -11,7 +11,7 @@ namespace XaviGames.Train
         private TrainState _trainState = TrainState.Approaching;
 
         [SerializeField]
-        private TrainController _trainController;
+        private TrainUpgradeController _trainController;
 
         [SerializeField]
         private TrafficLightController _trafficLightController;

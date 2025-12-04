@@ -5,22 +5,22 @@ using XaviGames.Managers;
 using XaviGames.SaveSystem;
 using AudioSettings = XaviGames.Audio.AudioSettings;
 
+
 namespace XaviGames.Train
 {
-    public class TrainController : MonoBehaviour
+    public class WagonUpgradeController : MonoBehaviour
     {
         [field: SerializeField]
-        public float Speed { get; private set; }
+        public float Capacity {  get; set; }
 
         [SerializeField]
-        private TrainData _trainData;
+        private WagonData _wagonData;
 
         [SerializeField]
         private Transform _modelTransform;
-        
-        [Space(8f)]
+
         [SerializeField]
-        private List<TrainData> _allTrainData;
+        private List<WagonData> _allWagonData;
 
         [Header("Spawn Animation")]
         [SerializeField]
@@ -29,9 +29,13 @@ namespace XaviGames.Train
         [SerializeField]
         private LeanTweenType _spawnEaseType;
 
+        [Header("Save System")]
+        [SerializeField]
+        private Model _wagonOrderSaveModel = null;
+
         [Header("Audio Settings")]
         [SerializeField]
-        private AudioClip _trainUnlockClip;
+        private AudioClip _wagonUnlockClip;
 
         [SerializeField]
         private AudioSource _audioSource;
@@ -43,92 +47,88 @@ namespace XaviGames.Train
         [Range(0f, 1f)]
         private float _volume;
 
-        [Header("Save System")]
-        [SerializeField]
-        private Model _trainOrderSaveModel = null;
-
-        private GameObject _currentTrainModel;
+        private GameObject _currentWagonModel;
         private bool _isFirstSpawn = true;
 
         private void Start()
         {
             LoadData();
-            CreateTrainModel();
+            CreateWagonModel();
         }
 
-        public void IncreaseSpeed(float amount)
+        public void IncreaseCapacity(float amount)
         {
             if (GameManager.Instance.GameState != GameState.Running)
             {
                 return;
             }
 
-            Speed += amount;
-            VerifyTrainUpgrade();
+            Capacity += amount;
+            VerifyWagonUpgrade();
         }
 
         private void LoadData()
         {
-            int trainOrder = 0;
+            int wagonOrder = 0;
 
-            if (_trainOrderSaveModel != null)
+            if (_wagonOrderSaveModel != null)
             {
-                trainOrder = (int)_trainOrderSaveModel.Value;
+                wagonOrder = (int)_wagonOrderSaveModel.Value;
             }
 
-            _trainData = _allTrainData.Find(td => td.TrainOrder == trainOrder);
+            _wagonData = _allWagonData.Find(wd => wd.WagonOrder == wagonOrder);
 
-            if (_trainData == null)
+            if (_wagonData == null)
             {
-                Debug.LogWarning($"No TrainData found for order {trainOrder}. Using the first in the list.");
-                _trainData = _allTrainData[0];
+                Debug.LogWarning($"No WagonData found for order {wagonOrder}. Using the first in the list.");
+                _wagonData = _allWagonData[0];
             }
         }
 
         private void SaveData()
         {
-            if (_trainData == null)
+            if (_wagonData == null)
             {
                 return;
             }
 
-            _trainOrderSaveModel.Value = _trainData.TrainOrder;
+            _wagonOrderSaveModel.Value = _wagonData.WagonOrder;
         }
 
-        private void VerifyTrainUpgrade()
+        private void VerifyWagonUpgrade()
         {
-            if (Speed < _trainData.MaxUpdateSpeed)
+            if (Capacity < _wagonData.MaxUpdateCapacity)
             {
                 return;
             }
 
-            if (_trainData.TrainOrder >= _allTrainData.Count - 1)
+            if (_wagonData.WagonOrder >= _allWagonData.Count - 1)
             {
                 return;
             }
 
-            _trainData = _allTrainData.Find(td => td.TrainOrder == _trainData.TrainOrder + 1);
+            _wagonData = _allWagonData.Find(wd => wd.WagonOrder == _wagonData.WagonOrder + 1);
 
             SaveData();
-            CreateTrainModel();
+            CreateWagonModel();
         }
 
         [Button()]
-        private void CreateTrainModel()
+        private void CreateWagonModel()
         {
-            if (_currentTrainModel != null)
+            if (_currentWagonModel != null)
             {
-                Destroy(_currentTrainModel);
+                Destroy(_currentWagonModel);
             }
 
-            _currentTrainModel = Instantiate(_trainData.TrainPrefab, _modelTransform);
-            _currentTrainModel.transform.localScale = Vector3.zero;
+            _currentWagonModel = Instantiate(_wagonData.WagonPrefab, _modelTransform);
+            _currentWagonModel.transform.localScale = Vector3.zero;
 
-            LeanTween.scale(_currentTrainModel, Vector3.one, _spawnDuration).setEase(_spawnEaseType);
+            LeanTween.scale(_currentWagonModel, Vector3.one, _spawnDuration).setEase(_spawnEaseType);
 
             if (!_isFirstSpawn)
             {
-                _audioSource.clip = _trainUnlockClip;
+                _audioSource.clip = _wagonUnlockClip;
                 _audioSource.volume = _volume * _audioSettings.MasterVolume;
                 _audioSource.Play();
                 return;
@@ -139,8 +139,9 @@ namespace XaviGames.Train
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.blue;
+            Gizmos.color = Color.green;
             Gizmos.DrawSphere(transform.position, 0.5f);
         }
+
     }
 }

@@ -12,9 +12,6 @@ namespace XaviGames.Train
         public GameObject WagonPrefab { get; private set; }
 
         [field: SerializeField]
-        public int MinCapacity { get; private set; }
-
-        [field: SerializeField]
-        public int MaxCapacity { get; private set; }
+        public int MaxUpdateCapacity { get; private set; }
     }
 }
