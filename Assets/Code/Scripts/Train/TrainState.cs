@@ -3,8 +3,8 @@ namespace XaviGames.Train
     public enum TrainState
     {
         None = 0,
-        Approaching = 1,
-        WaitingTrafficLight = 2,
-        Departing = 3,
+        Idle = 1,
+        Moving = 2,
+        WaitingTrafficLight = 3,
     }
 }
