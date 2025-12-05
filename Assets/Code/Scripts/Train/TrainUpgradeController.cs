@@ -11,7 +11,10 @@ namespace XaviGames.Train
     public class TrainUpgradeController : MonoBehaviour
     {
         [field: SerializeField]
-        public float Speed { get; private set; }
+        public int Speed { get; private set; }
+
+        [SerializeField]
+        private int _firstSpeed; 
 
         [SerializeField]
         private TrainData _trainData;
@@ -44,6 +47,9 @@ namespace XaviGames.Train
         [SerializeField]
         private Model _trainOrderSaveModel = null;
 
+        [SerializeField]
+        private Model _speedTrainSaveModel = null;
+
         private GameObject _currentTrainModel;
         private bool _isFirstSpawn = true;
 
@@ -53,7 +59,7 @@ namespace XaviGames.Train
             CreateTrainModel();
         }
 
-        public void IncreaseSpeed(float amount)
+        public void IncreaseSpeed(int amount)
         {
             if (GameManager.Instance.GameState != GameState.Running)
             {
@@ -62,6 +68,7 @@ namespace XaviGames.Train
 
             Speed += amount;
             VerifyTrainUpgrade();
+            SaveData();
         }
 
         private void LoadData()
@@ -80,6 +87,12 @@ namespace XaviGames.Train
                 Debug.LogWarning($"No TrainData found for order {trainOrder}. Using the first in the list.");
                 _trainData = _allTrainData[0];
             }
+
+            if (_speedTrainSaveModel != null)
+            {
+                Speed = (int)_speedTrainSaveModel.Value;
+                Speed = Speed > _firstSpeed ? Speed : _firstSpeed;
+            }
         }
 
         private void SaveData()
@@ -90,6 +103,7 @@ namespace XaviGames.Train
             }
 
             _trainOrderSaveModel.Value = _trainData.TrainOrder;
+            _speedTrainSaveModel.Value = Speed;
         }
 
         private void VerifyTrainUpgrade()
