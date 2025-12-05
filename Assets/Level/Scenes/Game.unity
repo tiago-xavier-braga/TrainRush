@@ -128,32 +128,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-      propertyPath: _endPosition
+      propertyPath: _toPosition
       value: 
       objectReference: {fileID: 392107877}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-      propertyPath: _startPosition
+      propertyPath: _fromPosition
       value: 
       objectReference: {fileID: 398607299}
-    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-      propertyPath: _stationPosition
-      value: 
-      objectReference: {fileID: 1490487325}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _trafficLightController
       value: 
       objectReference: {fileID: 1269814912}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _trainUpgradeController
+      value: 
+      objectReference: {fileID: 191714989}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -50
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalRotation.w
@@ -192,6 +192,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+--- !u!114 &191714988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_PrefabInstance: {fileID: 191714987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &191714989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1148674032805181139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_PrefabInstance: {fileID: 191714987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f8ba73ba80aff4ab6dd6fb5260681e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementController: {fileID: 191714988}
+  _isEnabled: 0
 --- !u!1 &579487579
 GameObject:
   m_ObjectHideFlags: 0
