@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace XaviGames.Animation
 {
@@ -13,11 +14,29 @@ namespace XaviGames.Animation
         private int _id = -1;
         private Vector3 _initialScale;
 
-        public void Animate(GameObject gameObject, Vector3 from, Vector3 to)
+        public void Animate(GameObject gameObject, Vector3 from, Vector3 to, UnityAction onFinish = null)
         {
             _initialScale = from;
             gameObject.transform.localScale = _initialScale;
-            _id = LeanTween.scale(gameObject, to, _duration).setEase(_leanTweenType).id;
+            
+            _id = LeanTween.scale
+            (
+                gameObject, 
+                to, 
+                _duration
+            )
+            .setEase
+            (
+                _leanTweenType
+            )
+            .setOnComplete
+            (
+                () => 
+                { 
+                    onFinish?.Invoke(); 
+                }    
+            )
+            .id;
         }
 
         public void Cancel(GameObject gameObject)
