@@ -6,7 +6,6 @@ using XaviGames.Managers;
 using XaviGames.SaveSystem;
 using AudioSettings = XaviGames.Audio.AudioSettings;
 
-
 namespace XaviGames.Train
 {
     public class WagonUpgradeController : MonoBehaviour

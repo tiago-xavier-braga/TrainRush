@@ -1,4 +1,5 @@
 using UnityEngine;
+using XaviGames.Animation;
 using XaviGames.Attributes;
 using XaviGames.Managers;
 
@@ -6,24 +7,23 @@ namespace XaviGames.Train
 {
     public class TrainMovementController : MonoBehaviour
     {
+        [Header("Scripts References")]
         [SerializeField]
         [ReadOnly]
-        private TrainState _trainState = TrainState.Approaching;
+        private TrainState _trainState = TrainState.None;
 
         [SerializeField]
-        private TrainUpgradeController _trainController;
+        private TrainUpgradeController _trainUpgradeController;
+
+        [Header("Movement References")]
+        [SerializeField]
+        private Transform _fromPosition;
 
         [SerializeField]
-        private TrafficLightController _trafficLightController;
+        private Transform _toPosition;
 
         [SerializeField]
-        private Transform _startPosition;
-        
-        [SerializeField]
-        private Transform _stationPosition;
-
-        [SerializeField]
-        private Transform _endPosition;
+        private float _minSpeedFactor = 0.05f;
 
         private void FixedUpdate()
         {
@@ -32,58 +32,57 @@ namespace XaviGames.Train
                 return;
             }
 
-            switch (_trainState)
-            {
-                case TrainState.None:
-                    break;
-                case TrainState.Approaching:
-                    RunApproach();
-                    break;
-                case TrainState.WaitingTrafficLight:
-                    WaitingTrafficLight();
-                    break;
-                case TrainState.Departing:
-                    RunDeparting();
-                    break;
-            }
-        }
-
-        private void RunApproach()
-        {
-            float speed = EaseAcceleration(_startPosition.position.z, _stationPosition.position.z, transform.position.z);
-            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
-
-            if (Vector3.Distance(transform.position, _stationPosition.position) < 0.1f)
-            {
-                _trainState = TrainState.WaitingTrafficLight;
-            }
-        }
-
-        private void WaitingTrafficLight()
-        {
-            if (_trafficLightController.IsRedLight)
+            if (_trainState != TrainState.Moving)
             {
                 return;
             }
 
-            _trainState = TrainState.Departing;
-        }
-
-        private void RunDeparting()
-        {
-            float speed = EaseAcceleration(_stationPosition.position.z, _endPosition.position.z, transform.position.z);
-            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
-
-            if (Vector3.Distance(transform.position, _endPosition.position) < 0.1f)
+            if (_fromPosition == null || _toPosition == null)
             {
-                Destroy(gameObject);
+                return;
             }
+
+            Vector3 from = _fromPosition.position;
+            Vector3 to = _toPosition.position;
+
+            Vector3 segment = to - from;
+            float totalDistance = segment.magnitude;
+            if (totalDistance < 0.001f)
+            {
+                return;
+            }
+
+            Vector3 dir = segment / totalDistance;
+
+            float traveled = Vector3.Dot(transform.position - from, dir);
+            float progress = Mathf.Clamp01(traveled / totalDistance); 
+
+            float curve = Mathf.Sin(progress * Mathf.PI);
+            float speedFactor = Mathf.Max(curve, _minSpeedFactor);
+
+            float speed = _trainUpgradeController.Speed * speedFactor;
+            float moveStep = speed * Time.fixedDeltaTime;
+
+            float remaining = totalDistance - traveled;
+
+            if (moveStep >= remaining)
+            {
+                transform.position = to;
+                return;
+            }
+
+            transform.position += dir * moveStep;
         }
 
-        private float EaseAcceleration(float from, float to, float current)
+        public void SetTrainState(TrainState state)
         {
-            float value = Mathf.InverseLerp(from, to, current);
-            return Mathf.Lerp(0f, _trainController.Speed, value);
+            _trainState = state;
+        }
+
+        public void SetPositions(Transform from, Transform to)
+        {
+            _fromPosition = from;
+            _toPosition = to;
         }
     }
 }
