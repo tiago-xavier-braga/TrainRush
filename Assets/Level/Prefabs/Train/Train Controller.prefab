@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 5
+  _firstSpeed: 5
   _trainData: {fileID: 11400000, guid: f6337710b11687a4a88e1641e3c8d0ad, type: 2}
   _modelTransform: {fileID: 2633047661222040338}
   _allTrainData:
@@ -100,6 +101,7 @@ MonoBehaviour:
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _volume: 0.5
   _trainOrderSaveModel: {fileID: 11400000, guid: ee857fbb4016c9944b0b4c015947f802, type: 2}
+  _speedTrainSaveModel: {fileID: 11400000, guid: a131fbe4152f57a4181bcb3b9da5da30, type: 2}
 --- !u!114 &1671116738649331544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,10 +116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trainState: 0
   _trainController: {fileID: 1148674032805181139}
+  _spawnAnimation: {fileID: 9031441572916227501}
   _trafficLightController: {fileID: 0}
-  _startPosition: {fileID: 0}
-  _stationPosition: {fileID: 0}
-  _endPosition: {fileID: 0}
+  _fromPosition: {fileID: 0}
+  _toPosition: {fileID: 0}
 --- !u!114 &9031441572916227501
 MonoBehaviour:
   m_ObjectHideFlags: 0
