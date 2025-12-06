@@ -1,6 +1,6 @@
 using UnityEngine;
-using XaviGames.Animation;
 using XaviGames.Attributes;
+using XaviGames.Audio;
 using XaviGames.Managers;
 
 namespace XaviGames.Train
@@ -14,6 +14,12 @@ namespace XaviGames.Train
 
         [SerializeField]
         private TrainUpgradeController _trainUpgradeController;
+
+        [SerializeField]
+        private SoundEffect _movementSoundEffect;
+
+        [SerializeField]
+        private SoundEffect _hornSoundEffect;
 
         [Header("Movement References")]
         [SerializeField]
@@ -65,8 +71,16 @@ namespace XaviGames.Train
 
             float remaining = totalDistance - traveled;
 
+            _movementSoundEffect.SetVolume(speedFactor);
+
+            if (speed > 1f)
+            {
+                _movementSoundEffect.Play();
+            }
+
             if (moveStep >= remaining)
             {
+                _hornSoundEffect.Play();
                 transform.position = to;
                 return;
             }
