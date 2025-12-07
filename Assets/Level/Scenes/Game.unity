@@ -127,6 +127,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: MaxDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: MinDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 614526135862565824, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 614526135862565824, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148674032805181139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _firstSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148674032805181139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _soundEffect
+      value: 
+      objectReference: {fileID: 485718759}
+    - target: {fileID: 1148674032805181139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: <Speed>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _toPosition
       value: 
@@ -135,14 +171,6 @@ PrefabInstance:
       propertyPath: _fromPosition
       value: 
       objectReference: {fileID: 398607299}
-    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-      propertyPath: _trafficLightController
-      value: 
-      objectReference: {fileID: 1269814912}
-    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-      propertyPath: _trainUpgradeController
-      value: 
-      objectReference: {fileID: 191714989}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -187,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Train Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 7788538398773589186, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -203,17 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &191714989 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1148674032805181139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-  m_PrefabInstance: {fileID: 191714987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,9 +245,9 @@ GameObject:
   m_Component:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -234,14 +255,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -366,6 +379,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 12, z: -12}
   _target: {fileID: 630585929}
+--- !u!81 &330585549
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
 --- !u!1 &356774550
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +565,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766398908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485718759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5195310470874674473, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_PrefabInstance: {fileID: 191714987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffec5ecffbf74c40afa934562a383db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520824428
 GameObject:
   m_ObjectHideFlags: 0

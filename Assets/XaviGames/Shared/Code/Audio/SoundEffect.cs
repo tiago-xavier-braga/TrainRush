@@ -17,6 +17,9 @@ namespace XaviGames.Audio
         private float _volume;
 
         [SerializeField]
+        private bool _isLoop = false;
+
+        [SerializeField]
         private AudioSettings _audioSettings;
 
         [SerializeField]

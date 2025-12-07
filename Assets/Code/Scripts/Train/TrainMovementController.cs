@@ -61,7 +61,7 @@ namespace XaviGames.Train
             Vector3 dir = segment / totalDistance;
 
             float traveled = Vector3.Dot(transform.position - from, dir);
-            float progress = Mathf.Clamp01(traveled / totalDistance); 
+            float progress = Mathf.Clamp01(traveled / totalDistance);
 
             float curve = Mathf.Sin(progress * Mathf.PI);
             float speedFactor = Mathf.Max(curve, _minSpeedFactor);
@@ -71,19 +71,14 @@ namespace XaviGames.Train
 
             float remaining = totalDistance - traveled;
 
-            _movementSoundEffect.SetVolume(speedFactor);
-
-            if (speed > 1f)
-            {
-                _movementSoundEffect.Play();
-            }
-
             if (moveStep >= remaining)
             {
-                _hornSoundEffect.Play();
                 transform.position = to;
                 return;
             }
+
+            _movementSoundEffect.SetVolume(speedFactor);
+            _movementSoundEffect.Play();
 
             transform.position += dir * moveStep;
         }
