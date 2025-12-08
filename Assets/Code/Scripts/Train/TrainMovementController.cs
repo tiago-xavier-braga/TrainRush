@@ -1,6 +1,7 @@
 using UnityEngine;
 using XaviGames.Attributes;
 using XaviGames.Audio;
+using XaviGames.Events;
 using XaviGames.Managers;
 
 namespace XaviGames.Train
@@ -16,6 +17,9 @@ namespace XaviGames.Train
         private TrainUpgradeController _trainUpgradeController;
 
         [SerializeField]
+        private SingleEventChannel _onTrafficLightStateChange;
+
+        [SerializeField]
         private SoundEffect _movementSoundEffect;
 
         [SerializeField]
@@ -23,13 +27,26 @@ namespace XaviGames.Train
 
         [Header("Movement References")]
         [SerializeField]
-        private Transform _fromPosition;
+        private Transform _startPosition;
 
         [SerializeField]
+        private Transform _stationPosition;
+
+        [SerializeField]
+        private Transform _endPosition;
+
+        private Transform _fromStation;
         private Transform _toPosition;
 
-        [SerializeField]
-        private float _minSpeedFactor = 0.05f;
+        private void OnEnable()
+        {
+            _onTrafficLightStateChange.Subscribe(ToggleTrafficLightState);
+        }
+
+        private void OnDisable()
+        {
+            _onTrafficLightStateChange.Unsubscribe(ToggleTrafficLightState);
+        }
 
         private void FixedUpdate()
         {
@@ -43,44 +60,6 @@ namespace XaviGames.Train
                 return;
             }
 
-            if (_fromPosition == null || _toPosition == null)
-            {
-                return;
-            }
-
-            Vector3 from = _fromPosition.position;
-            Vector3 to = _toPosition.position;
-
-            Vector3 segment = to - from;
-            float totalDistance = segment.magnitude;
-            if (totalDistance < 0.001f)
-            {
-                return;
-            }
-
-            Vector3 dir = segment / totalDistance;
-
-            float traveled = Vector3.Dot(transform.position - from, dir);
-            float progress = Mathf.Clamp01(traveled / totalDistance);
-
-            float curve = Mathf.Sin(progress * Mathf.PI);
-            float speedFactor = Mathf.Max(curve, _minSpeedFactor);
-
-            float speed = _trainUpgradeController.Speed * speedFactor;
-            float moveStep = speed * Time.fixedDeltaTime;
-
-            float remaining = totalDistance - traveled;
-
-            if (moveStep >= remaining)
-            {
-                transform.position = to;
-                return;
-            }
-
-            _movementSoundEffect.SetVolume(speedFactor);
-            _movementSoundEffect.Play();
-
-            transform.position += dir * moveStep;
         }
 
         public void SetTrainState(TrainState state)
@@ -88,10 +67,14 @@ namespace XaviGames.Train
             _trainState = state;
         }
 
-        public void SetPositions(Transform from, Transform to)
+        private void ToggleTrafficLightState(object state)
         {
-            _fromPosition = from;
-            _toPosition = to;
+            bool isTrafficLight = (bool)state;
+
+            if (isTrafficLight)
+            {
+
+            }
         }
     }
 }
