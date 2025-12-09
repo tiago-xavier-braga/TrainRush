@@ -168,9 +168,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 392107877}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _endPosition
+      value: 
+      objectReference: {fileID: 392107877}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _fromPosition
       value: 
       objectReference: {fileID: 398607299}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _startPosition
+      value: 
+      objectReference: {fileID: 398607299}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _hornSoundEffect
+      value: 
+      objectReference: {fileID: 191714989}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _stationPosition
+      value: 
+      objectReference: {fileID: 1490487325}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _movementSoundEffect
+      value: 
+      objectReference: {fileID: 191714990}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _trainUpgradeController
+      value: 
+      objectReference: {fileID: 191714991}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _onTrafficLightStateChange
+      value: 
+      objectReference: {fileID: 11400000, guid: d470245b5a9754b41ba0ac52f950f0ca, type: 2}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -224,15 +252,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
---- !u!114 &191714988 stripped
+--- !u!114 &191714989 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8931178915391813147, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
   m_PrefabInstance: {fileID: 191714987}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
+  m_Script: {fileID: 11500000, guid: bffec5ecffbf74c40afa934562a383db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &191714990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 257671379374111179, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_PrefabInstance: {fileID: 191714987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffec5ecffbf74c40afa934562a383db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &191714991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1148674032805181139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_PrefabInstance: {fileID: 191714987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &330585543
@@ -767,8 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f8ba73ba80aff4ab6dd6fb5260681e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementController: {fileID: 191714988}
-  _isEnabled: 0
+  _trainMovementController: {fileID: 0}
 --- !u!1 &579487579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsRedLight>k__BackingField: 0
+  _onTrafficLightStateChange: {fileID: 11400000, guid: d470245b5a9754b41ba0ac52f950f0ca, type: 2}
 --- !u!1 &1490487324
 GameObject:
   m_ObjectHideFlags: 0
