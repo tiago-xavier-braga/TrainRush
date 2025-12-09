@@ -11,42 +11,14 @@ namespace XaviGames.Train
         [Header("Scripts References")]
         [SerializeField]
         [ReadOnly]
-        private TrainState _trainState = TrainState.None;
+        private TrainState _trainState = TrainState.Idle;
 
         [SerializeField]
         private TrainUpgradeController _trainUpgradeController;
 
         [SerializeField]
-        private SingleEventChannel _onTrafficLightStateChange;
-
-        [SerializeField]
-        private SoundEffect _movementSoundEffect;
-
-        [SerializeField]
-        private SoundEffect _hornSoundEffect;
-
-        [Header("Movement References")]
-        [SerializeField]
-        private Transform _startPosition;
-
-        [SerializeField]
-        private Transform _stationPosition;
-
-        [SerializeField]
-        private Transform _endPosition;
-
-        private Transform _fromStation;
-        private Transform _toPosition;
-
-        private void OnEnable()
-        {
-            _onTrafficLightStateChange.Subscribe(ToggleTrafficLightState);
-        }
-
-        private void OnDisable()
-        {
-            _onTrafficLightStateChange.Unsubscribe(ToggleTrafficLightState);
-        }
+        [ReadOnly]
+        private float _positionProduct = 0; 
 
         private void FixedUpdate()
         {
@@ -55,26 +27,27 @@ namespace XaviGames.Train
                 return;
             }
 
+            Move();
+        }
+
+
+        public void SetTrainState(TrainState trainState)
+        {
+            _trainState = trainState; 
+        }
+
+
+        private void Move()
+        {
             if (_trainState != TrainState.Moving)
             {
                 return;
             }
 
-        }
+            Vector3 direction = transform.forward * _trainUpgradeController.Speed * Time.fixedDeltaTime;
+            transform.Translate(direction, Space.World);
 
-        public void SetTrainState(TrainState state)
-        {
-            _trainState = state;
-        }
-
-        private void ToggleTrafficLightState(object state)
-        {
-            bool isTrafficLight = (bool)state;
-
-            if (isTrafficLight)
-            {
-
-            }
+            _positionProduct = Vector3.Dot(transform.position, transform.forward);
         }
     }
 }

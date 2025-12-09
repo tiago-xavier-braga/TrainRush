@@ -6,17 +6,12 @@ namespace XaviGames.Train
     public class TrainLoopController : MonoBehaviour
     {
         [SerializeField]
-        private TrainMovementController _movementController;
-
-        [SerializeField]
-        [ReadOnly]
-        private bool _isEnabled = false;
+        private TrainMovementController _trainMovementController;
 
         [Button]
         public void StartLoop()
         {
-            _isEnabled = true;
-            _movementController.SetTrainState(TrainState.Moving);
+            _trainMovementController.SetTrainState(TrainState.Moving);
         }
     }
 }
