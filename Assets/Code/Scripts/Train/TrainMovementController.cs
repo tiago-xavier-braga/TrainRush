@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using XaviGames.Attributes;
 using XaviGames.Managers;
 
@@ -39,10 +40,14 @@ namespace XaviGames.Train
         private float _approachDuration = 0;
 
         [SerializeField]
+        [ReadOnly]
         private Vector3 _startPos;
 
         [SerializeField]
+        [ReadOnly]
         private Vector3 _endPos;
+
+        public UnityAction OnMovementFinished;
 
         private void FixedUpdate()
         {
@@ -57,22 +62,39 @@ namespace XaviGames.Train
 
         public void SetTrainState(TrainState trainState)
         {
-            _trainState = trainState; 
+            _trainState = trainState;
         }
 
         [Button]
         public void EnterApproaching()
         {
-            _distance = Mathf.Abs( _stationTransform.position.z - _spawnTransform.position.z);
-            _approachDuration = _distance / _trainUpgradeController.Speed;
-            
-            _cumulativeTime = 0;
-            _startPos = _spawnTransform.position;
-            _endPos = _stationTransform.position;
-
-            transform.position = _spawnTransform.position;
-
+            SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
             _trainState = TrainState.Approaching;
+        }
+
+        [Button]
+        public void EnterDeparting()
+        {
+            SetPositionCalculate(_stationTransform.position, _endTransform.position);
+            _trainState = TrainState.Departing;
+        }
+
+        [Button]
+        public void FinalizeMovement()
+        {
+            OnMovementFinished?.Invoke();
+        }
+
+        private void SetPositionCalculate(Vector3 startPosition, Vector3 endPosition)
+        {
+            _distance = Mathf.Abs(endPosition.z - startPosition.z);
+            _approachDuration = _distance / _trainUpgradeController.Speed;
+
+            _cumulativeTime = 0;
+            _startPos = startPosition;
+            _endPos = endPosition;
+
+            transform.position = startPosition;
         }
 
         private void Move()
@@ -88,9 +110,20 @@ namespace XaviGames.Train
 
             transform.position = Vector3.Lerp(_startPos, _endPos, easedTime);
 
-            if (time >= 1f)
+            if (time < 1f)
             {
-                _trainState = TrainState.WaitingForSignal;
+                return;
+            }
+
+            switch (_trainState)
+            {
+                case TrainState.Approaching:
+                    _trainState = TrainState.WaitingForSignal;
+                    break;
+                case TrainState.Departing:
+                    _trainState = TrainState.Idle;
+                    FinalizeMovement();
+                    break;
             }
         }
     }
