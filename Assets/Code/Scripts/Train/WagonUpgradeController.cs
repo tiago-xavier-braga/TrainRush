@@ -68,7 +68,7 @@ namespace XaviGames.Train
         {
             int wagonOrder = 0;
 
-            if (_wagonOrderSaveModel != null)
+            if (_wagonOrderSaveModel.Value != null)
             {
                 wagonOrder = (int)_wagonOrderSaveModel.Value;
             }

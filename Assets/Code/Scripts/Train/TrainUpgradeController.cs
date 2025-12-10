@@ -65,7 +65,7 @@ namespace XaviGames.Train
         {
             int trainOrder = 0;
 
-            if (_trainOrderSaveModel != null)
+            if (_trainOrderSaveModel.Value != null)
             {
                 trainOrder = (int)_trainOrderSaveModel.Value;
             }
@@ -78,7 +78,7 @@ namespace XaviGames.Train
                 _trainData = _allTrainData[0];
             }
 
-            if (_speedTrainSaveModel != null)
+            if (_speedTrainSaveModel.Value != null)
             {
                 Speed = (int)_speedTrainSaveModel.Value;
                 Speed = Speed > _firstSpeed ? Speed : _firstSpeed;

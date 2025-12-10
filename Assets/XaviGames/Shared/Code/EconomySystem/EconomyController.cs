@@ -7,6 +7,13 @@ namespace XaviGames.EconomySystem
 {
     public class EconomyController : MonoBehaviour
     {
+        [Header("Default Values")]
+        [SerializeField]
+        private int _defaultPlayerCoins;
+
+        [SerializeField]
+        private int _defaultPlayerDiamongs;
+
         [Header("Variables")]
         [SerializeField]
         private IntVariable _playerCoinsVariable;
@@ -32,8 +39,23 @@ namespace XaviGames.EconomySystem
 
         private void Start()
         {
-            _playerCoinsVariable.Value = (int)_playerCoinsModel.Value;
-            _playerDiamondsVariable.Value = (int)_playerDiamondsModel.Value;
+            if (_playerCoinsModel.Value != null)
+            {
+                _playerCoinsVariable.Value = (int)_playerCoinsModel.Value;
+            }
+            else
+            {
+                _playerCoinsModel.Value = _defaultPlayerCoins;
+            }
+
+            if (_playerDiamondsModel.Value != null)
+            {
+                _playerDiamondsVariable.Value = (int)_playerDiamondsModel.Value;
+            }
+            else
+            {
+                _playerDiamondsVariable.Value = _defaultPlayerDiamongs;
+            }
         }
 
         private void Update()
