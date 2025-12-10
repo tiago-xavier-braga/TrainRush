@@ -11,7 +11,6 @@ namespace XaviGames.Train
         [Button]
         public void StartLoop()
         {
-            _trainMovementController.SetTrainState(TrainState.Moving);
         }
     }
 }
