@@ -47,6 +47,7 @@ namespace XaviGames.Train
         [ReadOnly]
         private Vector3 _endPos;
 
+        public UnityAction OnWaitingForSignal;
         public UnityAction OnMovementFinished;
 
         private void FixedUpdate()
@@ -79,11 +80,19 @@ namespace XaviGames.Train
             _trainState = TrainState.Departing;
         }
 
+        public void WaitingForSignal()
+        {
+            _trainState = TrainState.WaitingForSignal;
+            OnWaitingForSignal?.Invoke();
+        }
+
         [Button]
         public void FinalizeMovement()
         {
+            _trainState = TrainState.Idle;
             OnMovementFinished?.Invoke();
         }
+
 
         private void SetPositionCalculate(Vector3 startPosition, Vector3 endPosition)
         {
@@ -118,10 +127,9 @@ namespace XaviGames.Train
             switch (_trainState)
             {
                 case TrainState.Approaching:
-                    _trainState = TrainState.WaitingForSignal;
+                    WaitingForSignal();
                     break;
                 case TrainState.Departing:
-                    _trainState = TrainState.Idle;
                     FinalizeMovement();
                     break;
             }

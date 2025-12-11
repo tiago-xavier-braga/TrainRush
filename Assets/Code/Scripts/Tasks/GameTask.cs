@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace XaviGames.Tasks
@@ -10,5 +9,10 @@ namespace XaviGames.Tasks
 
         [field: SerializeField]
         public bool IsAvailable { get; protected set; } = false;
+
+        public void SetTaskAvailable(bool available)
+        {
+            IsAvailable = available;
+        }
     }
 }
