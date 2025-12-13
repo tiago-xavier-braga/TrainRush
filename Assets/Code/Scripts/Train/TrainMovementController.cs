@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using XaviGames.Attributes;
+using XaviGames.Audio;
 using XaviGames.Managers;
 
 namespace XaviGames.Train
@@ -25,6 +26,9 @@ namespace XaviGames.Train
 
         [SerializeField]
         private AnimationCurve _movementCurve;
+
+        [SerializeField]
+        private SoundEffect _movementSound;
 
         [Header("Debug")]
         [SerializeField]
@@ -119,11 +123,15 @@ namespace XaviGames.Train
 
             transform.position = Vector3.Lerp(_startPos, _endPos, easedTime);
 
+            _movementSound.Play();
+            _movementSound.SetVolume(easedTime);
+
             if (time < 1f)
             {
                 return;
             }
 
+            _movementSound.Stop();
             switch (_trainState)
             {
                 case TrainState.Approaching:

@@ -127,10 +127,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 849617288}
     m_Modifications:
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d0d00dfcfa880b45afb06244f51062f, type: 3}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: MaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: MinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77160682568732264, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 257671379374111179, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _maxPitch
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 257671379374111179, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _minPitch
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _endTransform
       value: 
       objectReference: {fileID: 392107877}
+    - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _movementSound
+      value: 
+      objectReference: {fileID: 2066089953}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _spawnTransform
       value: 
@@ -1609,6 +1645,17 @@ MonoBehaviour:
   <CurrentHighestPriorityTask>k__BackingField: {fileID: 0}
   _allGameTasks: []
   _availableTasks: []
+--- !u!114 &2066089953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 257671379374111179, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+  m_PrefabInstance: {fileID: 191714987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffec5ecffbf74c40afa934562a383db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

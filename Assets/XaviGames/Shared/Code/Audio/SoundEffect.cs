@@ -17,6 +17,14 @@ namespace XaviGames.Audio
         private float _volume;
 
         [SerializeField]
+        [Range(-3f, 3f)]
+        private float _minPitch;
+
+        [SerializeField]
+        [Range(-3f, 3f)]
+        private float _maxPitch;
+
+        [SerializeField]
         private bool _isLoop = false;
 
         [SerializeField]
@@ -45,6 +53,12 @@ namespace XaviGames.Audio
         {
             volume = Mathf.Clamp01(volume);
             _volume = volume;
+        }
+
+        public void SetPitch(float pitch)
+        {
+            pitch = Mathf.Clamp01(pitch);
+            _audioSource.pitch = Mathf.InverseLerp(_minPitch, _maxPitch, pitch);
         }
 
         public void Stop()
