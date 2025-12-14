@@ -49,10 +49,16 @@ namespace XaviGames.Audio
             StartCoroutine(AwaitAudioFinish());
         }
 
+        public void PlayOneShort()
+        {
+            _audioSource.PlayOneShot(_clip, _volume * _audioSettings.MasterVolume);
+        }
+
         public void SetVolume(float volume)
         {
             volume = Mathf.Clamp01(volume);
             _volume = volume;
+            _audioSource.volume = _volume * _audioSettings.MasterVolume;
         }
 
         public void SetPitch(float pitch)
