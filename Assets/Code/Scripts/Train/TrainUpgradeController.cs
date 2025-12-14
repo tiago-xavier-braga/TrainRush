@@ -130,7 +130,7 @@ namespace XaviGames.Train
 
             if (!_isFirstSpawn)
             {
-                _soundEffect.Play();
+                _soundEffect.PlayOneShort();
                 return;
             }
 

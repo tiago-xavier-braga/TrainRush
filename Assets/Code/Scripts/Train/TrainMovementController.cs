@@ -28,7 +28,10 @@ namespace XaviGames.Train
         private AnimationCurve _movementCurve;
 
         [SerializeField]
-        private SoundEffect _movementSound;
+        private SoundEffect _movementSoundEffect;
+
+        [SerializeField]
+        private SoundEffect _hornSoundEffect;
 
         [Header("Debug")]
         [SerializeField]
@@ -75,6 +78,9 @@ namespace XaviGames.Train
         {
             SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
             _trainState = TrainState.Approaching;
+            _movementSoundEffect.Play();
+            _movementSoundEffect.SetVolume(0f);
+
         }
 
         [Button]
@@ -82,6 +88,8 @@ namespace XaviGames.Train
         {
             SetPositionCalculate(_stationTransform.position, _endTransform.position);
             _trainState = TrainState.Departing;
+            _movementSoundEffect.Play();
+            _movementSoundEffect.SetVolume(0f);
         }
 
         public void WaitingForSignal()
@@ -123,15 +131,16 @@ namespace XaviGames.Train
 
             transform.position = Vector3.Lerp(_startPos, _endPos, easedTime);
 
-            _movementSound.Play();
-            _movementSound.SetVolume(easedTime);
+            _movementSoundEffect.SetVolume(time);
 
             if (time < 1f)
             {
                 return;
             }
 
-            _movementSound.Stop();
+            _hornSoundEffect.Play();
+            _movementSoundEffect.Stop();
+
             switch (_trainState)
             {
                 case TrainState.Approaching:
