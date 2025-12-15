@@ -76,7 +76,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6d0d00dfcfa880b45afb06244f51062f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -121,7 +121,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 6d0d00dfcfa880b45afb06244f51062f, type: 3}
   _audioSource: {fileID: 77160682568732264}
-  _volume: 0.5
+  _volume: 1
   _minPitch: 1
   _maxPitch: 1.5
   _isLoop: 0
@@ -247,8 +247,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3dd70a2e4ecd674699b6ed0c6c2374f, type: 2}
   - {fileID: 11400000, guid: 4c076a5ef7e9c68499bd3a0ba09e1f9c, type: 2}
   - {fileID: 11400000, guid: 10f811b16dd0ba2479a9f77bf67ee123, type: 2}
-  _trainOrderSaveModel: {fileID: 11400000, guid: ee857fbb4016c9944b0b4c015947f802, type: 2}
-  _speedTrainSaveModel: {fileID: 11400000, guid: a131fbe4152f57a4181bcb3b9da5da30, type: 2}
+  _trainOrderSaveModel: {fileID: 0}
+  _speedTrainSaveModel: {fileID: 0}
 --- !u!114 &1671116738649331544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToRestart: 10
   _trainState: 0
   _trainUpgradeController: {fileID: 1148674032805181139}
   _spawnTransform: {fileID: 0}
@@ -290,7 +291,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _movementSound: {fileID: 257671379374111179}
+  _movementSoundEffect: {fileID: 257671379374111179}
+  _hornSoundEffect: {fileID: 8931178915391813147}
   _cumulativeTime: 0
   _distance: 0
   _approachDuration: 0
@@ -434,7 +436,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -486,11 +488,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffec5ecffbf74c40afa934562a383db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clip: {fileID: 8300000, guid: c8c739d5ce001484983a0c54aa54de47, type: 3}
+  _clip: {fileID: 8300000, guid: dd27aff76f74ad64a8fd6f489859dcaf, type: 3}
   _audioSource: {fileID: 614526135862565824}
-  _volume: 0.5
-  _minPitch: 0
-  _maxPitch: 0
+  _volume: 1
+  _minPitch: 1
+  _maxPitch: 1
   _isLoop: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
@@ -638,9 +640,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 7788538398773589186}
-  _volume: 0.5
-  _minPitch: 0
-  _maxPitch: 0
+  _volume: 0.25
+  _minPitch: 1
+  _maxPitch: 1
   _isLoop: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
@@ -655,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
-      objectReference: {fileID: 11400000, guid: 5ab2d6ac883c6124083e54e51b7d7654, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -721,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
-      objectReference: {fileID: 11400000, guid: 374a6c2562ddb544d8f2f6bee124264b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -787,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
-      objectReference: {fileID: 11400000, guid: 4d78b2c5e1dfb6748aaabf346c687a59, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -853,7 +855,7 @@ PrefabInstance:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
-      objectReference: {fileID: 11400000, guid: 80c83d223985b7c4bad7c31d3ed1da88, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
