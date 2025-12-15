@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using XaviGames.Attributes;
 using XaviGames.Audio;
@@ -9,6 +10,10 @@ namespace XaviGames.Train
     public class TrainMovementController : MonoBehaviour
     {
         [Header("Scripts References")]
+        [SerializeField]
+        [Min(0f)]
+        private float _timeToRestart;
+
         [SerializeField]
         private TrainState _trainState = TrainState.Idle;
 
@@ -74,18 +79,18 @@ namespace XaviGames.Train
         }
 
         [Button]
-        public void EnterApproaching()
+        public void Approaching()
         {
             SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
             _trainState = TrainState.Approaching;
             _movementSoundEffect.Play();
             _movementSoundEffect.SetVolume(0f);
-
         }
 
         [Button]
-        public void EnterDeparting()
+        public void Departing()
         {
+            _hornSoundEffect.Play();
             SetPositionCalculate(_stationTransform.position, _endTransform.position);
             _trainState = TrainState.Departing;
             _movementSoundEffect.Play();
@@ -94,17 +99,18 @@ namespace XaviGames.Train
 
         public void WaitingForSignal()
         {
+            _hornSoundEffect.Play();
             _trainState = TrainState.WaitingForSignal;
             OnWaitingForSignal?.Invoke();
         }
 
-        [Button]
-        public void FinalizeMovement()
+        private IEnumerator FinalizeMovement()
         {
             _trainState = TrainState.Idle;
+            yield return new WaitForSeconds(_timeToRestart);
             OnMovementFinished?.Invoke();
+            Approaching();
         }
-
 
         private void SetPositionCalculate(Vector3 startPosition, Vector3 endPosition)
         {
@@ -138,7 +144,6 @@ namespace XaviGames.Train
                 return;
             }
 
-            _hornSoundEffect.Play();
             _movementSoundEffect.Stop();
 
             switch (_trainState)
@@ -147,7 +152,7 @@ namespace XaviGames.Train
                     WaitingForSignal();
                     break;
                 case TrainState.Departing:
-                    FinalizeMovement();
+                    StartCoroutine(FinalizeMovement());
                     break;
             }
         }

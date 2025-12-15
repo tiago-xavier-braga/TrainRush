@@ -5,7 +5,6 @@ using XaviGames.Attributes;
 using XaviGames.Audio;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
-using AudioSettings = XaviGames.Audio.AudioSettings;
 
 namespace XaviGames.Train
 {
