@@ -4,7 +4,6 @@ namespace XaviGames.Utils
 {
     public class DrawGizmosDebug : MonoBehaviour
     {
-#if UNIY_EDITOR
         [SerializeField]
         private Color _color = Color.white;
 
@@ -14,8 +13,7 @@ namespace XaviGames.Utils
         private void OnDrawGizmos()
         {
             Gizmos.color = _color;
-            Gizmos.DrawSphere(Vector3.zero, _radius);
+            Gizmos.DrawSphere(transform.position, _radius);
         }
-#endif
     }
 }
