@@ -12,6 +12,9 @@ namespace XaviGames.Player
         private Transform _playerTransform;
 
         [SerializeField]
+        private Rigidbody _playerRigidbody;
+
+        [SerializeField]
         private CharacterAnimationController _characterAnimationController;
 
         [SerializeField]
@@ -43,20 +46,26 @@ namespace XaviGames.Player
 
         private void FixedUpdate()
         {
-            Vector3 moveDir = new Vector3(_movementInput.x, 0f, _movementInput.y);
+            Vector3 moveInput = new Vector3(_movementInput.x, 0f, _movementInput.y);
+            moveInput *= _movementSpeed.Value * Time.fixedDeltaTime;
+            Vector3 nextPosition = _playerTransform.position;
+            nextPosition += moveInput;
 
-            if (moveDir.sqrMagnitude > 0.0001f)
+            _playerRigidbody.MovePosition(nextPosition);
+
+            if (moveInput == Vector3.zero)
             {
-                Vector3 movement = moveDir * _movementSpeed.Value * Time.fixedDeltaTime;
-                _playerTransform.Translate(movement, Space.World);
-
-                Quaternion targetRot = Quaternion.LookRotation(moveDir);
-                _playerTransform.rotation = Quaternion.Slerp(
-                    _playerTransform.rotation,
-                    targetRot,
-                    _rotationSpeed * Time.fixedDeltaTime 
-                );
+                return;
             }
+
+            Quaternion targetRot = Quaternion.LookRotation(moveInput);
+            Quaternion nextRotation = Quaternion.Slerp(
+                _playerTransform.rotation,
+                targetRot,
+                _rotationSpeed * Time.fixedDeltaTime
+            );
+
+            _playerRigidbody.MoveRotation(nextRotation);
         }
 
     }
