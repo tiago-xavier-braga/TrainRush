@@ -105,6 +105,11 @@ namespace XaviGames.UnlockSystem
 
         public void SetNewPrice(string price)
         {
+            if (_priceTextMeshPro == null)
+            {
+                return;
+            }
+
             _priceTextMeshPro.text = price;
         }
 
