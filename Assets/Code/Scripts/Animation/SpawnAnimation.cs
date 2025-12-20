@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using XaviGames.Attributes;
 
 namespace XaviGames.Animation
 {
@@ -37,6 +38,18 @@ namespace XaviGames.Animation
                 }    
             )
             .id;
+        }
+
+        [Button]
+        public void Spawn()
+        {
+            Animate(gameObject, transform.localScale, Vector3.one);
+        }
+
+        [Button]
+        public void Despawn()
+        {
+            Animate(gameObject, transform.localScale, Vector3.zero);
         }
 
         public void Cancel(GameObject gameObject)
