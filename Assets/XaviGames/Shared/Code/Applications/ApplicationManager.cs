@@ -69,12 +69,15 @@ namespace XaviGames.Applications
 
         private void ApplicationQuit()
         {
+
+#if UNITY_EDITOR
             UnityEngine.Application.Quit();
 
             if (UnityEngine.Application.isEditor)
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
+#endif
         }
     }
 }

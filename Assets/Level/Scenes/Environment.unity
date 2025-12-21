@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 99c9720ab356a0642a771bea13969a05
+  m_OcclusionCullingData: {fileID: 36300000, guid: 04b52d9c94ae97d4b937e7ecc15a160a, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -506,7 +506,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &614156960
 MeshCollider:
@@ -890,7 +890,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1069216162
 Transform:
@@ -919,6 +919,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1489358963}
     m_Modifications:
+    - target: {fileID: 452170450071493479, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779700771640170222, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4978388061714456221, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.857
@@ -962,6 +970,10 @@ PrefabInstance:
     - target: {fileID: 9216525693368867764, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
       propertyPath: m_Name
       value: Double Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216525693368867764, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1520,7 +1532,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2040792620
 Transform:
@@ -1719,6 +1731,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1489358963}
     m_Modifications:
+    - target: {fileID: 452170450071493479, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779700771640170222, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4978388061714456221, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.857
@@ -1762,6 +1782,10 @@ PrefabInstance:
     - target: {fileID: 9216525693368867764, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
       propertyPath: m_Name
       value: Double Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216525693368867764, guid: c479152e06f9bb340a42305c87d0518b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
