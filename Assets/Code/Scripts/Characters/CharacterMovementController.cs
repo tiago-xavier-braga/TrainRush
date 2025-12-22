@@ -1,5 +1,4 @@
 using UnityEngine;
-using XaviGames.Attributes;
 using XaviGames.ObjectVariables;
 
 namespace XaviGames.Characters
@@ -27,6 +26,11 @@ namespace XaviGames.Characters
 
         private void Update()
         {
+            if (_destination == null)
+            {
+                return;
+            }
+
             float distance = Vector3.Distance(
                 _characterTransform.position,
                 _destination.position
@@ -41,6 +45,11 @@ namespace XaviGames.Characters
 
         private void FixedUpdate()
         {
+            if (_destination == null)
+            {
+                return;
+            }
+
             Vector3 direction = _destination.position - _characterTransform.position;
             direction.y = 0f;
 

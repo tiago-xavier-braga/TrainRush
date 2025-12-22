@@ -77,7 +77,6 @@ namespace XaviGames.Train
 
             if (_wagonData == null)
             {
-                Debug.LogWarning($"No WagonData found for order {wagonOrder}. Using the first in the list.");
                 _wagonData = _allWagonData[0];
             }
         }
