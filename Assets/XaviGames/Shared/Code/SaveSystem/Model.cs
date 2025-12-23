@@ -1,16 +1,25 @@
 using UnityEngine;
+using XaviGames.Attributes;
 
 namespace XaviGames.SaveSystem
 {
-    [CreateAssetMenu(fileName = "Model", menuName = "XaviGames/SaveSystem/Model")]
-    public class Model : ScriptableObject
+    public abstract class Model : ScriptableObject
     {
         [field: SerializeField]
-        public string Key { get; private set; }
+        [field: ReadOnly]
+        public string Key { get; protected set; }
 
-        [field: SerializeField]
-        public DataType Type { get; private set; }
+        public abstract object GetValue();
 
-        public object Value;
+        public abstract void Save(IDataStorage storage);
+        public abstract void Load(IDataStorage storage);
+
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            Key = name;
+        }
+#endif
     }
 }
