@@ -83,6 +83,7 @@ namespace XaviGames.Characters
 
             Vector3 position = CalculateActivatePosition();
             character.transform.position = position;
+            character.transform.rotation = _spawnTransform.rotation;
 
             _charactersDisabled.Remove(character);
             _charactersActivated.Add(character);

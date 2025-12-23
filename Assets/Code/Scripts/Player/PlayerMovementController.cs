@@ -67,7 +67,5 @@ namespace XaviGames.Player
 
             _playerRigidbody.MoveRotation(nextRotation);
         }
-
     }
 }
-
