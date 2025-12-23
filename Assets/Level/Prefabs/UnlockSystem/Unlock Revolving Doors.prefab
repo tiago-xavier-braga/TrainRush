@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3661976060678909711, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3661976060678909711, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.532
       objectReference: {fileID: 0}
     - target: {fileID: 3661976060678909711, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -84,18 +84,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3661976060678909711, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580900868486526538, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2094905754, guid: 669ce424f5e40b746b0fe70ff998dd7e, type: 3}
     - target: {fileID: 4845529903646946065, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_Name
-      value: Unlock Revolving Doors  Variant
+      value: Unlock Revolving Doors
       objectReference: {fileID: 0}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: _iconImage
+      value: 
+      objectReference: {fileID: 4144432773558295778}
     - target: {fileID: 8802800007884132301, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -125,3 +121,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+--- !u!114 &4144432773558295778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4580900868486526538, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+  m_PrefabInstance: {fileID: 437230383105780392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
