@@ -1,3 +1,4 @@
+using UnityEditor.Overlays;
 using UnityEngine;
 using XaviGames.Animation;
 using XaviGames.Audio;
@@ -40,23 +41,27 @@ namespace XaviGames.GameMechanics
 
         [Header("Economy References")]
         [SerializeField]
-        private IntVariable _playerCoinsVariable;
+        private IntModel _playerCoinsModel;
 
         [SerializeField]
         private EconomyController _economyController;
 
         [Header("Save System")]
         [SerializeField]
-        private Model _fenceDoorRotateModel;
+        private IntModel _fenceDoorRotateModel;
+
+        [SerializeField]
+        private DataController _dataController;
 
         private void Start()
         {
+            LoadData();
             _unlockController.SetNewPrice(_price.ToString());
         }
 
         private void Update()
         {
-            _unlockController.EnableAnimation(_playerCoinsVariable.Value < _price);
+            _unlockController.EnableAnimation(_playerCoinsModel.Value < _price);
         }
 
         public void TryUnlock()
@@ -66,7 +71,7 @@ namespace XaviGames.GameMechanics
                 return;
             }
 
-            if (_playerCoinsVariable.Value < _price)
+            if (_playerCoinsModel.Value < _price)
             {
                 _unlockController.FailureUnlocked();
                 return;
@@ -75,9 +80,9 @@ namespace XaviGames.GameMechanics
             _economyController.RemoveCoins(_price);
             _unlockController.SuccessUnlocked();
 
-            _fenceDoorRotateModel.Value = 1;
             IsUnlocked = true;
 
+            SaveData();
             HideUnlockMarking();
             ShowOpenMarking();
         }
@@ -102,6 +107,25 @@ namespace XaviGames.GameMechanics
                 _openFenceDoorMarking.transform.localScale,
                 new Vector3(0.5f, 0.5f, 0.5f)
             );
+        }
+
+        private void LoadData()
+        {             
+            int fenceDoorState = 0;
+            fenceDoorState = _fenceDoorRotateModel.Value;
+
+            if (fenceDoorState == 1)
+            {
+                IsUnlocked = true;
+                _unlockMarking.SetActive(false);
+                _openFenceDoorMarking.SetActive(true);
+            }
+        }
+
+        private void SaveData()
+        {
+            _fenceDoorRotateModel.SetValue(1);
+            _dataController.SaveModel(_fenceDoorRotateModel);
         }
     }
 }

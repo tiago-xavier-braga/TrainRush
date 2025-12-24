@@ -11,7 +11,7 @@ namespace XaviGames.Train
     public class WagonUpgradeController : MonoBehaviour
     {
         [field: SerializeField]
-        public float Capacity {  get; set; }
+        public float Capacity { get; set; }
 
         [SerializeField]
         private WagonData _wagonData;
@@ -28,7 +28,10 @@ namespace XaviGames.Train
 
         [Header("Save System")]
         [SerializeField]
-        private Model _wagonOrderSaveModel = null;
+        private IntModel _wagonOrderSaveModel = null;
+
+        [SerializeField]
+        private DataController _dataController;
 
         [Header("Audio Settings")]
         [SerializeField]
@@ -68,10 +71,7 @@ namespace XaviGames.Train
         {
             int wagonOrder = 0;
 
-            if (_wagonOrderSaveModel.Value != null)
-            {
-                wagonOrder = (int)_wagonOrderSaveModel.Value;
-            }
+            wagonOrder = _wagonOrderSaveModel.Value;
 
             _wagonData = _allWagonData.Find(wd => wd.WagonOrder == wagonOrder);
 
@@ -88,7 +88,8 @@ namespace XaviGames.Train
                 return;
             }
 
-            _wagonOrderSaveModel.Value = _wagonData.WagonOrder;
+            _wagonOrderSaveModel.SetValue(_wagonData.WagonOrder);
+            _dataController.SaveModel(_wagonOrderSaveModel);
         }
 
         private void VerifyWagonUpgrade()

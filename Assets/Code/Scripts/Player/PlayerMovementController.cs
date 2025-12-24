@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using XaviGames.Attributes;
 using XaviGames.Characters;
-using XaviGames.ObjectVariables;
+using XaviGames.SaveSystem;
 
 namespace XaviGames.Player
 {
@@ -18,7 +18,7 @@ namespace XaviGames.Player
         private CharacterAnimationController _characterAnimationController;
 
         [SerializeField]
-        private FloatVariable _movementSpeed;
+        private IntModel _movementSpeedModel;
 
         [SerializeField]
         private float _rotationSpeed = 10f;
@@ -47,7 +47,9 @@ namespace XaviGames.Player
         private void FixedUpdate()
         {
             Vector3 moveInput = new Vector3(_movementInput.x, 0f, _movementInput.y);
-            moveInput *= _movementSpeed.Value * Time.fixedDeltaTime;
+
+            moveInput *= _movementSpeedModel.Value * Time.fixedDeltaTime;
+
             Vector3 nextPosition = _playerTransform.position;
             nextPosition += moveInput;
 

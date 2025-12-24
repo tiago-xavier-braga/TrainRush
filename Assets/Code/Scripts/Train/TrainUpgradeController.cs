@@ -34,10 +34,13 @@ namespace XaviGames.Train
 
         [Header("Save System")]
         [SerializeField]
-        private Model _trainOrderSaveModel = null;
+        private IntModel _trainOrderSaveModel = null;
 
         [SerializeField]
-        private Model _speedTrainSaveModel = null;
+        private IntModel _speedTrainSaveModel = null;
+
+        [SerializeField]
+        private DataController _dataController;
 
         private GameObject _currentTrainModel;
         private bool _isFirstSpawn = true;
@@ -64,10 +67,7 @@ namespace XaviGames.Train
         {
             int trainOrder = 0;
 
-            if (_trainOrderSaveModel.Value != null)
-            {
-                trainOrder = (int)_trainOrderSaveModel.Value;
-            }
+            trainOrder = _trainOrderSaveModel.Value;
 
             _trainData = _allTrainData.Find(td => td.TrainOrder == trainOrder);
 
@@ -77,10 +77,7 @@ namespace XaviGames.Train
                 _trainData = _allTrainData[0];
             }
 
-            if (_speedTrainSaveModel.Value != null)
-            {
-                Speed = (int)_speedTrainSaveModel.Value;
-            }
+            Speed = _speedTrainSaveModel.Value;
 
             Speed = Speed > _firstSpeed ? Speed : _firstSpeed;
         }
@@ -92,8 +89,11 @@ namespace XaviGames.Train
                 return;
             }
 
-            _trainOrderSaveModel.Value = _trainData.TrainOrder;
-            _speedTrainSaveModel.Value = Speed;
+            _trainOrderSaveModel.SetValue(_trainData.TrainOrder);
+            _speedTrainSaveModel.SetValue(Speed);
+
+            _dataController.SaveModel(_trainOrderSaveModel);
+            _dataController.SaveModel(_speedTrainSaveModel);
         }
 
         private void VerifyTrainUpgrade()

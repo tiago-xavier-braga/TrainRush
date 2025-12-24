@@ -7,26 +7,15 @@ namespace XaviGames.EconomySystem
 {
     public class EconomyController : MonoBehaviour
     {
-        [Header("Default Values")]
-        [SerializeField]
-        private int _defaultPlayerCoins;
-
-        [SerializeField]
-        private int _defaultPlayerDiamongs;
-
-        [Header("Variables")]
-        [SerializeField]
-        private IntVariable _playerCoinsVariable;
-
-        [SerializeField]
-        private IntVariable _playerDiamondsVariable;
-
         [Header("Models")]
         [SerializeField]
-        private Model _playerCoinsModel;
+        private IntModel _playerCoinsModel;
 
         [SerializeField]
-        private Model _playerDiamondsModel;
+        private IntModel _playerDiamondsModel;
+
+        [SerializeField]
+        private DataController _dataController;
 
         [Header("Debug")]
         [SerializeField]
@@ -37,57 +26,37 @@ namespace XaviGames.EconomySystem
         [ReadOnly]
         private int _debugDiamonds = 0;
 
-        private void Start()
-        {
-            if (_playerCoinsModel.Value != null)
-            {
-                _playerCoinsVariable.Value = (int)_playerCoinsModel.Value;
-            }
-            else
-            {
-                _playerCoinsModel.Value = _defaultPlayerCoins;
-            }
-
-            if (_playerDiamondsModel.Value != null)
-            {
-                _playerDiamondsVariable.Value = (int)_playerDiamondsModel.Value;
-            }
-            else
-            {
-                _playerDiamondsVariable.Value = _defaultPlayerDiamongs;
-            }
-        }
-
         private void Update()
         {
-            _debugCoins = Mathf.RoundToInt(_playerCoinsVariable.Value);
-            _debugDiamonds = Mathf.RoundToInt(_playerDiamondsVariable.Value);
+            _debugCoins = _playerCoinsModel.Value;
+            _debugDiamonds = _playerDiamondsModel.Value;
         }
 
-        public void AddCoins(int amount) => AddValue(_playerCoinsVariable, _playerCoinsModel, amount);
+        public void AddCoins(int amount) => AddValue(_playerCoinsModel, amount);
 
-        public void AddDiamonds(int amount) => AddValue(_playerDiamondsVariable, _playerDiamondsModel, amount);
+        public void AddDiamonds(int amount) => AddValue(_playerDiamondsModel, amount);
 
-        public void RemoveCoins(int amount) => RemoveValue(_playerCoinsVariable, _playerCoinsModel, amount);
+        public void RemoveCoins(int amount) => RemoveValue(_playerCoinsModel, amount);
 
-        public void RemoveDiamonds(int amount) => RemoveValue(_playerDiamondsVariable, _playerDiamondsModel, amount);
-        
-        private void AddValue(IntVariable variable, Model model, int amount)
+        public void RemoveDiamonds(int amount) => RemoveValue(_playerDiamondsModel, amount);
+
+        private void AddValue(IntModel model, int amount)
         {
-            variable.Value += amount;
-            model.Value = variable.Value;
+            int newValue = model.Value + amount;
+            model.SetValue(newValue);
+            _dataController.SaveModel(model);
         }
 
-        private void RemoveValue(IntVariable variable, Model model, int amount)
+        private void RemoveValue(IntModel model, int amount)
         {
-            if (variable.Value - amount < 0)
+            if (model.Value - amount < 0)
             {
-                amount = variable.Value;
+                return;
             }
 
-            variable.Value -= amount;
-            model.Value = variable.Value;
+            int newValue = model.Value - amount;
+            model.SetValue(newValue);
+            _dataController.SaveModel(model);
         }
-
     }
 }

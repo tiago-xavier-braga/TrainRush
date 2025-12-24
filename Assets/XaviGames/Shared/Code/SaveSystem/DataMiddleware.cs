@@ -31,16 +31,16 @@ namespace XaviGames.SaveSystem
         
         public override void Initialize(UnityAction onFinshCallback)
         {
-            //if (_option == Option.Save)
-            //{
-            //    _saveSystem.Save();
-            //}
-            //else if (_option == Option.Load)
-            //{
-            //    _saveSystem.Load();
-            //}
+            if (_option == Option.Save)
+            {
+                _saveSystem.SaveAllModels();
+            }
+            else if (_option == Option.Load)
+            {
+                _saveSystem.LoadAllModels();
+            }
 
-            //Shutdown(onFinshCallback);
+            Shutdown(onFinshCallback);
         }
 
         public override void Shutdown(UnityAction onFinshCallback)
