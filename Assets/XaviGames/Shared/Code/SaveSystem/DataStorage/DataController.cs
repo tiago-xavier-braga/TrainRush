@@ -1,0 +1,70 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace XaviGames.SaveSystem
+{
+    [CreateAssetMenu(fileName = "DataController", menuName = "XaviGames/SaveSystem/DataController")]
+    public class DataController : ScriptableObject
+    {
+        [SerializeField]
+        private List<Model> _models = new List<Model>();
+
+        [SerializeField]
+        private List<DataStorageSO> _dataStorages = new List<DataStorageSO>();
+
+        [SerializeField]
+        private int _storagePriority = 0;
+
+        public void SaveAllModels()
+        {
+            foreach (DataStorageSO dataStorage in _dataStorages)
+            {
+                IDataStorage saveStorage = dataStorage.Create();
+                foreach (var model in _models)
+                {
+                    model.Save(saveStorage);
+                }
+
+                saveStorage.Save();
+            }
+
+        }
+
+        public void LoadAllModels()
+        {
+            foreach (DataStorageSO dataStorage in _dataStorages)
+            {
+                IDataStorage loadStorage = dataStorage.Create();
+                foreach (var model in _models)
+                {
+                    model.Load(loadStorage);
+                }
+            }
+        }
+
+        public void SaveModel(Model model)
+        {
+            foreach (DataStorageSO dataStorage in _dataStorages)
+            {
+                IDataStorage saveStorage = dataStorage.Create();
+                model.Save(saveStorage);
+                saveStorage.Save();
+            }
+        }
+
+        public void LoadModel(Model model)
+        {
+            DataStorageSO highestPriorityStorage = _dataStorages[_storagePriority];
+
+            if (highestPriorityStorage == null)
+            {
+                Debug.LogError("There is no reference to storage.");
+                return;
+            }
+
+            IDataStorage loadStorage = highestPriorityStorage.Create();
+            model.Load(loadStorage);
+        }
+    }
+}
+
