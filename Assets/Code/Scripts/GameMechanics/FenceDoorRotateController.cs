@@ -61,7 +61,7 @@ namespace XaviGames.GameMechanics
 
         private void Update()
         {
-            _unlockController.EnableAnimation(_playerCoinsModel.Value < _price);
+            _unlockController.EnableAnimation(_playerCoinsModel.Value > _price);
         }
 
         public void TryUnlock()

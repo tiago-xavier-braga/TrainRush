@@ -701,6 +701,7 @@ MonoBehaviour:
   _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _debugCoins: 0
   _debugDiamonds: 0
+  numberToAddForTest: 100
 --- !u!1 &604106468
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,11 +855,6 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.74, z: 0}
---- !u!1 &762865257 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4787380672472914668, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-  m_PrefabInstance: {fileID: 7147290082580942628}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &766398907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,28 +1573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <GameState>k__BackingField: 0
---- !u!114 &1699248044 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5442585039418976825, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-  m_PrefabInstance: {fileID: 7147290082580942628}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762865257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1642bb55e461d54fa1de5fea4f3a6f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1699248046 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8375330520178240607, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-  m_PrefabInstance: {fileID: 7147290082580942628}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762865257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721b21bd16b259547b24e366c93d0f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1728128222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1660,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: XaviGames.Characters.CharacterSpawnController,
           Assembly-CSharp
         m_MethodName: ActivateCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
+        m_TargetAssemblyTypeName: XaviGames.SaveSystem.DataController, Assembly-CSharp
+        m_MethodName: DeleteAllModels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2372,6 +2358,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 849617288}
     m_Modifications:
+    - target: {fileID: 1304188532221341597, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     - target: {fileID: 1372041994302929776, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2438,7 +2428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1523446928728675874, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _price
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1523446928728675874, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
@@ -2452,10 +2442,6 @@ PrefabInstance:
       propertyPath: _playerCollider
       value: 
       objectReference: {fileID: 630585933}
-    - target: {fileID: 2041954985438769439, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: OnHoldFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TryUnlock
-      objectReference: {fileID: 0}
     - target: {fileID: 2109210053339948530, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2482,12 +2468,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2148605857385954226, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _price
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 2148605857385954226, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _playerCoinsModel
-      value: 
-      objectReference: {fileID: 11400000, guid: 723cd2cde3e5b294aa110db0193f2b2a, type: 2}
     - target: {fileID: 2148605857385954226, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
       value: 
@@ -2496,14 +2478,10 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 1076b3225f2515145a5cb08c52dec390, type: 2}
-    - target: {fileID: 2406482549904389041, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3034701420940871596, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2514518178424679924, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     - target: {fileID: 3294769213900695451, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2527,6 +2505,10 @@ PrefabInstance:
     - target: {fileID: 3294769213900695451, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499589061179292045, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: m_Name
+      value: Fence Door Rotate (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3726278280099780335, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2556,6 +2538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Set Revolving Doors
       objectReference: {fileID: 0}
+    - target: {fileID: 4063433210723783709, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: m_Name
+      value: Fence Door Rotate (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 4270354823326579583, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2606,7 +2592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4751432394258461803, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _price
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4751432394258461803, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
@@ -2616,6 +2602,10 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: c8501f4bb7f7a4a4c9ffba01bf5c1dd1, type: 2}
+    - target: {fileID: 5101818551794634196, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     - target: {fileID: 5301105235467814843, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2640,14 +2630,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _price
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _dataController
+    - target: {fileID: 5636382191369838660, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
       value: 
-      objectReference: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
+      objectReference: {fileID: 630585933}
     - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
       value: 
@@ -2656,18 +2642,10 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2fbba4b9e24a83e40ad7c87601411a85, type: 2}
-    - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _openFenceDoorMarking
-      value: 
-      objectReference: {fileID: 762865257}
-    - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _openFenceDoorController
-      value: 
-      objectReference: {fileID: 1699248046}
-    - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _openFenceSpawnAnimation
-      value: 
-      objectReference: {fileID: 1699248044}
+    - target: {fileID: 6104939019707832749, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: m_Name
+      value: Fence Door Rotate (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6875669601715608415, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2715,6 +2693,14 @@ PrefabInstance:
     - target: {fileID: 7050507101631432628, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225231531322137540, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: m_Name
+      value: Fence Door Rotate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640988407353754950, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: m_Name
+      value: Fence Door Rotate (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8041033547374844214, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2752,10 +2738,6 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2581cd5d688ee7e4bb14062de221e11c, type: 2}
-    - target: {fileID: 8375330520178240607, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _playerCollider
-      value: 
-      objectReference: {fileID: 630585933}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

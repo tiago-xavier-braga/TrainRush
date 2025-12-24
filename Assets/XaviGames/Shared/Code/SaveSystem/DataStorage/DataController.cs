@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using XaviGames.Attributes;
 
 namespace XaviGames.SaveSystem
 {
@@ -41,6 +42,23 @@ namespace XaviGames.SaveSystem
                 }
             }
         }
+
+#if UNITY_EDITOR
+        [Button]
+        public void DeleteAllModels()
+        {
+            foreach (DataStorageSO dataStorage in _dataStorages)
+            {
+                IDataStorage deleteStorage = dataStorage.Create();
+                foreach (var model in _models)
+                {
+                    deleteStorage.DeleteKey(model.Key);
+                }
+
+                deleteStorage.Save();
+            }
+        }
+#endif
 
         public void SaveModel(Model model)
         {

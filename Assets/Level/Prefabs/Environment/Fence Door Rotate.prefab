@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86a057f54755b44c9f2de50558486ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 5000
+  _price: 0
   <IsUnlocked>k__BackingField: 0
   _unlockMarking: {fileID: 2260129623615738042}
   _unlockController: {fileID: 2960694592746530313}
@@ -631,6 +631,10 @@ PrefabInstance:
       propertyPath: OnHoldFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8862963199644564991}
+    - target: {fileID: 8314923169446637322, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
+      propertyPath: OnHoldFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryUnlock
+      objectReference: {fileID: 0}
     - target: {fileID: 8951055168657057125, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

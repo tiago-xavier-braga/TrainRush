@@ -26,6 +26,9 @@ namespace XaviGames.EconomySystem
         [ReadOnly]
         private int _debugDiamonds = 0;
 
+        [SerializeField]
+        private int numberToAddForTest = 100;
+
         private void Update()
         {
             _debugCoins = _playerCoinsModel.Value;
@@ -57,6 +60,18 @@ namespace XaviGames.EconomySystem
             int newValue = model.Value - amount;
             model.SetValue(newValue);
             _dataController.SaveModel(model);
+        }
+
+        [Button]
+        private void AddCoinTest()
+        {
+            AddValue(_playerCoinsModel, numberToAddForTest);
+        }
+
+        [Button]
+        private void RemoveCoinTest()
+        {
+            AddValue(_playerCoinsModel, numberToAddForTest);
         }
     }
 }
