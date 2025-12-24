@@ -2482,6 +2482,10 @@ PrefabInstance:
       propertyPath: _playerCollider
       value: 
       objectReference: {fileID: 630585933}
+    - target: {fileID: 2762164778459970820, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     - target: {fileID: 3294769213900695451, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2506,6 +2510,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3359704526862667924, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     - target: {fileID: 3499589061179292045, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_Name
       value: Fence Door Rotate (2)
@@ -2630,6 +2638,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5370544152152879284, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     - target: {fileID: 5636382191369838660, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _playerCollider
       value: 
@@ -2738,6 +2750,14 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2581cd5d688ee7e4bb14062de221e11c, type: 2}
+    - target: {fileID: 8375330520178240607, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
+    - target: {fileID: 8823735883349668573, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 630585933}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
