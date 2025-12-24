@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08df7939c1bfdf247b7d1ad132de4fb7, type: 3}
-  m_Name: WagonLeftModel 4
+  m_Script: {fileID: 11500000, guid: 276c468a062e65d4981440a6e0aa6a2e, type: 3}
+  m_Name: CharacterMovementSpeed
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: WagonLeftModel 4
-  <Type>k__BackingField: 0
+  _value: 5
+  <Value>k__BackingField: 5

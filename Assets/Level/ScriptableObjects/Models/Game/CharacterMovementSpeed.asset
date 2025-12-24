@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 276c468a062e65d4981440a6e0aa6a2e, type: 3}
+  m_Script: {fileID: 11500000, guid: e5e96cf0e32acc948a58dec5c6911b84, type: 3}
   m_Name: CharacterMovementSpeed
   m_EditorClassIdentifier: 
-  _value: 5
-  Value: 0
+  <Key>k__BackingField: CharacterMovementSpeed
+  <Value>k__BackingField: 5
+  <DefaultValue>k__BackingField: 5
