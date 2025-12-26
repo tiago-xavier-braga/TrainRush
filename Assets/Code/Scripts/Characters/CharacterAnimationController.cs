@@ -7,10 +7,10 @@ namespace XaviGames.Characters
     public class CharacterAnimationController : MonoBehaviour
     {
         [SerializeField]
-        private Animator animator;
+        private Animator _animator;
 
         [SerializeField]
-        private CharactersState currentState;
+        private CharactersState _currentState;
 
         private static readonly int StateParameterHash = Animator.StringToHash("State");
 
@@ -21,9 +21,9 @@ namespace XaviGames.Characters
 
         public void SetState(CharactersState newState)
         {
-            if (currentState != newState)
+            if (_currentState != newState)
             {
-                currentState = newState;
+                _currentState = newState;
                 UpdateAnimatorState();
             }
         }
@@ -31,7 +31,7 @@ namespace XaviGames.Characters
         [Button]
         private void UpdateAnimatorState()
         {
-            animator.SetInteger(StateParameterHash, (int)currentState);
+            _animator.SetInteger(StateParameterHash, (int)_currentState);
         }
     }
 

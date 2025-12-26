@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace XaviGames.GameMechanics
+namespace XaviGames.Mechanics
 {
     public class SetRevolvingDoorsManager : MonoBehaviour
     {

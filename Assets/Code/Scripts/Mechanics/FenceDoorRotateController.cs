@@ -1,16 +1,22 @@
-using UnityEditor.Overlays;
 using UnityEngine;
 using XaviGames.Animation;
-using XaviGames.Audio;
+using XaviGames.Attributes;
+using XaviGames.Characters;
 using XaviGames.EconomySystem;
-using XaviGames.ObjectVariables;
 using XaviGames.SaveSystem;
 using XaviGames.UnlockSystem;
 
-namespace XaviGames.GameMechanics
+namespace XaviGames.Mechanics
 {
     public class FenceDoorRotate : MonoBehaviour
     {
+        private enum FenceDoorState
+        {
+            Idle = 0,
+            Opened = 1,
+            Closed = 2,
+        }
+
         [Header("Price Settings")]
         [SerializeField]
         private int _price;
@@ -18,6 +24,14 @@ namespace XaviGames.GameMechanics
         [Header("Unlock Refereneces")]
         [field: SerializeField]
         public bool IsUnlocked { get; private set; } = false;
+
+        [Header("State Animation")]
+        [SerializeField]
+        [ReadOnly]
+        private FenceDoorState _fenceDoorState = FenceDoorState.Idle;
+
+        [SerializeField]
+        private Animator _animator;
 
         [Header("Unlock Floor Marking")]
         [SerializeField]
@@ -53,6 +67,8 @@ namespace XaviGames.GameMechanics
         [SerializeField]
         private DataController _dataController;
 
+        private static readonly int StateParameterHash = Animator.StringToHash("State");
+
         private void Start()
         {
             LoadData();
@@ -86,6 +102,18 @@ namespace XaviGames.GameMechanics
             HideUnlockMarking();
             ShowOpenMarking();
         }
+
+        public void TryOpen()
+        {
+            if (!IsUnlocked)
+            {
+                return;
+            }
+
+            _openFenceDoorController.SuccessUnlocked();
+
+        }
+
 
         private void HideUnlockMarking()
         {
@@ -126,6 +154,15 @@ namespace XaviGames.GameMechanics
         {
             _fenceDoorRotateModel.SetValue(1);
             _dataController.SaveModel(_fenceDoorRotateModel);
+        }
+
+        private void SetState(FenceDoorState newState)
+        {
+            if (_fenceDoorState != newState)
+            {
+                _fenceDoorState = newState;
+                _animator.SetInteger(StateParameterHash, (int)_fenceDoorState);
+            }
         }
     }
 }

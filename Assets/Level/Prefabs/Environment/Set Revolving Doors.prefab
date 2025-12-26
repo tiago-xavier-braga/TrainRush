@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866517525682393680, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_Name
-      value: Fence Door Rotate (4)
+      value: Fence Door Rotate (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8408434044202990269, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866517525682393680, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_Name
-      value: Fence Door Rotate
+      value: Fence Door Rotate (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8308697213345391165, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866517525682393680, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_Name
-      value: Fence Door Rotate (2)
+      value: Fence Door Rotate (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8408434044202990269, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866517525682393680, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_Name
-      value: Fence Door Rotate (3)
+      value: Fence Door Rotate (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8408434044202990269, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -570,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866517525682393680, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_Name
-      value: Fence Door Rotate (1)
+      value: Fence Door Rotate (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8408434044202990269, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: m_LocalPosition.x

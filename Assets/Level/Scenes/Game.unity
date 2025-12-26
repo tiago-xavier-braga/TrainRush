@@ -803,8 +803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1d1ed82eb09b34194661f70358528d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 862635918}
-  currentState: 0
+  _animator: {fileID: 0}
+  _currentState: 0
 --- !u!54 &630585932
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2514,10 +2514,6 @@ PrefabInstance:
       propertyPath: _playerCollider
       value: 
       objectReference: {fileID: 630585933}
-    - target: {fileID: 3499589061179292045, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_Name
-      value: Fence Door Rotate (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3726278280099780335, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2545,10 +2541,6 @@ PrefabInstance:
     - target: {fileID: 3851253605946288307, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_Name
       value: Set Revolving Doors
-      objectReference: {fileID: 0}
-    - target: {fileID: 4063433210723783709, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_Name
-      value: Fence Door Rotate (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4270354823326579583, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2654,10 +2646,6 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2fbba4b9e24a83e40ad7c87601411a85, type: 2}
-    - target: {fileID: 6104939019707832749, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_Name
-      value: Fence Door Rotate (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 6875669601715608415, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2705,14 +2693,6 @@ PrefabInstance:
     - target: {fileID: 7050507101631432628, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225231531322137540, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_Name
-      value: Fence Door Rotate (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7640988407353754950, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: m_Name
-      value: Fence Door Rotate (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8041033547374844214, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
