@@ -1,27 +1,14 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using XaviGames.Attributes;
 using XaviGames.Audio;
 
-namespace XaviGames.UnlockSystem
+namespace XaviGames.Interaction
 {
-    public class UnlockController : MonoBehaviour
+    public class ButtonHoldAnimation : MonoBehaviour
     {
-        [Header("Logic Parameters")]
+        [Header("References")]
         [SerializeField]
-        private Collider _playerCollider;
-
-        [SerializeField]
-        private float _timeToUnlock;
-
-        [Header("Canvas References")]
-        [SerializeField]
-        private UnityEngine.UI.Image _iconImage;
-
-        [SerializeField]
-        private TextMeshProUGUI _priceTextMeshPro;
+        private ButtonHoldController _controller;
 
         [Header("Animation")]
         [SerializeField]
@@ -74,84 +61,37 @@ namespace XaviGames.UnlockSystem
         [SerializeField]
         private SoundEffect _failureSoundEffect;
 
-        [Header("Debug")]
-        [SerializeField]
-        [ReadOnly]
-        private float _holdTime;
-
-        [Header("Unity Events")]
-        [Space]
-        [SerializeField]
-        private UnityEvent OnHoldFinished;
-
         private float _timeAnimation;
-        private bool _isPlayerColliding;
         private Coroutine _blinkCoroutine;
+
+        private void OnEnable()
+        {
+            _controller.OnEnterEvent.AddListener(HandleEnter);
+            _controller.OnExitEvent.AddListener(HandleExit);
+        }
+
+        private void OnDisable()
+        {
+            _controller.OnEnterEvent.RemoveListener(HandleEnter);
+            _controller.OnExitEvent.RemoveListener(HandleExit);
+        }
 
         private void Update()
         {
-            if (!_isAnimationEnabled)
+            if (_controller.IsPlayerColliding)
+            {
+                IdleAnimation();
+                return;
+            }
+
+            if (_isAnimationEnabled)
+            {
+                LoopAnimation();
+            }
+            else
             {
                 IdleAnimation();
             }
-
-            if (_isPlayerColliding)
-            {
-                PlayerHolding();
-                return;
-            }
-
-            LoopAnimation();
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other != _playerCollider)
-            {
-                return;
-            }
-
-            _isPlayerColliding = true;
-            _timeAnimation = 0f;
-            _enterSoundEffect?.PlayOneShort();
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other != _playerCollider)
-            {
-                return;
-            }
-
-            _isPlayerColliding = false;
-            _holdTime = 0f;
-
-            StopBlink();
-            ResetFloorColor();
-
-            _exitSoundEffect?.PlayOneShort();
-        }
-
-        public void SuccessUnlocked()
-        {
-            _successSoundEffect.PlayOneShort();
-            PlayBlink(_successColor);
-        }
-
-        public void FailureUnlocked()
-        {
-            _failureSoundEffect.PlayOneShort();
-            PlayBlink(_failureColor);
-        }
-
-        public void SetNewPrice(string price)
-        {
-            _priceTextMeshPro.text = price;
-        }
-
-        public void SetNewIcon(Sprite sprite)
-        {
-            _iconImage.sprite = sprite;
         }
 
         public void EnableAnimation(bool enable)
@@ -159,8 +99,54 @@ namespace XaviGames.UnlockSystem
             _isAnimationEnabled = enable;
         }
 
+        public void SuccessUnlocked()
+        {
+            if (_successSoundEffect != null)
+            {
+                _successSoundEffect.PlayOneShort();
+            }
+
+            PlayBlink(_successColor);
+        }
+
+        public void FailureUnlocked()
+        {
+            if (_failureSoundEffect != null)
+            {
+                _failureSoundEffect.PlayOneShort();
+            }
+
+            PlayBlink(_failureColor);
+        }
+
+        private void HandleEnter()
+        {
+            _timeAnimation = 0f;
+
+            if (_enterSoundEffect != null)
+            {
+                _enterSoundEffect.PlayOneShort();
+            }
+        }
+
+        private void HandleExit()
+        {
+            StopBlink();
+            ResetFloorColor();
+
+            if (_exitSoundEffect != null)
+            {
+                _exitSoundEffect.PlayOneShort();
+            }
+        }
+
         private void Animate(float yPosition)
         {
+            if (_containerTransform == null)
+            {
+                return;
+            }
+
             Vector3 currentPosition = _containerTransform.position;
             currentPosition.y = yPosition;
             _containerTransform.position = currentPosition;
@@ -168,7 +154,7 @@ namespace XaviGames.UnlockSystem
 
         private void LoopAnimation()
         {
-            if (!_isAnimationEnabled)
+            if (_containerTransform == null)
             {
                 return;
             }
@@ -183,28 +169,15 @@ namespace XaviGames.UnlockSystem
 
         private void IdleAnimation()
         {
-            float yPosition = _containerTransform.position.y;
-            yPosition = Mathf.Max(yPosition - Time.deltaTime * _holdAnimationSpeed, _minYPosition);
-
-            Animate(yPosition);
-        }
-
-        private void PlayerHolding()
-        {
-            if (_isAnimationEnabled)
-            {
-                IdleAnimation();
-            }
-
-            _holdTime += Time.deltaTime;
-
-            if (_holdTime < _timeToUnlock)
+            if (_containerTransform == null)
             {
                 return;
             }
 
-            _holdTime = 0f;
-            OnHoldFinished?.Invoke();
+            float yPosition = _containerTransform.position.y;
+            yPosition = Mathf.Max(yPosition - Time.deltaTime * _holdAnimationSpeed, _minYPosition);
+
+            Animate(yPosition);
         }
 
         private void PlayBlink(Color blinkColor)
@@ -219,16 +192,27 @@ namespace XaviGames.UnlockSystem
             {
                 StopCoroutine(_blinkCoroutine);
             }
+
             _blinkCoroutine = null;
         }
 
         private void ResetFloorColor()
         {
+            if (_floorMarkingRenderer == null)
+            {
+                return;
+            }
+
             _floorMarkingRenderer.material.color = _defaultColor;
         }
 
         private IEnumerator BlinkFloorSmooth(Color blinkColor)
         {
+            if (_floorMarkingRenderer == null)
+            {
+                yield break;
+            }
+
             float elapsed = 0f;
             Material mat = _floorMarkingRenderer.material;
 
