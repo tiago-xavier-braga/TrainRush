@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e96cf0e32acc948a58dec5c6911b84, type: 3}
-  m_Name: FenceDoorRotate 2
+  m_Script: {fileID: 11500000, guid: 62ee4f5771315f14abf49597be8e5270, type: 3}
+  m_Name: DeleteDataMiddleware
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: FenceDoorRotate 2
-  <Value>k__BackingField: 0
-  <DefaultValue>k__BackingField: 0
+  _isFinished: 1
+  _option: 2
+  _saveSystem: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
