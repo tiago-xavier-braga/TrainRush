@@ -44,7 +44,6 @@ namespace XaviGames.SaveSystem
         }
 
 #if UNITY_EDITOR
-        [Button]
         public void DeleteAllModels()
         {
             foreach (DataStorageSO dataStorage in _dataStorages)

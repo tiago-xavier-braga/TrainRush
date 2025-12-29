@@ -12,6 +12,7 @@ namespace XaviGames.SaveSystem
         {
             Save,
             Load,
+            Delete,
         }
 
         [SerializeField]
@@ -38,6 +39,10 @@ namespace XaviGames.SaveSystem
             else if (_option == Option.Load)
             {
                 _saveSystem.LoadAllModels();
+            }
+            else if (_option == Option.Delete)
+            {
+                _saveSystem.DeleteAllModels();
             }
 
             Shutdown(onFinshCallback);
