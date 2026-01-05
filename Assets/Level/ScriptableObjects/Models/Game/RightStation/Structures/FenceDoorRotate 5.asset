@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e96cf0e32acc948a58dec5c6911b84, type: 3}
   m_Name: FenceDoorRotate 5
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: 
+  <Key>k__BackingField: FenceDoorRotate 5
   <Value>k__BackingField: 0
   <DefaultValue>k__BackingField: 0

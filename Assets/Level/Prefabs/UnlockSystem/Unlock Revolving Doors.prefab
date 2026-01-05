@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: _iconImage
       value: 
       objectReference: {fileID: 4144432773558295778}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: _timeToHold
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8802800007884132301, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

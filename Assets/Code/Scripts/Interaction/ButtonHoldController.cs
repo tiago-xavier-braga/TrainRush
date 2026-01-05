@@ -48,7 +48,6 @@ namespace XaviGames.Interaction
         public UnityEvent OnExitEvent;
 
         public bool IsPlayerColliding => _isPlayerColliding;
-        public float HoldNormalized => (_timeToHold <= 0f) ? 0f : Mathf.Clamp01(_holdTime / _timeToHold);
 
         private void Update()
         {

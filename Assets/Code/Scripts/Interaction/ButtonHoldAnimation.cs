@@ -101,20 +101,13 @@ namespace XaviGames.Interaction
 
         public void SuccessUnlocked()
         {
-            if (_successSoundEffect != null)
-            {
-                _successSoundEffect.PlayOneShort();
-            }
-
+            _successSoundEffect.PlayOneShort();
             PlayBlink(_successColor);
         }
 
         public void FailureUnlocked()
         {
-            if (_failureSoundEffect != null)
-            {
-                _failureSoundEffect.PlayOneShort();
-            }
+            _failureSoundEffect.PlayOneShort();
 
             PlayBlink(_failureColor);
         }
@@ -134,19 +127,11 @@ namespace XaviGames.Interaction
             StopBlink();
             ResetFloorColor();
 
-            if (_exitSoundEffect != null)
-            {
-                _exitSoundEffect.PlayOneShort();
-            }
+            _exitSoundEffect.PlayOneShort();
         }
 
         private void Animate(float yPosition)
         {
-            if (_containerTransform == null)
-            {
-                return;
-            }
-
             Vector3 currentPosition = _containerTransform.position;
             currentPosition.y = yPosition;
             _containerTransform.position = currentPosition;
@@ -154,11 +139,6 @@ namespace XaviGames.Interaction
 
         private void LoopAnimation()
         {
-            if (_containerTransform == null)
-            {
-                return;
-            }
-
             _timeAnimation += Time.deltaTime * _animationSpeed;
 
             float range = _maxYPosition - _minYPosition;
@@ -169,11 +149,6 @@ namespace XaviGames.Interaction
 
         private void IdleAnimation()
         {
-            if (_containerTransform == null)
-            {
-                return;
-            }
-
             float yPosition = _containerTransform.position.y;
             yPosition = Mathf.Max(yPosition - Time.deltaTime * _holdAnimationSpeed, _minYPosition);
 
@@ -198,21 +173,11 @@ namespace XaviGames.Interaction
 
         private void ResetFloorColor()
         {
-            if (_floorMarkingRenderer == null)
-            {
-                return;
-            }
-
             _floorMarkingRenderer.material.color = _defaultColor;
         }
 
         private IEnumerator BlinkFloorSmooth(Color blinkColor)
         {
-            if (_floorMarkingRenderer == null)
-            {
-                yield break;
-            }
-
             float elapsed = 0f;
             Material mat = _floorMarkingRenderer.material;
 

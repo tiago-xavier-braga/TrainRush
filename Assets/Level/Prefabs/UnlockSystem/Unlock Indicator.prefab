@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 1448956438069115131}
   - component: {fileID: 5520537607225143381}
   m_Layer: 5
-  m_Name: Money Icon
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,6 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3661976060678909711}
   - component: {fileID: 8463899940627613090}
+  - component: {fileID: 2077531599492704765}
   - component: {fileID: 4827083556847405548}
   - component: {fileID: 5388843776130499524}
   m_Layer: 0
@@ -648,40 +649,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCollider: {fileID: 0}
-  _timeToUnlock: 5
+  _timeToHold: 0
   _iconImage: {fileID: 4580900868486526538}
-  _priceTextMeshPro: {fileID: 6409098001667739480}
+  _textMeshPro: {fileID: 6409098001667739480}
+  _holdTime: 0
+  _isPlayerColliding: 0
+  OnEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHoldEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2077531599492704765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4845529903646946065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b1b1fb3fbd8d24690dab7963403115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 8463899940627613090}
+  _isAnimationEnabled: 1
   _containerTransform: {fileID: 8591800281399944124}
   _animationSpeed: 0.5
-  _holdAnimationSpeed: 4
-  _minYPosition: 0.08
+  _holdAnimationSpeed: 5
+  _minYPosition: 0.01
   _maxYPosition: 0.5
   _floorMarkingRenderer: {fileID: 7069717276409094702}
-  _colorAnimationDuration: 4
-  _blinkSpeed: 0.1
+  _colorAnimationDuration: 2
+  _blinkSpeed: 6
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  _failureColor: {r: 1, g: 0.23921569, b: 0.23921569, a: 1}
-  _successColor: {r: 0.23921569, g: 1, b: 0.2627451, a: 1}
+  _failureColor: {r: 0.99215686, g: 0.18039216, b: 0.18039216, a: 1}
+  _successColor: {r: 0.4117647, g: 0.99215686, b: 0.18039216, a: 1}
   _enterSoundEffect: {fileID: 3760581817622348700}
   _exitSoundEffect: {fileID: 1081551653738541100}
   _successSoundEffect: {fileID: 7724625554052207794}
   _failureSoundEffect: {fileID: 1173676163040508048}
-  _holdTime: 0
-  OnHoldFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: XaviGames.GameMechanics.FenceDoorRotate, Assembly-CSharp
-        m_MethodName: Unlocked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!65 &4827083556847405548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1097,7 +1110,7 @@ GameObject:
   - component: {fileID: 1605685461151604910}
   - component: {fileID: 6409098001667739480}
   m_Layer: 5
-  m_Name: Money Value (TMP)
+  m_Name: Value (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

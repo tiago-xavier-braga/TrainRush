@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1d1ed82eb09b34194661f70358528d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 862635918}
   _currentState: 0
 --- !u!54 &630585932
 Rigidbody:
@@ -1219,6 +1219,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1158191216 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7216871114709380498, guid: d9ee955bd1020a34984abcca6bf3c2d2, type: 3}
+  m_PrefabInstance: {fileID: 1297194779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1297194779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1271,6 +1276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Base
       objectReference: {fileID: 0}
+    - target: {fileID: 1795903349103285052, guid: d9ee955bd1020a34984abcca6bf3c2d2, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1158191216}
     - target: {fileID: 4378076300956528632, guid: d9ee955bd1020a34984abcca6bf3c2d2, type: 3}
       propertyPath: _movementSpeed
       value: 
@@ -2427,17 +2436,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1523446928728675874, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _price
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523446928728675874, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
       value: 
       objectReference: {fileID: 579487581}
-    - target: {fileID: 1523446928728675874, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _fenceDoorRotateModel
-      value: 
-      objectReference: {fileID: 11400000, guid: a39df9d8454163c40a0fc1ba163f8829, type: 2}
     - target: {fileID: 2041954985438769439, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _playerCollider
       value: 
@@ -2467,17 +2468,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2148605857385954226, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _price
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148605857385954226, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
       value: 
       objectReference: {fileID: 579487581}
-    - target: {fileID: 2148605857385954226, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _fenceDoorRotateModel
-      value: 
-      objectReference: {fileID: 11400000, guid: 1076b3225f2515145a5cb08c52dec390, type: 2}
     - target: {fileID: 2514518178424679924, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _playerCollider
       value: 
@@ -2591,17 +2584,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4751432394258461803, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _price
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4751432394258461803, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
       value: 
       objectReference: {fileID: 579487581}
-    - target: {fileID: 4751432394258461803, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _fenceDoorRotateModel
-      value: 
-      objectReference: {fileID: 11400000, guid: c8501f4bb7f7a4a4c9ffba01bf5c1dd1, type: 2}
     - target: {fileID: 5101818551794634196, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _playerCollider
       value: 
@@ -2642,10 +2627,6 @@ PrefabInstance:
       propertyPath: _economyController
       value: 
       objectReference: {fileID: 579487581}
-    - target: {fileID: 5746427254353013481, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _fenceDoorRotateModel
-      value: 
-      objectReference: {fileID: 11400000, guid: 2fbba4b9e24a83e40ad7c87601411a85, type: 2}
     - target: {fileID: 6875669601715608415, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2717,19 +2698,11 @@ PrefabInstance:
     - target: {fileID: 8041033547374844214, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145972602389411330, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _price
-      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8145972602389411330, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _economyController
       value: 
       objectReference: {fileID: 579487581}
-    - target: {fileID: 8145972602389411330, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
-      propertyPath: _fenceDoorRotateModel
-      value: 
-      objectReference: {fileID: 11400000, guid: 2581cd5d688ee7e4bb14062de221e11c, type: 2}
     - target: {fileID: 8375330520178240607, guid: 3bed9b2ad895a464bb7949b1689ba60b, type: 3}
       propertyPath: _playerCollider
       value: 

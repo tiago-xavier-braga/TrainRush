@@ -144,6 +144,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _price
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _fenceDoorRotateModel
+      value: 
+      objectReference: {fileID: 11400000, guid: 2581cd5d688ee7e4bb14062de221e11c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -258,6 +266,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _fenceDoorRotateModel
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fbba4b9e24a83e40ad7c87601411a85, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -376,6 +388,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _fenceDoorRotateModel
+      value: 
+      objectReference: {fileID: 11400000, guid: c8501f4bb7f7a4a4c9ffba01bf5c1dd1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -494,6 +514,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _fenceDoorRotateModel
+      value: 
+      objectReference: {fileID: 11400000, guid: 1076b3225f2515145a5cb08c52dec390, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -612,6 +640,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _price
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _fenceDoorRotateModel
+      value: 
+      objectReference: {fileID: 11400000, guid: a39df9d8454163c40a0fc1ba163f8829, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

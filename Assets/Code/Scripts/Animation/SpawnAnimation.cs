@@ -15,6 +15,11 @@ namespace XaviGames.Animation
         private int _id = -1;
         private Vector3 _initialScale;
 
+        private void Start()
+        {
+            _initialScale = transform.localScale;
+        }
+
         public void Animate(GameObject gameObject, Vector3 from, Vector3 to, UnityAction onFinish = null)
         {
             _initialScale = from;
