@@ -43,6 +43,57 @@ namespace XaviGames.Characters
             Gizmos.DrawWireCube(_spawnTransform.position, _spawnSize);
         }
 
+        [Button]
+        public GameObject ActivateCharacter()
+        {
+            if (_charactersDisabled.Count == 0)
+            {
+                return null;
+            }
+
+            int indexRandom = Random.Range(0, _charactersDisabled.Count - 1);
+            GameObject character = _charactersDisabled[indexRandom];
+
+            CharacterManager characterManager = character.GetComponent<CharacterManager>();
+
+            Vector3 position = CalculateActivatePosition();
+            character.transform.position = position;
+            character.transform.rotation = _spawnTransform.rotation;
+
+            _charactersDisabled.Remove(character);
+            _charactersActivated.Add(character);
+
+            SpawnAnimation spawnAnimation = characterManager.SpawnAnimation;
+            spawnAnimation.Animate
+            (
+                character,
+                Vector3.zero,
+                Vector3.one
+            );
+
+            character.SetActive(true);
+            return character;
+        }
+
+        public void DisableCharacter(GameObject character)
+        {
+            CharacterManager characterManager = character.GetComponent<CharacterManager>();
+            SpawnAnimation spawnAnimation = characterManager.SpawnAnimation;
+            spawnAnimation.Animate
+            (
+                character,
+                character.transform.localScale,
+                Vector3.zero,
+                () =>
+                {
+                    character.SetActive(false);
+                }
+            );
+
+            _charactersDisabled.Add(character);
+            _charactersActivated.Remove(character);
+        }
+
         private void SpawnCharacter()
         {
             DestroyAllCharacters();
@@ -68,54 +119,6 @@ namespace XaviGames.Characters
             }
 
             _charactersSpawned.Clear();
-        }
-
-        [Button]
-        public void ActivateCharacter()
-        {
-            if (_charactersDisabled.Count == 0)
-            {
-                return; 
-            }
-
-            int indexRandom = Random.Range(0, _charactersDisabled.Count - 1);
-            GameObject character = _charactersDisabled[indexRandom];
-
-            Vector3 position = CalculateActivatePosition();
-            character.transform.position = position;
-            character.transform.rotation = _spawnTransform.rotation;
-
-            _charactersDisabled.Remove(character);
-            _charactersActivated.Add(character);
-            
-            SpawnAnimation spawnAnimation = character.GetComponent<SpawnAnimation>();
-            spawnAnimation.Animate
-            (
-                character,
-                Vector3.zero,
-                Vector3.one
-            );
-
-            character.SetActive(true);
-        }
-
-        [Button]
-        private void DisableCharacter(GameObject character)
-        {
-            SpawnAnimation spawnAnimation = character.GetComponent<SpawnAnimation>();
-            spawnAnimation.Animate
-            (
-                character,
-                character.transform.localScale,
-                Vector3.zero,
-                () =>
-                {
-                    character.SetActive(false);
-                }
-            );
-
-            _charactersDisabled.Add(character);
-            _charactersActivated.Remove(character);
         }
 
         private Vector3 CalculateActivatePosition()

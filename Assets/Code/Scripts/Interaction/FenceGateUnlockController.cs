@@ -18,7 +18,7 @@ namespace XaviGames.Interaction
         private ButtonHoldController _unlockController;
 
         [SerializeField]
-        private ButtonHoldAnimation _unlockAnimation;
+        private ButtonHoldAnimation _buttonHoldAnimation;
 
         [Header("Economy References")]
         [SerializeField]
@@ -46,7 +46,7 @@ namespace XaviGames.Interaction
         {
             bool canAfford = _playerCoinsModel.Value >= _price;
 
-            _unlockAnimation.EnableAnimation(canAfford);
+            _buttonHoldAnimation.EnableAnimation(canAfford);
         }
 
         public void TryUnlock()
@@ -58,12 +58,12 @@ namespace XaviGames.Interaction
 
             if (_playerCoinsModel.Value < _price)
             {
-                _unlockAnimation.FailureUnlocked();
+                _buttonHoldAnimation.FailureUnlocked();
                 return;
             }
 
             _economyController.RemoveCoins(_price);
-            _unlockAnimation.SuccessUnlocked();
+            _buttonHoldAnimation.SuccessUnlocked();
 
             IsUnlocked = true;
 

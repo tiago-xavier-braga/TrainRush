@@ -23,24 +23,11 @@ namespace XaviGames.Characters
         [SerializeField]
         private float _stopDistance = 0.1f;
 
-
-        private void Update()
+        private float _cachedMovementSpeed;
+        
+        private void Start()
         {
-            if (_destination == null)
-            {
-                return;
-            }
-
-            float distance = Vector3.Distance(
-                _characterTransform.position,
-                _destination.position
-            );
-
-            _characterAnimationController.SetState(
-                distance > _stopDistance
-                    ? CharactersState.Walking
-                    : CharactersState.Idle
-            );
+            _cachedMovementSpeed = _movementSpeed.Value;
         }
 
         private void FixedUpdate()
@@ -50,12 +37,25 @@ namespace XaviGames.Characters
                 return;
             }
 
+            float distance = Vector3.Distance
+            (
+                _characterTransform.position,
+                _destination.position
+            );
+
+            _characterAnimationController.SetState
+            (
+                distance > _stopDistance
+                    ? CharactersState.Walking
+                    : CharactersState.Idle
+            );
+
             Vector3 direction = _destination.position - _characterTransform.position;
             direction.y = 0f;
 
-            float distance = direction.magnitude;
+            float distanceDirection = direction.magnitude;
 
-            if (distance <= _stopDistance)
+            if (distanceDirection <= _stopDistance)
             {
                 _characterTransform.rotation = Quaternion.Slerp
                 (
@@ -69,15 +69,20 @@ namespace XaviGames.Characters
             direction.Normalize();
 
             _characterTransform.position +=
-                direction * _movementSpeed.Value * Time.fixedDeltaTime;
+                direction * _cachedMovementSpeed * Time.fixedDeltaTime;
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            _characterTransform.rotation = Quaternion.Slerp    
+            _characterTransform.rotation = Quaternion.Slerp
             (
                 _characterTransform.rotation,
                 targetRotation,
                 _rotationSpeed * Time.fixedDeltaTime
             );
         }
+
+        public void SetDestination(Transform destination)
+        {
+            _destination = destination;
+        }   
     }
 }

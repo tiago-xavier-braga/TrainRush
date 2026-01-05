@@ -1,19 +1,16 @@
 using UnityEngine;
-using XaviGames.Animation;
 using XaviGames.Attributes;
 
 namespace XaviGames.Interaction
 {
     public class FenceGateStateController : MonoBehaviour
     {
-        [SerializeField]
-        private bool _isOpen = false;
+        [field: SerializeField]
+        [field: ReadOnly]
+        public bool IsOpen { get; private set; } = false;
 
         [SerializeField]
         private FenceGateUnlockController _fenceGateUnlockController;
-
-        [SerializeField]
-        private float _openDuration = 2f;
 
         [SerializeField]
         [ReadOnly]
@@ -23,10 +20,7 @@ namespace XaviGames.Interaction
         private Animator _animator;
 
         [SerializeField]
-        private ButtonHoldAnimation _openFenceDoorAnimation;
-
-        [SerializeField]
-        private SpawnAnimation _openFenceSpawnAnimation;
+        private ButtonHoldAnimation _buttonHoldAnimation;
 
         private static readonly int StateParameterHash = Animator.StringToHash("State");
 
@@ -37,13 +31,13 @@ namespace XaviGames.Interaction
                 return;
             }
 
-            if (_isOpen)
+            if (IsOpen)
             {
-                _openFenceDoorAnimation.FailureUnlocked();
+                _buttonHoldAnimation.FailureUnlocked();
                 return;
             }
 
-            _isOpen = true;
+            IsOpen = true;
             SetState(FenceState.Opened);
         }
 
@@ -54,13 +48,12 @@ namespace XaviGames.Interaction
                 return;
             }
 
-            if (!_isOpen)
+            if (!IsOpen)
             {
                 return;
             }
 
-            Debug.Log("Closing Fence Gate");
-            _isOpen = false;
+            IsOpen = false;
             SetState(FenceState.Closed);
         }
 
