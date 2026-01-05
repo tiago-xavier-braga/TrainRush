@@ -17,6 +17,9 @@ namespace XaviGames.Interaction
 
         [Header("Canvas References")]
         [SerializeField]
+        private CanvasGroup _canvasGroup;
+
+        [SerializeField]
         private Image _iconImage;
 
         [SerializeField]
@@ -91,6 +94,18 @@ namespace XaviGames.Interaction
             _holdTime = 0f;
 
             OnExitEvent?.Invoke();
+        }
+
+        public void ShowCanvas()
+        {
+            _canvasGroup.alpha = 1f;
+            _canvasGroup.blocksRaycasts = true;
+        }
+
+        public void HideCanvas()
+        {
+            _canvasGroup.alpha = 0f;
+            _canvasGroup.blocksRaycasts = false;
         }
 
         public void SetNewText(string text)

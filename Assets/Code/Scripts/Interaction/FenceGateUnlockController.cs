@@ -15,16 +15,10 @@ namespace XaviGames.Interaction
         private int _price;
 
         [SerializeField]
-        private GameObject _unlockMarking;
-
-        [SerializeField]
         private ButtonHoldController _unlockController;
 
         [SerializeField]
         private ButtonHoldAnimation _unlockAnimation;
-
-        [SerializeField]
-        private SpawnAnimation _unlockSpawnAnimation;
 
         [Header("Economy References")]
         [SerializeField]
@@ -74,19 +68,7 @@ namespace XaviGames.Interaction
             IsUnlocked = true;
 
             SaveData();
-            HideUnlockMarking();
             OnUnlocked?.Invoke();
-        }
-
-        private void HideUnlockMarking()
-        {
-            _unlockSpawnAnimation.Animate
-            (
-                _unlockMarking,
-                _unlockMarking.transform.localScale,
-                Vector3.zero,
-                () => _unlockMarking.SetActive(false)
-            );
         }
 
         private void LoadData()
@@ -96,7 +78,7 @@ namespace XaviGames.Interaction
             if (fenceDoorState == 1)
             {
                 IsUnlocked = true;
-                _unlockMarking.SetActive(false);
+                _unlockController.HideCanvas();
                 OnUnlocked?.Invoke();
             }
         }

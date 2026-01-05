@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using XaviGames.Animation;
 using XaviGames.Attributes;
@@ -24,29 +23,12 @@ namespace XaviGames.Interaction
         private Animator _animator;
 
         [SerializeField]
-        private GameObject _openFenceDoorMarking;
-
-        [SerializeField]
-        private ButtonHoldController _openFenceDoorController;
-
-        [SerializeField]
         private ButtonHoldAnimation _openFenceDoorAnimation;
 
         [SerializeField]
         private SpawnAnimation _openFenceSpawnAnimation;
 
         private static readonly int StateParameterHash = Animator.StringToHash("State");
-
-
-        private void OnEnable()
-        {
-            _fenceGateUnlockController.OnUnlocked += ShowOpenMarking;
-        }
-
-        private void OnDisable()
-        {
-            _fenceGateUnlockController.OnUnlocked -= ShowOpenMarking;
-        }
 
         public void TryOpen()
         {
@@ -61,20 +43,25 @@ namespace XaviGames.Interaction
                 return;
             }
 
-            _openFenceDoorAnimation.SuccessUnlocked();
+            _isOpen = true;
             SetState(FenceState.Opened);
         }
 
-        private void ShowOpenMarking()
+        public void TryClose()
         {
-            _openFenceDoorMarking.SetActive(true);
+            if (!_fenceGateUnlockController.IsUnlocked)
+            {
+                return;
+            }
 
-            _openFenceSpawnAnimation.Animate
-            (
-                _openFenceDoorMarking,
-                _openFenceDoorMarking.transform.localScale,
-                new Vector3(0.5f, 0.5f, 0.5f)
-            );
+            if (!_isOpen)
+            {
+                return;
+            }
+
+            Debug.Log("Closing Fence Gate");
+            _isOpen = false;
+            SetState(FenceState.Closed);
         }
 
         private void SetState(FenceState newState)
