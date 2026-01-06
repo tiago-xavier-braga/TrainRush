@@ -64,6 +64,7 @@ namespace XaviGames.Interaction
 
             _economyController.RemoveCoins(_price);
             _buttonHoldAnimation.SuccessUnlocked();
+            _unlockController.HideCanvas();
 
             IsUnlocked = true;
 

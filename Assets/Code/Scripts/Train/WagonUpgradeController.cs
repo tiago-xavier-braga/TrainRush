@@ -11,7 +11,7 @@ namespace XaviGames.Train
     public class WagonUpgradeController : MonoBehaviour
     {
         [field: SerializeField]
-        public float Capacity { get; set; }
+        public int Capacity { get; set; }
 
         [SerializeField]
         private WagonData _wagonData;
@@ -56,7 +56,7 @@ namespace XaviGames.Train
             CreateWagonModel();
         }
 
-        public void IncreaseCapacity(float amount)
+        public void IncreaseCapacity(int amount)
         {
             if (GameManager.Instance.GameState != GameState.Running)
             {

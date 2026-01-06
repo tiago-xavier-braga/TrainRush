@@ -36,6 +36,20 @@ namespace XaviGames.Interaction
             return null;
         }
 
+        public CharacterMovementController ReleaseCharacterPosition()
+        {
+            CharacterQueuePosition position = _characterQueuePositions.First();
+
+            if (!position.IsCharacterAtPosition())
+            {
+                return null;
+            }
+
+            CharacterMovementController characterMovement = position.CharacterMovementController;
+            position.ClearCharacter();
+            return characterMovement;
+        }
+
         private IEnumerator ProcessQueueLoop()
         {
             yield return new WaitForSeconds(1f);

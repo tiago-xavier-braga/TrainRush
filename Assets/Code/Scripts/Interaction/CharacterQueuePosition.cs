@@ -32,6 +32,11 @@ namespace XaviGames.Interaction
 
         public bool IsCharacterAtPosition()
         {
+            if (CharacterMovementController == null)
+            {
+                return false;
+            }
+
             float distance = Vector3.Distance
             (
                 CharacterMovementController.transform.position,

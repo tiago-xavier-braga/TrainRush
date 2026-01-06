@@ -14,8 +14,8 @@ namespace XaviGames.Train
         [Min(0f)]
         private float _timeToRestart;
 
-        [SerializeField]
-        private TrainState _trainState = TrainState.Idle;
+        [field: SerializeField]
+        public TrainState TrainState { get; private set; } = TrainState.Idle;
 
         [SerializeField]
         private TrainUpgradeController _trainUpgradeController;
@@ -59,7 +59,6 @@ namespace XaviGames.Train
         [ReadOnly]
         private Vector3 _endPos;
 
-        public UnityAction OnWaitingForSignal;
         public UnityAction OnMovementFinished;
 
         private void FixedUpdate()
@@ -75,14 +74,14 @@ namespace XaviGames.Train
 
         public void SetTrainState(TrainState trainState)
         {
-            _trainState = trainState;
+            TrainState = trainState;
         }
 
         [Button]
         public void Approaching()
         {
             SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
-            _trainState = TrainState.Approaching;
+            TrainState = TrainState.Approaching;
             _movementSoundEffect.Play();
             _movementSoundEffect.SetVolume(0f);
         }
@@ -92,7 +91,7 @@ namespace XaviGames.Train
         {
             _hornSoundEffect.Play();
             SetPositionCalculate(_stationTransform.position, _endTransform.position);
-            _trainState = TrainState.Departing;
+            TrainState = TrainState.Departing;
             _movementSoundEffect.Play();
             _movementSoundEffect.SetVolume(0f);
         }
@@ -100,13 +99,12 @@ namespace XaviGames.Train
         public void WaitingForSignal()
         {
             _hornSoundEffect.Play();
-            _trainState = TrainState.WaitingForSignal;
-            OnWaitingForSignal?.Invoke();
+            TrainState = TrainState.WaitingForSignal;
         }
 
         private IEnumerator FinalizeMovement()
         {
-            _trainState = TrainState.Idle;
+            TrainState = TrainState.Idle;
             yield return new WaitForSeconds(_timeToRestart);
             OnMovementFinished?.Invoke();
             Approaching();
@@ -126,7 +124,7 @@ namespace XaviGames.Train
 
         private void Move()
         {
-            if (_trainState == TrainState.Idle || _trainState == TrainState.WaitingForSignal)
+            if (TrainState == TrainState.Idle || TrainState == TrainState.WaitingForSignal)
             {
                 return;
             }
@@ -146,7 +144,7 @@ namespace XaviGames.Train
 
             _movementSoundEffect.Stop();
 
-            switch (_trainState)
+            switch (TrainState)
             {
                 case TrainState.Approaching:
                     WaitingForSignal();
