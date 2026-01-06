@@ -51,6 +51,12 @@ namespace XaviGames.Interaction
             }
 
             CharacterQueuePosition position = _characterQueuePositions.First();
+
+            if (!position.IsCharacterAtPosition())
+            {
+                return;
+            }
+
             CharacterMovementController characterMovement = position.CharacterMovementController;
             position.ClearCharacter();
             _groupBoardingQueueController.RedirectEmptyPosition(characterMovement);

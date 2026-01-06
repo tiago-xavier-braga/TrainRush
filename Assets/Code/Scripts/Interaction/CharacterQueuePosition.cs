@@ -12,6 +12,9 @@ namespace XaviGames.Interaction
         [field: ReadOnly]
         public CharacterMovementController CharacterMovementController { get; private set; }
 
+        [SerializeField]
+        private float _positionTolerance = 0.1f;
+
         [Header("Debug")]
         [SerializeField]
         private float _gizmoSize = 0.5f;
@@ -25,6 +28,17 @@ namespace XaviGames.Interaction
         {
             Gizmos.color = Color.cyan;
             Gizmos.DrawSphere(transform.position, _gizmoSize);
+        }
+
+        public bool IsCharacterAtPosition()
+        {
+            float distance = Vector3.Distance
+            (
+                CharacterMovementController.transform.position,
+                transform.position
+            );
+
+            return distance < _positionTolerance;
         }
 
         public void SetCharacter(CharacterMovementController characterMovementController)
