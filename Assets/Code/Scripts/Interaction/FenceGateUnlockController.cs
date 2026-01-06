@@ -44,9 +44,14 @@ namespace XaviGames.Interaction
 
         private void Update()
         {
+            if (IsUnlocked)
+            {
+                return;
+            }
+
             bool canAfford = _playerCoinsModel.Value >= _price;
 
-            _buttonHoldAnimation.EnableAnimation(canAfford);
+            _buttonHoldAnimation.SetAnimationEnabled(canAfford);
         }
 
         public void TryUnlock()
@@ -80,6 +85,7 @@ namespace XaviGames.Interaction
             {
                 IsUnlocked = true;
                 _unlockController.HideCanvas();
+                _buttonHoldAnimation.SetAnimationEnabled(true);
                 OnUnlocked?.Invoke();
             }
         }

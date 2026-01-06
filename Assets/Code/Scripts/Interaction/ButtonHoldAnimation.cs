@@ -94,7 +94,7 @@ namespace XaviGames.Interaction
             }
         }
 
-        public void EnableAnimation(bool enable)
+        public void SetAnimationEnabled(bool enable)
         {
             _isAnimationEnabled = enable;
         }
