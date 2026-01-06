@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &587383086223433733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3296578823307078593}
+  m_Layer: 0
+  m_Name: Group Wagons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3296578823307078593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587383086223433733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8235496020717321573}
+  - {fileID: 2566018290615735341}
+  - {fileID: 5481175839781563768}
+  - {fileID: 3411087610269260737}
+  m_Father: {fileID: 1985113657431587764}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &678467683646230229
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +213,6 @@ MonoBehaviour:
   _volume: 1
   _minPitch: 1
   _maxPitch: 1.5
-  _isLoop: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
 --- !u!1 &5884348660686793158
@@ -214,10 +248,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2633047661222040338}
-  - {fileID: 8235496020717321573}
-  - {fileID: 2566018290615735341}
-  - {fileID: 5481175839781563768}
-  - {fileID: 3411087610269260737}
+  - {fileID: 3296578823307078593}
   - {fileID: 4339040482379022393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 0
-  _firstSpeed: 10
   _trainData: {fileID: 11400000, guid: f6337710b11687a4a88e1641e3c8d0ad, type: 2}
   _modelTransform: {fileID: 2633047661222040338}
   _spawnAnimation: {fileID: 9031441572916227501}
@@ -247,8 +277,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3dd70a2e4ecd674699b6ed0c6c2374f, type: 2}
   - {fileID: 11400000, guid: 4c076a5ef7e9c68499bd3a0ba09e1f9c, type: 2}
   - {fileID: 11400000, guid: 10f811b16dd0ba2479a9f77bf67ee123, type: 2}
-  _trainOrderSaveModel: {fileID: 0}
-  _speedTrainSaveModel: {fileID: 0}
+  _trainOrderSaveModel: {fileID: 11400000, guid: ee857fbb4016c9944b0b4c015947f802, type: 2}
+  _speedTrainSaveModel: {fileID: 11400000, guid: a131fbe4152f57a4181bcb3b9da5da30, type: 2}
+  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
 --- !u!114 &1671116738649331544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToRestart: 10
-  _trainState: 0
+  <TrainState>k__BackingField: 0
   _trainUpgradeController: {fileID: 1148674032805181139}
   _spawnTransform: {fileID: 0}
   _stationTransform: {fileID: 0}
@@ -493,7 +524,6 @@ MonoBehaviour:
   _volume: 1
   _minPitch: 1
   _maxPitch: 1
-  _isLoop: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
 --- !u!1 &7591033769450832104
@@ -643,7 +673,6 @@ MonoBehaviour:
   _volume: 0.25
   _minPitch: 1
   _maxPitch: 1
-  _isLoop: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
 --- !u!1001 &1879439722443564610
@@ -652,12 +681,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1985113657431587764}
+    m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: _trainMovementController
+      value: 
+      objectReference: {fileID: 1671116738649331544}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -676,15 +709,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -718,12 +751,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1985113657431587764}
+    m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: _trainMovementController
+      value: 
+      objectReference: {fileID: 1671116738649331544}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -742,15 +779,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -784,12 +821,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1985113657431587764}
+    m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: _trainMovementController
+      value: 
+      objectReference: {fileID: 1671116738649331544}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -808,15 +849,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -850,12 +891,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1985113657431587764}
+    m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: _trainMovementController
+      value: 
+      objectReference: {fileID: 1671116738649331544}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -874,15 +919,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

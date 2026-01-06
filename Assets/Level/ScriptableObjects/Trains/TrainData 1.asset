@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TrainOrder>k__BackingField: 1
   <TrainPrefab>k__BackingField: {fileID: 5930897631468614393, guid: 3f6688d58b1b4084c9b8e5ef3a647e69, type: 3}
-  <MaxUpdateSpeed>k__BackingField: 10
+  <MaxUpdateSpeed>k__BackingField: 5

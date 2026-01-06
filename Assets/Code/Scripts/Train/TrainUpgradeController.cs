@@ -14,9 +14,6 @@ namespace XaviGames.Train
         public int Speed { get; private set; }
 
         [SerializeField]
-        private int _firstSpeed;
-
-        [SerializeField]
         private TrainData _trainData;
 
         [SerializeField]
@@ -78,8 +75,6 @@ namespace XaviGames.Train
             }
 
             Speed = _speedTrainSaveModel.Value;
-
-            Speed = Speed > _firstSpeed ? Speed : _firstSpeed;
         }
 
         private void SaveData()

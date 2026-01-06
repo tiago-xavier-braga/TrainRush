@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c0c158c34867943baae25a104172ee, type: 3}
-  m_Name: TrainData 3
+  m_Script: {fileID: 11500000, guid: e5e96cf0e32acc948a58dec5c6911b84, type: 3}
+  m_Name: CapacityWagonsRight
   m_EditorClassIdentifier: 
-  <TrainOrder>k__BackingField: 3
-  <TrainPrefab>k__BackingField: {fileID: 6415318528855039833, guid: ad54c34b89962fd408d39b68b4ed0c12, type: 3}
-  <MaxUpdateSpeed>k__BackingField: 15
+  <Key>k__BackingField: CapacityWagonsRight
+  <Value>k__BackingField: 16
+  <DefaultValue>k__BackingField: 8
