@@ -3,6 +3,7 @@ using XaviGames.Attributes;
 
 namespace XaviGames.SaveSystem
 {
+    [ExecuteInEditMode]
     public class DataControllerBehaviour : MonoBehaviour
     {
 #if UNITY_EDITOR
