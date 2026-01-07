@@ -2,13 +2,13 @@ using System.Collections;
 using UnityEngine;
 using XaviGames.Audio;
 
-namespace XaviGames.Interaction
+namespace XaviGames.PressurePlate
 {
-    public class ButtonHoldAnimation : MonoBehaviour
+    public class PressurePlateAnimation : MonoBehaviour
     {
         [Header("References")]
         [SerializeField]
-        private ButtonHoldController _controller;
+        private PressurePlateController _controller;
 
         [Header("Animation")]
         [SerializeField]

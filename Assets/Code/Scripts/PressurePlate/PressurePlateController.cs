@@ -4,9 +4,9 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using XaviGames.Attributes;
 
-namespace XaviGames.Interaction
+namespace XaviGames.PressurePlate
 {
-    public class ButtonHoldController : MonoBehaviour
+    public class PressurePlateController : MonoBehaviour
     {
         [Header("Logic Parameters")]
         [SerializeField]

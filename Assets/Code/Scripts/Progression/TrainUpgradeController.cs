@@ -5,8 +5,9 @@ using XaviGames.Attributes;
 using XaviGames.Audio;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
+using XaviGames.Train;
 
-namespace XaviGames.Train
+namespace XaviGames.Progression
 {
     public class TrainUpgradeController : MonoBehaviour
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using XaviGames.Attributes;
 using XaviGames.Characters;
+using XaviGames.Progression;
 using XaviGames.Train;
 
 namespace XaviGames.Interaction

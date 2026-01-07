@@ -1,5 +1,6 @@
 using UnityEngine;
 using XaviGames.Attributes;
+using XaviGames.PressurePlate;
 
 namespace XaviGames.Interaction
 {
@@ -20,7 +21,7 @@ namespace XaviGames.Interaction
         private Animator _animator;
 
         [SerializeField]
-        private ButtonHoldAnimation _buttonHoldAnimation;
+        private PressurePlateAnimation _buttonHoldAnimation;
 
         private static readonly int StateParameterHash = Animator.StringToHash("State");
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using XaviGames.Animation;
+using XaviGames.PressurePlate;
 using XaviGames.EconomySystem;
 using XaviGames.SaveSystem;
 
@@ -15,10 +15,10 @@ namespace XaviGames.Interaction
         private int _price;
 
         [SerializeField]
-        private ButtonHoldController _unlockController;
+        private PressurePlateController _unlockController;
 
         [SerializeField]
-        private ButtonHoldAnimation _buttonHoldAnimation;
+        private PressurePlateAnimation _buttonHoldAnimation;
 
         [Header("Economy References")]
         [SerializeField]

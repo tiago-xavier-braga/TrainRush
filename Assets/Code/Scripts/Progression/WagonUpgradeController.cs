@@ -4,9 +4,10 @@ using XaviGames.Animation;
 using XaviGames.Attributes;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
+using XaviGames.Train;
 using AudioSettings = XaviGames.Audio.AudioSettings;
 
-namespace XaviGames.Train
+namespace XaviGames.Progression
 {
     public class WagonUpgradeController : MonoBehaviour
     {

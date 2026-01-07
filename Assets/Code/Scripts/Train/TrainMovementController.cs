@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using XaviGames.Attributes;
 using XaviGames.Audio;
 using XaviGames.Managers;
+using XaviGames.Progression;
 
 namespace XaviGames.Train
 {
