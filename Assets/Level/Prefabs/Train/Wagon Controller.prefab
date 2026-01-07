@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Capacity>k__BackingField: 10
+  <Capacity>k__BackingField: 0
   _wagonData: {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
   _modelTransform: {fileID: 903152326501834326}
   _allWagonData:

@@ -68,6 +68,12 @@ namespace XaviGames.Progression
             VerifyWagonUpgrade();
         }
 
+        public void SetCapacity(int capacity)
+        {
+            Capacity = capacity;
+            VerifyWagonUpgrade();
+        }
+
         private void LoadData()
         {
             int wagonOrder = 0;

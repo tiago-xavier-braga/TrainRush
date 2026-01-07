@@ -25,6 +25,16 @@ namespace XaviGames.Interaction
         [ReadOnly]
         private int _currentBoardedPassengers = 0;
 
+        private void OnEnable()
+        {
+            _trainMovementController.OnMovementFinished += HandleTrainMovementFinished;
+        }
+
+        private void OnDisable()
+        {
+            _trainMovementController.OnMovementFinished -= HandleTrainMovementFinished;
+        }
+
         private void Update()
         {
             if (_trainMovementController.TrainState != TrainState.WaitingForSignal)
@@ -46,6 +56,11 @@ namespace XaviGames.Interaction
                 _characterSpawnController.DisableCharacter(characterMovement.gameObject);
                 _currentBoardedPassengers++;
             }
+        }
+
+        private void HandleTrainMovementFinished()
+        {
+            _currentBoardedPassengers = 0;
         }
     }
 }

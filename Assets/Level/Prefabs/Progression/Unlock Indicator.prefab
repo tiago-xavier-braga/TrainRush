@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCollider: {fileID: 0}
-  _timeToHold: 0
+  _timeToHold: 2
   _canvasGroup: {fileID: 93143634710872373}
   _iconImage: {fileID: 4580900868486526538}
   _textMeshPro: {fileID: 6409098001667739480}
