@@ -60,7 +60,8 @@ namespace XaviGames.Train
         [ReadOnly]
         private Vector3 _endPos;
 
-        public UnityAction OnMovementFinished;
+        public UnityAction OnTrainDeparted;
+        public UnityAction OnRouteCompleted;
 
         private void FixedUpdate()
         {
@@ -95,6 +96,7 @@ namespace XaviGames.Train
             TrainState = TrainState.Departing;
             _movementSoundEffect.Play();
             _movementSoundEffect.SetVolume(0f);
+            OnTrainDeparted?.Invoke();
         }
 
         public void WaitingForSignal()
@@ -107,7 +109,7 @@ namespace XaviGames.Train
         {
             TrainState = TrainState.Idle;
             yield return new WaitForSeconds(_timeToRestart);
-            OnMovementFinished?.Invoke();
+            OnRouteCompleted?.Invoke();
             Approaching();
         }
 

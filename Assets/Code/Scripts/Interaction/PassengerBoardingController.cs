@@ -21,18 +21,18 @@ namespace XaviGames.Interaction
         private CharacterSpawnController _characterSpawnController;
 
         [Header("Debug")]
-        [SerializeField]
-        [ReadOnly]
-        private int _currentBoardedPassengers = 0;
+        [field: SerializeField]
+        [field: ReadOnly]
+        public int CurrentBoardedPassengers { get; private set; } = 0;
 
         private void OnEnable()
         {
-            _trainMovementController.OnMovementFinished += HandleTrainMovementFinished;
+            _trainMovementController.OnRouteCompleted += HandleTrainMovementFinished;
         }
 
         private void OnDisable()
         {
-            _trainMovementController.OnMovementFinished -= HandleTrainMovementFinished;
+            _trainMovementController.OnRouteCompleted -= HandleTrainMovementFinished;
         }
 
         private void Update()
@@ -42,7 +42,7 @@ namespace XaviGames.Interaction
                 return;
             }
 
-            int availableSeats = _wagonUpgradeController.Capacity - _currentBoardedPassengers;
+            int availableSeats = _wagonUpgradeController.Capacity - CurrentBoardedPassengers;
 
             if (availableSeats <= 0)
             {
@@ -54,13 +54,13 @@ namespace XaviGames.Interaction
             if (characterMovement != null)
             {
                 _characterSpawnController.DisableCharacter(characterMovement.gameObject);
-                _currentBoardedPassengers++;
+                CurrentBoardedPassengers++;
             }
         }
 
         private void HandleTrainMovementFinished()
         {
-            _currentBoardedPassengers = 0;
+            CurrentBoardedPassengers = 0;
         }
     }
 }
