@@ -65,11 +65,6 @@ namespace XaviGames.Train
 
         private void FixedUpdate()
         {
-            if (GameManager.Instance.GameState != GameState.Running)
-            {
-                return;
-            }
-
             Move();
         }
 
@@ -127,6 +122,16 @@ namespace XaviGames.Train
 
         private void Move()
         {
+            if (GameManager.Instance.GameState != GameState.Running)
+            {
+                _movementSoundEffect.Pause();
+                return;
+            }
+            else
+            {
+                _movementSoundEffect.Resume();
+            }
+
             if (TrainState == TrainState.Idle || TrainState == TrainState.WaitingForSignal)
             {
                 return;

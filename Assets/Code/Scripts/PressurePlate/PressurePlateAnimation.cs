@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using XaviGames.Audio;
+using XaviGames.Managers;
 
 namespace XaviGames.PressurePlate
 {
@@ -78,6 +79,11 @@ namespace XaviGames.PressurePlate
 
         private void Update()
         {
+            if (GameManager.Instance.GameState != GameState.Running)
+            {
+                return;
+            }
+
             if (_controller.IsPlayerColliding)
             {
                 IdleAnimation();

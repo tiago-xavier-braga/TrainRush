@@ -1,4 +1,5 @@
 using UnityEngine;
+using XaviGames.Managers;
 using XaviGames.ObjectVariables;
 
 namespace XaviGames.Characters
@@ -32,6 +33,11 @@ namespace XaviGames.Characters
 
         private void FixedUpdate()
         {
+            if (GameManager.Instance.GameState != GameState.Running)
+            {
+                return;
+            }
+
             if (_destination == null)
             {
                 return;

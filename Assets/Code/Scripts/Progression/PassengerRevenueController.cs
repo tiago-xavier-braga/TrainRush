@@ -42,6 +42,12 @@ namespace XaviGames.Progression
         public void GrantCoins()
         { 
             int reward = CalculateReward();
+
+            if (reward == 0)
+            {
+                return;
+            }
+
             _cameraFacingTextAnimation.SetText($"+{reward}");
             _cameraFacingTextAnimation.Enable();
             _coinSoundEffect.PlayOneShort();

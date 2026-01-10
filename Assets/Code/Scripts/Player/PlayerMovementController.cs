@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using XaviGames.Attributes;
 using XaviGames.Characters;
+using XaviGames.Managers;
 using XaviGames.SaveSystem;
 
 namespace XaviGames.Player
@@ -46,6 +47,11 @@ namespace XaviGames.Player
 
         private void FixedUpdate()
         {
+            if (GameManager.Instance.GameState != GameState.Running)
+            {
+                return;
+            }
+
             Vector3 moveInput = new Vector3(_movementInput.x, 0f, _movementInput.y);
 
             moveInput *= _movementSpeedModel.Value * Time.fixedDeltaTime;
