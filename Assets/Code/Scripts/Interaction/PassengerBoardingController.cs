@@ -20,6 +20,9 @@ namespace XaviGames.Interaction
         [SerializeField]
         private CharacterSpawnController _characterSpawnController;
 
+        [SerializeField]
+        private PassengerBoardingAnimation _passengerBoardingAnimation;
+
         [Header("Debug")]
         [field: SerializeField]
         [field: ReadOnly]
@@ -55,12 +58,14 @@ namespace XaviGames.Interaction
             {
                 _characterSpawnController.DisableCharacter(characterMovement.gameObject);
                 CurrentBoardedPassengers++;
+                _passengerBoardingAnimation.OnPassengersBoarded(CurrentBoardedPassengers);
             }
         }
 
         private void HandleTrainMovementFinished()
         {
             CurrentBoardedPassengers = 0;
+            _passengerBoardingAnimation.OnPassengersBoarded(CurrentBoardedPassengers);
         }
     }
 }
