@@ -154,6 +154,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1622800697}
     m_Modifications:
+    - target: {fileID: 553666728529937504, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _cameraTransform
+      value: 
+      objectReference: {fileID: 330585546}
     - target: {fileID: 708666382297732342, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
@@ -230,6 +234,10 @@ PrefabInstance:
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 11400000, guid: 374a6c2562ddb544d8f2f6bee124264b, type: 2}
+    - target: {fileID: 4176054466185221245, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _cameraTransform
+      value: 
+      objectReference: {fileID: 330585546}
     - target: {fileID: 4969287319071273483, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _boardingQueueController
       value: 
@@ -250,10 +258,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Train Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 7271227134474793689, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _cameraTransform
+      value: 
+      objectReference: {fileID: 330585546}
     - target: {fileID: 7374899721731730851, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 11400000, guid: bfa81eab63c99054a8010de2b03995b9, type: 2}
+    - target: {fileID: 7503661755295776053, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _cameraTransform
+      value: 
+      objectReference: {fileID: 330585546}
     - target: {fileID: 7679237873965064783, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
