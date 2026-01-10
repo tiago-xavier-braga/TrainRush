@@ -31,6 +31,13 @@ namespace XaviGames.Audio
         [ReadOnly]
         private bool _isPlaying = false;
 
+        [SerializeField]
+        [ReadOnly]
+        private bool _isPaused = false;
+
+        private Coroutine _audioCoroutine = null;
+
+        [Button(true)]
         public void Play()
         {
             if (_isPlaying)
@@ -43,9 +50,10 @@ namespace XaviGames.Audio
             _audioSource.Play();
             _isPlaying = true;
 
-            StartCoroutine(AwaitAudioFinish());
+            _audioCoroutine = StartCoroutine(AwaitAudioFinish());
         }
 
+        [Button(true)]
         public void PlayOneShort()
         {
             _audioSource.PlayOneShot(_clip, _volume * _audioSettings.MasterVolume);
@@ -61,18 +69,61 @@ namespace XaviGames.Audio
         public void SetPitch(float pitch)
         {
             pitch = Mathf.Clamp01(pitch);
-            _audioSource.pitch = Mathf.InverseLerp(_minPitch, _maxPitch, pitch);
+            _audioSource.pitch = Mathf.Lerp(_minPitch, _maxPitch, pitch);
         }
 
+        [Button(true)]
+        public void Resume()
+        {
+            if (!_isPaused)
+            {
+                return;
+            }
+
+            _audioSource.UnPause();
+            _isPaused = false;
+            _isPlaying = true;
+        }
+
+        [Button(true)]
+        public void Pause()
+        {
+            if (_isPaused || !_isPlaying)
+            {
+                return;
+            }
+
+            _audioSource.Pause();
+            _isPaused = true;
+        }
+
+        [Button(true)]
         public void Stop()
         {
             _audioSource.Stop();
             _isPlaying = false;
+
+            if (_audioCoroutine != null)
+            {
+                StopCoroutine(_audioCoroutine);
+                _audioCoroutine = null;
+            }
+        }
+
+        public bool IsPlaying()
+        {
+            return _isPlaying;
         }
 
         private IEnumerator AwaitAudioFinish()
         {
-            yield return new WaitForSeconds(_clip.length + 1);
+            yield return null;
+
+            while (_audioSource.isPlaying)
+            {
+                yield return null;
+            }
+
             _isPlaying = false;
         }
     }
