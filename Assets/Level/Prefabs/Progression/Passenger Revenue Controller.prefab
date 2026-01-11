@@ -254,21 +254,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8389564904862270765, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
-      propertyPath: _easeType
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 8985556490080190528, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
       propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8985556490080190528, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8985556490080190528, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
-      propertyPath: m_BlocksRaycasts
-      value: 0
+      value: 0.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
