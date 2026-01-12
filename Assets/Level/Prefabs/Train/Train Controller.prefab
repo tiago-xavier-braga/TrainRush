@@ -215,6 +215,7 @@ MonoBehaviour:
   _maxPitch: 1.5
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1 &5884348660686793158
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +225,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1985113657431587764}
-  - component: {fileID: 1148674032805181139}
   - component: {fileID: 1671116738649331544}
   - component: {fileID: 9031441572916227501}
   m_Layer: 0
@@ -252,34 +252,6 @@ Transform:
   - {fileID: 4339040482379022393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1148674032805181139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5884348660686793158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323c29ff3aeaaaf43978783bfe92ecc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 0
-  _trainData: {fileID: 11400000, guid: f6337710b11687a4a88e1641e3c8d0ad, type: 2}
-  _modelTransform: {fileID: 2633047661222040338}
-  _spawnAnimation: {fileID: 9031441572916227501}
-  _soundEffect: {fileID: 5195310470874674473}
-  _allTrainData:
-  - {fileID: 11400000, guid: f6337710b11687a4a88e1641e3c8d0ad, type: 2}
-  - {fileID: 11400000, guid: b8901d45c768f39498cd8cce65f6bdf2, type: 2}
-  - {fileID: 11400000, guid: d4c869e1d342cb248b97059d4359e4e2, type: 2}
-  - {fileID: 11400000, guid: 1ea3ead1842b31749b2b5ce9c605c994, type: 2}
-  - {fileID: 11400000, guid: b3dd70a2e4ecd674699b6ed0c6c2374f, type: 2}
-  - {fileID: 11400000, guid: 4c076a5ef7e9c68499bd3a0ba09e1f9c, type: 2}
-  - {fileID: 11400000, guid: 10f811b16dd0ba2479a9f77bf67ee123, type: 2}
-  _trainOrderSaveModel: {fileID: 11400000, guid: ee857fbb4016c9944b0b4c015947f802, type: 2}
-  _speedTrainSaveModel: {fileID: 11400000, guid: a131fbe4152f57a4181bcb3b9da5da30, type: 2}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
 --- !u!114 &1671116738649331544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,9 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToRestart: 10
+  _speed: 10
   <TrainState>k__BackingField: 0
-  _trainUpgradeController: {fileID: 1148674032805181139}
+  _trainUpgradeController: {fileID: 0}
   _spawnTransform: {fileID: 0}
   _stationTransform: {fileID: 0}
   _endTransform: {fileID: 0}
@@ -526,6 +498,7 @@ MonoBehaviour:
   _maxPitch: 1
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1 &7591033769450832104
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +648,7 @@ MonoBehaviour:
   _maxPitch: 1
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1001 &1879439722443564610
 PrefabInstance:
   m_ObjectHideFlags: 0

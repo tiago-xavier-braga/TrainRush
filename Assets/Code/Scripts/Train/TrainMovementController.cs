@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using XaviGames.Attributes;
 using XaviGames.Audio;
@@ -12,8 +11,7 @@ namespace XaviGames.Train
     {
         [Header("Scripts References")]
         [SerializeField]
-        [Min(0f)]
-        private float _timeToRestart;
+        private float _speed;
 
         [field: SerializeField]
         public TrainState TrainState { get; private set; } = TrainState.Idle;
@@ -68,21 +66,6 @@ namespace XaviGames.Train
             Move();
         }
 
-
-        public void SetTrainState(TrainState trainState)
-        {
-            TrainState = trainState;
-        }
-
-        [Button]
-        public void Approaching()
-        {
-            SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
-            TrainState = TrainState.Approaching;
-            _movementSoundEffect.Play();
-            _movementSoundEffect.SetVolume(0f);
-        }
-
         [Button]
         public void Departing()
         {
@@ -94,24 +77,31 @@ namespace XaviGames.Train
             OnTrainDeparted?.Invoke();
         }
 
-        public void WaitingForSignal()
+        [Button]
+        public void Approaching()
+        {
+            SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
+            TrainState = TrainState.Approaching;
+            _movementSoundEffect.Play();
+            _movementSoundEffect.SetVolume(0f);
+        }
+
+        private void WaitingForSignal()
         {
             _hornSoundEffect.Play();
             TrainState = TrainState.WaitingForSignal;
         }
 
-        private IEnumerator FinalizeMovement()
+        private void FinalizeMovement()
         {
             TrainState = TrainState.Idle;
-            yield return new WaitForSeconds(_timeToRestart);
             OnRouteCompleted?.Invoke();
-            Approaching();
         }
 
         private void SetPositionCalculate(Vector3 startPosition, Vector3 endPosition)
         {
             _distance = Mathf.Abs(endPosition.z - startPosition.z);
-            _approachDuration = _distance / _trainUpgradeController.Speed;
+            _approachDuration = _distance / _speed;
 
             _cumulativeTime = 0;
             _startPos = startPosition;
@@ -158,7 +148,7 @@ namespace XaviGames.Train
                     WaitingForSignal();
                     break;
                 case TrainState.Departing:
-                    StartCoroutine(FinalizeMovement());
+                    FinalizeMovement();
                     break;
             }
         }

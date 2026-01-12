@@ -3,7 +3,7 @@ using UnityEngine;
 using XaviGames.Animation;
 using XaviGames.Attributes;
 using XaviGames.Audio;
-using XaviGames.Managers;
+using XaviGames.ObjectVariables;
 using XaviGames.SaveSystem;
 using XaviGames.Train;
 
@@ -11,11 +11,11 @@ namespace XaviGames.Progression
 {
     public class TrainUpgradeController : MonoBehaviour
     {
-        [field: SerializeField]
-        public int Speed { get; private set; }
-
         [SerializeField]
         private TrainData _trainData;
+
+        [SerializeField]
+        private FloatVariable _speedRespawnValue = null;
 
         [SerializeField]
         private Transform _modelTransform;
@@ -35,7 +35,7 @@ namespace XaviGames.Progression
         private IntModel _trainOrderSaveModel = null;
 
         [SerializeField]
-        private IntModel _speedTrainSaveModel = null;
+        private IntModel _tierSpeedRespawnRight = null;
 
         [SerializeField]
         private DataController _dataController;
@@ -43,20 +43,25 @@ namespace XaviGames.Progression
         private GameObject _currentTrainModel;
         private bool _isFirstSpawn = true;
 
+        private void OnEnable()
+        {
+            _tierSpeedRespawnRight.OnValueChanged += OnSpeedRespawnChanged;
+        }
+
+        private void OnDisable()
+        {
+            _tierSpeedRespawnRight.OnValueChanged -= OnSpeedRespawnChanged;
+        }
+
         private void Start()
         {
             LoadData();
             CreateTrainModel();
         }
 
-        public void IncreaseSpeed(int amount)
-        {
-            if (GameManager.Instance.GameState != GameState.Running)
-            {
-                return;
-            }
 
-            Speed += amount;
+        public void OnSpeedRespawnChanged(int value)
+        {
             VerifyTrainUpgrade();
             SaveData();
         }
@@ -74,27 +79,17 @@ namespace XaviGames.Progression
                 Debug.LogWarning($"No TrainData found for order {trainOrder}. Using the first in the list.");
                 _trainData = _allTrainData[0];
             }
-
-            Speed = _speedTrainSaveModel.Value;
         }
 
         private void SaveData()
         {
-            if (_trainData == null)
-            {
-                return;
-            }
-
             _trainOrderSaveModel.SetValue(_trainData.TrainOrder);
-            _speedTrainSaveModel.SetValue(Speed);
-
             _dataController.SaveModel(_trainOrderSaveModel);
-            _dataController.SaveModel(_speedTrainSaveModel);
         }
 
         private void VerifyTrainUpgrade()
         {
-            if (Speed < _trainData.MaxUpdateSpeed)
+            if (_speedRespawnValue.Value > _trainData.MaxUpdateSpeed)
             {
                 return;
             }
