@@ -4,6 +4,7 @@ using XaviGames.Characters;
 using XaviGames.Events;
 using XaviGames.Interaction;
 using XaviGames.Managers;
+using XaviGames.SaveSystem;
 using XaviGames.Train;
 
 namespace XaviGames.Wagon
@@ -18,9 +19,6 @@ namespace XaviGames.Wagon
         private WagonController _wagonController;
 
         [SerializeField]
-        private WagonUpgradeController _wagonUpgradeController;
-
-        [SerializeField]
         private BoardingQueueController _boardingQueueController;
 
         [SerializeField]
@@ -31,6 +29,13 @@ namespace XaviGames.Wagon
 
         [SerializeField]
         private VoidEventChannel _routeCompletedEventChannel;
+
+        [Header("Save System")]
+        [SerializeField]
+        private IntModel _capacityModel;
+
+        [SerializeField]
+        private DataController _dataController;
 
         [Header("Debug")]
         [field: SerializeField]
@@ -51,18 +56,20 @@ namespace XaviGames.Wagon
             _routeCompletedEventChannel.Unsubscribe(HandleTrainMovementFinished);
         }
 
-        public void IncreaseCapacity(int amount)
+        private void Start()
+        {
+            LoadData();
+        }
+
+        public void SetCapacity(int value)
         {
             if (GameManager.Instance.GameState != GameState.Running)
             {
                 return;
             }
 
-            if (!_wagonController.IsUnlocked)
-            {
-                return;
-            }
-            Capacity += amount;
+            Capacity += value;
+            SaveData();
         }
 
         private void Update()
@@ -90,6 +97,17 @@ namespace XaviGames.Wagon
             //}
         }
 
+        private void LoadData()
+        {
+            Capacity = _capacityModel.Value;
+        }
+
+        private void SaveData()
+        {
+            _capacityModel.SetValue(Capacity);
+            _dataController.SaveModel(_capacityModel);
+        }
+
         private void HandleTrainMovementFinished()
         {
             CurrentBoardedPassengers = 0;
@@ -103,18 +121,5 @@ namespace XaviGames.Wagon
                 _currentTrainState = trainState;
             }
         }
-
-
-        //TODO: Refactor wagon upgrade verification
-        //private void VerifyWagonUpgrade()
-        //{
-        //    foreach (var threshold in _wagonController.WagonData.CapacityThresholds)
-        //    {
-        //        if (Capacity >= threshold)
-        //        {
-        //            _wagonController.UpgradeWagon();
-        //        }
-        //    }
-        //}
     }
 }

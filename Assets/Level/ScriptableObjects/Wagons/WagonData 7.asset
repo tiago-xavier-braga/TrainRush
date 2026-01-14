@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f59021a10155f49aee9cdd0bc92b27, type: 3}
   m_Name: WagonData 7
   m_EditorClassIdentifier: 
-  <WagonOrder>k__BackingField: 7
-  <WagonPrefab>k__BackingField: {fileID: 6293474313301303144, guid: 98302899980c0b346921b811167bc18f, type: 3}
-  <MaxUpdateCapacity>k__BackingField: 35
+  <WagonOrder>k__BackingField: 8
+  <WagonPrefab>k__BackingField: {fileID: 3305761151240224596, guid: cc0cb1cdae8c94543a60df8bb293c1a7, type: 3}
+  <MaxUpdateCapacity>k__BackingField: 40

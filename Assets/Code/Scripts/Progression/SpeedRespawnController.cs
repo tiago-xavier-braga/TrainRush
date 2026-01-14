@@ -39,7 +39,7 @@ namespace XaviGames.Progression
         private IntModel _playerCoinsModel;
         
         [SerializeField]
-        private IntModel _tierSpeedRespawnSaveModel = null;
+        private IntModel _tierSpeedRespawnModel = null;
 
         [SerializeField]
         private DataController _dataController = null;
@@ -61,7 +61,7 @@ namespace XaviGames.Progression
             _baseSpeedRespawn = _speedRespawnVariable.Value;
             UpgradePrice();
             UpdatePlateAnimation(_playerCoinsModel.Value);
-            SetSpeedRespawn(_tierSpeedRespawnSaveModel.Value);
+            SetSpeedRespawn(_tierSpeedRespawnModel.Value);
         }
 
         public void TryUpgradeSpeedRespawn()
@@ -76,8 +76,8 @@ namespace XaviGames.Progression
             {
                 _economyController.RemoveCoins(_price);
 
-                int newTier = _tierSpeedRespawnSaveModel.Value + 1;
-                _tierSpeedRespawnSaveModel.SetValue(newTier);
+                int newTier = _tierSpeedRespawnModel.Value + 1;
+                _tierSpeedRespawnModel.SetValue(newTier);
 
                 SetSpeedRespawn(newTier);
                 SaveData();
@@ -93,7 +93,7 @@ namespace XaviGames.Progression
 
         private bool IsMaxLevel()
         {
-            float nextSpeed = _baseSpeedRespawn - (_reducedPerUpgrade * (_tierSpeedRespawnSaveModel.Value + 1));
+            float nextSpeed = _baseSpeedRespawn - (_reducedPerUpgrade * (_tierSpeedRespawnModel.Value + 1));
             return nextSpeed <= _minSpeedRespawn;
         }
 
@@ -106,7 +106,7 @@ namespace XaviGames.Progression
 
         private void SaveData() 
         {
-            _dataController.SaveModel(_tierSpeedRespawnSaveModel);
+            _dataController.SaveModel(_tierSpeedRespawnModel);
         }
 
         private void UpgradePrice()
@@ -117,7 +117,7 @@ namespace XaviGames.Progression
 
         private int GetPrice()
         {
-            float baseCost = 35f * Mathf.Pow(_tierSpeedRespawnSaveModel.Value, 2.4f);
+            float baseCost = 35f * Mathf.Pow(_tierSpeedRespawnModel.Value + 1, 2.4f);
             return Mathf.RoundToInt(baseCost / 50f) * 50;
         }
 

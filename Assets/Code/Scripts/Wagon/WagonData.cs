@@ -12,6 +12,9 @@ namespace XaviGames.Wagon
         public GameObject WagonPrefab { get; private set; }
 
         [field: SerializeField]
-        public int CapacityThresholds { get; private set; }
+        public int MinCapacity { get; private set; }
+
+        [field: SerializeField]
+        public int MaxCapacity { get; private set; }
     }
 }

@@ -388,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trainMovementController: {fileID: 1553470819}
   _speedRespawnValue: {fileID: 11400000, guid: 03b2d797124b74347acffb10991970b6, type: 2}
+  _routeCompletedEventChannel: {fileID: 11400000, guid: d36700e1f0d394646a2279cf757aa187, type: 2}
 --- !u!1 &238344523
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,25 +951,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Capacity>k__BackingField: 0
-  _wagonData: {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
+  _wagonData: {fileID: 0}
+  _availableWagons: []
   _modelTransform: {fileID: 809324848}
-  _allWagonData:
-  - {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
-  - {fileID: 11400000, guid: 276a674a1d7c0d149a00508b56521cb4, type: 2}
-  - {fileID: 11400000, guid: c7963eed286ff5f4c902078916490e37, type: 2}
-  - {fileID: 11400000, guid: dc48c6d25a54d7647bf4381eb3772f97, type: 2}
-  - {fileID: 11400000, guid: fc5aef6dcc9a4444fbbcf5244c3ba2d4, type: 2}
-  - {fileID: 11400000, guid: 1394d628a4f586749b25c1a7ef931001, type: 2}
-  - {fileID: 11400000, guid: 77196ef79772e3c4e838e8a2ca1fb866, type: 2}
-  - {fileID: 11400000, guid: db411f0874ddc494db164804460edbac, type: 2}
+  _onWagonUnlockedEvent: {fileID: 0}
   _spawnAnimation: {fileID: 1485150170}
-  _wagonOrderSaveModel: {fileID: 11400000, guid: eba8f4137e4068e4f8e6a322fb5a609f, type: 2}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 489959466}
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _volume: 0.5
+  _wagonOrderSaveModel: {fileID: 0}
+  _dataController: {fileID: 0}
 --- !u!4 &532758366
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,25 +1289,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Capacity>k__BackingField: 0
-  _wagonData: {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
+  _wagonData: {fileID: 0}
+  _availableWagons: []
   _modelTransform: {fileID: 613117829}
-  _allWagonData:
-  - {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
-  - {fileID: 11400000, guid: 276a674a1d7c0d149a00508b56521cb4, type: 2}
-  - {fileID: 11400000, guid: c7963eed286ff5f4c902078916490e37, type: 2}
-  - {fileID: 11400000, guid: dc48c6d25a54d7647bf4381eb3772f97, type: 2}
-  - {fileID: 11400000, guid: fc5aef6dcc9a4444fbbcf5244c3ba2d4, type: 2}
-  - {fileID: 11400000, guid: 1394d628a4f586749b25c1a7ef931001, type: 2}
-  - {fileID: 11400000, guid: 77196ef79772e3c4e838e8a2ca1fb866, type: 2}
-  - {fileID: 11400000, guid: db411f0874ddc494db164804460edbac, type: 2}
+  _onWagonUnlockedEvent: {fileID: 0}
   _spawnAnimation: {fileID: 1726614454}
-  _wagonOrderSaveModel: {fileID: 11400000, guid: 374a6c2562ddb544d8f2f6bee124264b, type: 2}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 302132042}
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _volume: 0.5
+  _wagonOrderSaveModel: {fileID: 0}
+  _dataController: {fileID: 0}
 --- !u!4 &809324848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1629661196040042516, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
@@ -1747,17 +1732,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6873731150661547835, guid: 86a9d06ad494b8c49bf00eff04798745, type: 3}
   m_PrefabInstance: {fileID: 1405057554}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1485150168 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3133146438682594142, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-  m_PrefabInstance: {fileID: 191714987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1485150170 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1654970064903779931, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
@@ -1800,17 +1774,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766398908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1511774049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1522352500054252355, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-  m_PrefabInstance: {fileID: 191714987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1553470817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
@@ -2120,17 +2083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae5dcf6cc8d62a4dbae78acf6e7510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1769085449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4969287319071273483, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-  m_PrefabInstance: {fileID: 191714987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1769085451 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8753584706707181326, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
@@ -2364,17 +2316,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
---- !u!114 &1890180076 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5205244644165893607, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
-  m_PrefabInstance: {fileID: 191714987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1890850119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,20 +2588,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9b5d29dcee16e46937ff6897b91d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _capacity: 0
   _pressurePlateController: {fileID: 482177646}
   _pressurePlateAnimation: {fileID: 482177643}
   _initialPrice: 100
   _priceMultiplier: 1.5
-  _capacityModel: {fileID: 11400000, guid: 7314292aef162ed4792cbb92e7c5e159, type: 2}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _playerCoinsModel: {fileID: 11400000, guid: 723cd2cde3e5b294aa110db0193f2b2a, type: 2}
   _economyController: {fileID: 579487581}
-  _wagonUpgradeControllers:
-  - {fileID: 806572631}
-  - {fileID: 2108198874}
-  - {fileID: 532758365}
-  - {fileID: 2043857655}
+  _wagonControllers: []
   _orderUpgrade: []
   _currentPrice: 0
 --- !u!1 &2043857654
@@ -2692,25 +2626,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Capacity>k__BackingField: 0
-  _wagonData: {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
+  _wagonData: {fileID: 0}
+  _availableWagons: []
   _modelTransform: {fileID: 698943465}
-  _allWagonData:
-  - {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
-  - {fileID: 11400000, guid: 276a674a1d7c0d149a00508b56521cb4, type: 2}
-  - {fileID: 11400000, guid: c7963eed286ff5f4c902078916490e37, type: 2}
-  - {fileID: 11400000, guid: dc48c6d25a54d7647bf4381eb3772f97, type: 2}
-  - {fileID: 11400000, guid: fc5aef6dcc9a4444fbbcf5244c3ba2d4, type: 2}
-  - {fileID: 11400000, guid: 1394d628a4f586749b25c1a7ef931001, type: 2}
-  - {fileID: 11400000, guid: 77196ef79772e3c4e838e8a2ca1fb866, type: 2}
-  - {fileID: 11400000, guid: db411f0874ddc494db164804460edbac, type: 2}
+  _onWagonUnlockedEvent: {fileID: 0}
   _spawnAnimation: {fileID: 1960224554}
-  _wagonOrderSaveModel: {fileID: 11400000, guid: ab571edfc8be52446931cab801e4404f, type: 2}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 592572612}
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _volume: 0.5
+  _wagonOrderSaveModel: {fileID: 0}
+  _dataController: {fileID: 0}
 --- !u!4 &2043857656
 Transform:
   m_ObjectHideFlags: 0
@@ -2815,25 +2741,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Capacity>k__BackingField: 0
-  _wagonData: {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
+  _wagonData: {fileID: 0}
+  _availableWagons: []
   _modelTransform: {fileID: 773772692}
-  _allWagonData:
-  - {fileID: 11400000, guid: d3e04ad354de4db4f8d3cb87b1dc5e19, type: 2}
-  - {fileID: 11400000, guid: 276a674a1d7c0d149a00508b56521cb4, type: 2}
-  - {fileID: 11400000, guid: c7963eed286ff5f4c902078916490e37, type: 2}
-  - {fileID: 11400000, guid: dc48c6d25a54d7647bf4381eb3772f97, type: 2}
-  - {fileID: 11400000, guid: fc5aef6dcc9a4444fbbcf5244c3ba2d4, type: 2}
-  - {fileID: 11400000, guid: 1394d628a4f586749b25c1a7ef931001, type: 2}
-  - {fileID: 11400000, guid: 77196ef79772e3c4e838e8a2ca1fb866, type: 2}
-  - {fileID: 11400000, guid: db411f0874ddc494db164804460edbac, type: 2}
+  _onWagonUnlockedEvent: {fileID: 0}
   _spawnAnimation: {fileID: 1769085451}
-  _wagonOrderSaveModel: {fileID: 11400000, guid: bfa81eab63c99054a8010de2b03995b9, type: 2}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 369410901}
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _volume: 0.5
+  _wagonOrderSaveModel: {fileID: 0}
+  _dataController: {fileID: 0}
 --- !u!4 &2108198875
 Transform:
   m_ObjectHideFlags: 0
@@ -3017,19 +2935,19 @@ PrefabInstance:
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: '_passengerBoardingControllers.Array.data[0]'
       value: 
-      objectReference: {fileID: 1511774049}
+      objectReference: {fileID: 0}
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: '_passengerBoardingControllers.Array.data[1]'
       value: 
-      objectReference: {fileID: 1769085449}
+      objectReference: {fileID: 0}
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: '_passengerBoardingControllers.Array.data[2]'
       value: 
-      objectReference: {fileID: 1485150168}
+      objectReference: {fileID: 0}
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: '_passengerBoardingControllers.Array.data[3]'
       value: 
-      objectReference: {fileID: 1890180076}
+      objectReference: {fileID: 0}
     - target: {fileID: 3938346695743093304, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

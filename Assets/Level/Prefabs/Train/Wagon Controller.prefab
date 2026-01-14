@@ -223,13 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Capacity>k__BackingField: 0
-  _wagonData: {fileID: 0}
   _modelTransform: {fileID: 903152326501834326}
-  _allWagonData: []
   _spawnAnimation: {fileID: 928514450812522521}
-  _wagonOrderSaveModel: {fileID: 0}
-  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
   _audioSource: {fileID: 3936981118919736803}
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
@@ -447,7 +442,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371374417215191281}
-  - component: {fileID: 3443012312644366226}
   - component: {fileID: 6262052191382544375}
   m_Layer: 0
   m_Name: Passenger Boarding Controller
@@ -471,24 +465,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6198096693316275002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3443012312644366226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9002405656752452477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _trainMovementController: {fileID: 0}
-  _wagonUpgradeController: {fileID: 1101758452934234360}
-  _boardingQueueController: {fileID: 0}
-  _characterSpawnController: {fileID: 0}
-  _passengerBoardingAnimation: {fileID: 6262052191382544375}
-  <CurrentBoardedPassengers>k__BackingField: 0
 --- !u!114 &6262052191382544375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +497,7 @@ GameObject:
   - component: {fileID: 6198096693316275002}
   - component: {fileID: 928514450812522521}
   - component: {fileID: 995092198525024528}
+  - component: {fileID: 8052088911164352404}
   m_Layer: 0
   m_Name: Wagon Controller
   m_TagString: Untagged
@@ -573,3 +550,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad10ee2889d1e5847906ad0607db4365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsUnlocked>k__BackingField: 0
+  <WagonData>k__BackingField: {fileID: 0}
+  _availableWagons: []
+  _wagonUnlockedModel: {fileID: 0}
+  _wagonOrderSaveModel: {fileID: 0}
+  _dataController: {fileID: 0}
+--- !u!114 &8052088911164352404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064838444966919377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e7ed631f91676488f0769eb1e70c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Capacity>k__BackingField: 0
+  _wagonController: {fileID: 995092198525024528}
+  _boardingQueueController: {fileID: 0}
+  _passengerBoardingAnimation: {fileID: 0}
+  _onTrainStateChanged: {fileID: 0}
+  _routeCompletedEventChannel: {fileID: 0}
+  _capacityModel: {fileID: 0}
+  _dataController: {fileID: 0}
+  <CurrentBoardedPassengers>k__BackingField: 0
