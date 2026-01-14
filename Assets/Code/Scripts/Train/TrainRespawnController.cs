@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using XaviGames.Events;
 using XaviGames.ObjectVariables;
 using XaviGames.SaveSystem;
 
@@ -13,17 +14,20 @@ namespace XaviGames.Train
         [SerializeField]
         private FloatVariable _speedRespawnValue = null;
 
+        [SerializeField]
+        private VoidEventChannel _routeCompletedEventChannel;
+
         private Coroutine _trainRespawnCoroutine = null;
 
         private void OnEnable()
         {
-            _trainMovementController.OnRouteCompleted += HandleRouteCompleted;
+            _routeCompletedEventChannel.Subscribe(HandleRouteCompleted);
         }
 
         private void OnDisable()
         {
             StopCoroutine(_trainRespawnCoroutine);
-            _trainMovementController.OnRouteCompleted -= HandleRouteCompleted;
+            _routeCompletedEventChannel.Unsubscribe(HandleRouteCompleted);
         }
 
         private void Start()

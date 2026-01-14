@@ -178,6 +178,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6198096693316275002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2602176152729918729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105205453450930141}
+  - component: {fileID: 1101758452934234360}
+  m_Layer: 0
+  m_Name: Upgrade Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105205453450930141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602176152729918729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5923945226424534636}
+  m_Father: {fileID: 6198096693316275002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101758452934234360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602176152729918729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a00098d61bacc48874ccefab82cea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Capacity>k__BackingField: 0
+  _wagonData: {fileID: 0}
+  _modelTransform: {fileID: 903152326501834326}
+  _allWagonData: []
+  _spawnAnimation: {fileID: 928514450812522521}
+  _wagonOrderSaveModel: {fileID: 0}
+  _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
+  _wagonUnlockClip: {fileID: 8300000, guid: d9434ce1551b5184a88905f5b0581a98, type: 3}
+  _audioSource: {fileID: 3936981118919736803}
+  _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
+  _volume: 0.5
 --- !u!1 &4376387546071636439
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6198096693316275002}
+  m_Father: {fileID: 1105205453450930141}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3936981118919736803
 AudioSource:
@@ -382,6 +438,78 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &9002405656752452477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371374417215191281}
+  - component: {fileID: 3443012312644366226}
+  - component: {fileID: 6262052191382544375}
+  m_Layer: 0
+  m_Name: Passenger Boarding Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371374417215191281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002405656752452477}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6198096693316275002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3443012312644366226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002405656752452477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trainMovementController: {fileID: 0}
+  _wagonUpgradeController: {fileID: 1101758452934234360}
+  _boardingQueueController: {fileID: 0}
+  _characterSpawnController: {fileID: 0}
+  _passengerBoardingAnimation: {fileID: 6262052191382544375}
+  <CurrentBoardedPassengers>k__BackingField: 0
+--- !u!114 &6262052191382544375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002405656752452477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996f96363a2e31b46b9bb4b51c617f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wagonUpgradeController: {fileID: 1101758452934234360}
+  _cameraTransform: {fileID: 0}
+  _canvasTransform: {fileID: 5657861069804261233}
+  _canvasGroup: {fileID: 7027802618404583475}
+  _wagon: {fileID: 1933036339690797023}
+  _defaultScale: {x: 1, y: 1, z: 1}
+  _expandedScale: {x: 1.5, y: 1, z: 1}
+  _easeType: 30
+  _animationDuration: 0.5
 --- !u!1 &9064838444966919377
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,9 +519,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6198096693316275002}
-  - component: {fileID: 3561837603025399068}
-  - component: {fileID: 2142051564707848738}
   - component: {fileID: 928514450812522521}
+  - component: {fileID: 995092198525024528}
   m_Layer: 0
   m_Name: Wagon Controller
   m_TagString: Untagged
@@ -414,50 +541,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5923945226424534636}
-  - {fileID: 903152326501834326}
+  - {fileID: 371374417215191281}
+  - {fileID: 1105205453450930141}
   - {fileID: 5657861069804261233}
+  - {fileID: 903152326501834326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3561837603025399068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064838444966919377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edaef5214f497944972dcad1ab0d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _trainMovementController: {fileID: 0}
-  _wagonUpgradeController: {fileID: 0}
-  _boardingQueueController: {fileID: 0}
-  _characterSpawnController: {fileID: 0}
-  _passengerBoardingAnimation: {fileID: 2142051564707848738}
-  <CurrentBoardedPassengers>k__BackingField: 0
---- !u!114 &2142051564707848738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064838444966919377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996f96363a2e31b46b9bb4b51c617f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wagonUpgradeController: {fileID: 0}
-  _cameraTransform: {fileID: 0}
-  _canvasTransform: {fileID: 5657861069804261233}
-  _canvasGroup: {fileID: 7027802618404583475}
-  _wagon: {fileID: 1933036339690797023}
-  _defaultScale: {x: 1, y: 1, z: 1}
-  _expandedScale: {x: 1.5, y: 1, z: 1}
-  _easeType: 30
-  _animationDuration: 0.5
 --- !u!114 &928514450812522521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,3 +561,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 1
   _leanTweenType: 30
+--- !u!114 &995092198525024528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064838444966919377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad10ee2889d1e5847906ad0607db4365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

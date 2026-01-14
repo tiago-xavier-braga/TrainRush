@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace XaviGames.Train
+namespace XaviGames.Wagon
 {
-    [CreateAssetMenu(fileName = "WagonData", menuName = "XaviGames/Train/WagonData")]
+    [CreateAssetMenu(fileName = "WagonData", menuName = "XaviGames/Wagon/WagonData")]
     public class WagonData : ScriptableObject
     {
         [field: SerializeField]
@@ -12,6 +12,6 @@ namespace XaviGames.Train
         public GameObject WagonPrefab { get; private set; }
 
         [field: SerializeField]
-        public int MaxUpdateCapacity { get; private set; }
+        public int CapacityThresholds { get; private set; }
     }
 }

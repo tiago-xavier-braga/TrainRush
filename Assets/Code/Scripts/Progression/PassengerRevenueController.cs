@@ -3,8 +3,8 @@ using UnityEngine;
 using XaviGames.Animation;
 using XaviGames.Audio;
 using XaviGames.EconomySystem;
-using XaviGames.Interaction;
-using XaviGames.Train;
+using XaviGames.Events;
+using XaviGames.Wagon;
 
 namespace XaviGames.Progression
 {
@@ -18,29 +18,29 @@ namespace XaviGames.Progression
         private EconomyController _economyController;
 
         [SerializeField]
-        private TrainMovementController _trainMovementController;
-
-        [SerializeField]
         private CameraFacingTextAnimation _cameraFacingTextAnimation;
 
         [SerializeField]
         private SoundEffect _coinSoundEffect;
 
         [SerializeField]
-        private List<PassengerBoardingController> _passengerBoardingControllers;
+        private VoidEventChannel _trainDepartedEventChannel;
+
+        [SerializeField]
+        private List<CapacityWagonController> _passengerBoardingControllers;
 
         private void OnEnable()
         {
-            _trainMovementController.OnTrainDeparted += GrantCoins;
+            _trainDepartedEventChannel.Subscribe(GrantCoins);
         }
 
         private void OnDisable()
         {
-            _trainMovementController.OnTrainDeparted -= GrantCoins;
+            _trainDepartedEventChannel.Unsubscribe(GrantCoins);
         }
 
-        public void GrantCoins()
-        { 
+        private void GrantCoins()
+        {
             int reward = CalculateReward();
 
             if (reward == 0)

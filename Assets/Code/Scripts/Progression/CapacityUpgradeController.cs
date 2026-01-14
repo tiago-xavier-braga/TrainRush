@@ -1,19 +1,15 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using XaviGames.Attributes;
 using XaviGames.EconomySystem;
 using XaviGames.PressurePlate;
 using XaviGames.SaveSystem;
+using XaviGames.Wagon;
 
 namespace XaviGames.Progression
 {
     public class CapacityUpgradeController : MonoBehaviour
     {
-        [SerializeField]
-        [ReadOnly]
-        private int _capacity;
-
         [SerializeField]
         private PressurePlateController _pressurePlateController;
 
@@ -26,13 +22,6 @@ namespace XaviGames.Progression
         [SerializeField]
         private float _priceMultiplier = 1.5f;
 
-        [Header("Save System")]
-        [SerializeField]
-        private IntModel _capacityModel;
-
-        [SerializeField]
-        private DataController _dataController;
-
         [Header("Economy References")]
         [SerializeField]
         private IntModel _playerCoinsModel;
@@ -41,11 +30,11 @@ namespace XaviGames.Progression
         private EconomyController _economyController;
 
         [SerializeField]
-        private List<WagonUpgradeController> _wagonUpgradeControllers;
+        private List<WagonController> _wagonControllers;
 
         [SerializeField]
         [ReadOnly]
-        private List<WagonUpgradeController> _orderUpgrade;
+        private List<WagonController> _orderUpgrade;
 
         [SerializeField]
         [ReadOnly]
@@ -53,11 +42,11 @@ namespace XaviGames.Progression
 
         private void Start()
         {
-            LoadValue();
+            //LoadData();
 
-            foreach (var wagonUpgradeController in _wagonUpgradeControllers)
+            foreach (WagonController wagon in _wagonControllers)
             {
-                _orderUpgrade.Add(wagonUpgradeController);
+                _orderUpgrade.Add(wagon);
             }
         }
 
@@ -75,43 +64,35 @@ namespace XaviGames.Progression
                 return;
             }
 
-            WagonUpgradeController wagonUpgradeController = _orderUpgrade.First();
-            
-            wagonUpgradeController.IncreaseCapacity(1);
-            _capacity++;
-            
+            WagonController wagonController = new();
+
+            foreach (WagonController wagon in _wagonControllers)
+            {
+                if (!wagon.IsUnlocked)
+                {
+                    continue;
+                }
+
+                wagonController = wagon;
+                break;
+            }
+
+            wagonController.CapacityWagonController.IncreaseCapacity(1);
+
             _orderUpgrade.RemoveAt(0);
-            _orderUpgrade.Add(wagonUpgradeController);
+            _orderUpgrade.Add(wagonController);
 
             _economyController.RemoveCoins(_currentPrice);
             _pressurePlateAnimation.SuccessUnlocked();
             
             UpdatePrice();
-            SaveValue();
-        }
-
-        private void LoadValue()
-        {
-            _capacity = _capacityModel.Value;
-
-            foreach (var wagonUpgradeController in _wagonUpgradeControllers)
-            {
-                wagonUpgradeController.SetCapacity(_capacity / _wagonUpgradeControllers.Count);
-            }
-
-            UpdatePrice();
-        }
-
-        private void SaveValue()
-        {
-            _capacityModel.SetValue(_capacity);
-            _dataController.SaveModel(_capacityModel);
+            //SaveData();
         }
 
         private void UpdatePrice()
         {
-            _currentPrice = _initialPrice + (_capacity * 50);
-            _pressurePlateController.SetNewText(_currentPrice.ToString());
+            //_currentPrice = _initialPrice + (_capacity * 50);
+            //_pressurePlateController.SetNewText(_currentPrice.ToString());
         }
     }
 }

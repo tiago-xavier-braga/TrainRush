@@ -1,7 +1,6 @@
 using UnityEngine;
-using XaviGames.Progression;
 
-namespace XaviGames.Interaction
+namespace XaviGames.Wagon
 {
     public class PassengerBoardingAnimation : MonoBehaviour
     {
@@ -55,40 +54,41 @@ namespace XaviGames.Interaction
             UpdateBoardingCanvas(boardedPassengers);
         }
 
+        //TODO: Refactor this code 
         private void UpdateBoardingCanvas(int boardedPassengers)
         {
-            if (boardedPassengers >= _wagonUpgradeController.Capacity)
-            {
-                LeanTween.alphaCanvas(_canvasGroup, 1f, _animationDuration)
-                    .setEase(_easeType);
+            //if (boardedPassengers >= _wagonUpgradeController.Capacity)
+            //{
+            //    LeanTween.alphaCanvas(_canvasGroup, 1f, _animationDuration)
+            //        .setEase(_easeType);
 
-                _isCanvasVisible = true;
-            }
-            else
-            {
-                LeanTween.alphaCanvas(_canvasGroup, 0f, _animationDuration)
-                    .setEase(_easeType);
+            //    _isCanvasVisible = true;
+            //}
+            //else
+            //{
+            //    LeanTween.alphaCanvas(_canvasGroup, 0f, _animationDuration)
+            //        .setEase(_easeType);
 
-                _isCanvasVisible = false;
-            }
+            //    _isCanvasVisible = false;
+            //}
         }
 
         private void UpdateWagonScale(int boardedPassengers)
         {
-            if (_leantweenId != -1)
-            {
-                LeanTween.cancel(_leantweenId);
-                _leantweenId = -1;
-            }
+            //if (_leantweenId != -1)
+            //{
+            //    LeanTween.cancel(_leantweenId);
+            //    _leantweenId = -1;
+            //}
 
-            int totalCapacity = _wagonUpgradeController.Capacity;
-            float scaleFactor = (boardedPassengers * (100f / totalCapacity)) / 100f;
-            Vector3 targetScale = Vector3.Lerp(_defaultScale, _expandedScale, scaleFactor);
+            //int totalCapacity = _wagonUpgradeController.Capacity;
+            //float scaleFactor = (boardedPassengers * (100f / totalCapacity)) / 100f;
+            //Vector3 targetScale = Vector3.Lerp(_defaultScale, _expandedScale, scaleFactor);
 
-            _leantweenId = LeanTween.scale(_wagon, targetScale, _animationDuration)
-                .setEase(_easeType)
-                .setOnComplete(() => _leantweenId = -1)
-                .id;
+            //_leantweenId = LeanTween.scale(_wagon, targetScale, _animationDuration)
+            //    .setEase(_easeType)
+            //    .setOnComplete(() => _leantweenId = -1)
+            //    .id;
         }
 
     }
