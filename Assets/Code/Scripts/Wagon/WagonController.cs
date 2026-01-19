@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Attributes;
-using XaviGames.Events;
 using XaviGames.SaveSystem;
 
 namespace XaviGames.Wagon
@@ -15,13 +12,10 @@ namespace XaviGames.Wagon
 
         [Header("Scripts References")]
         [SerializeField]
-        public WagonUpgradeController WagonUpgradeController { get; private set; }
+        private CapacityWagonController _capacityWagonController;
 
         [SerializeField]
-        public CapacityWagonController CapacityWagonController { get; private set; }
-
-        [SerializeField]
-        private VoidEventChannel _onWagonUnlockedEvent;
+        private WagonSpawnController _wagonSpawnController;
 
         [Header("Save System")]
         [SerializeField]
@@ -33,8 +27,14 @@ namespace XaviGames.Wagon
         private void Start()
         {
             LoadData();
+
+            if (IsUnlocked)
+            {
+                _wagonSpawnController.CreateWagon();
+            }
         }
 
+        [Button(true)]
         public void UnlockWagon()
         {
             if (IsUnlocked)
@@ -42,8 +42,9 @@ namespace XaviGames.Wagon
                 return;
             }
 
+            //TODO: Add unlock wagon effects... Sounds?
             IsUnlocked = true;
-            _onWagonUnlockedEvent.RaiseEvent();
+            _wagonSpawnController.CreateWagon();
             SaveData();
         }
 

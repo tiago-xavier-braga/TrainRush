@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WagonOrder>k__BackingField: 5
   <WagonPrefab>k__BackingField: {fileID: 1546154647578464622, guid: 0ec2796affe7ded44b7593863adb8667, type: 3}
-  <MaxUpdateCapacity>k__BackingField: 25
+  <MinCapacity>k__BackingField: 15
+  <MaxCapacity>k__BackingField: 17

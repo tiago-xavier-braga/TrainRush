@@ -57,12 +57,6 @@ namespace XaviGames.Train
 
         [Header("Events")]
         [SerializeField]
-        private VoidEventChannel _trainDepartedEventChannel;
-
-        [SerializeField]
-        private VoidEventChannel _routeCompletedEventChannel;
-
-        [SerializeField]
         private SingleEventChannel _onTrainStateChanged;
 
         private void FixedUpdate()
@@ -70,7 +64,7 @@ namespace XaviGames.Train
             Move();
         }
 
-        [Button]
+        [Button(true)]
         public void Approaching()
         {
             SetPositionCalculate(_spawnTransform.position, _stationTransform.position);
@@ -81,14 +75,13 @@ namespace XaviGames.Train
             _movementSoundEffect.SetVolume(0f);
         }
 
-        [Button]
+        [Button(true)]
         public void Departing()
         {
             SetPositionCalculate(_stationTransform.position, _endTransform.position);
             
             _trainState = TrainState.Departing;
             _onTrainStateChanged.RaiseEvent(_trainState);
-            _trainDepartedEventChannel?.RaiseEvent();
             
             _hornSoundEffect.Play();
             _movementSoundEffect.Play();
@@ -104,9 +97,8 @@ namespace XaviGames.Train
 
         private void FinalizeMovement()
         {
-            _trainState = TrainState.Idle;
+            _trainState = TrainState.Finalized;
             _onTrainStateChanged.RaiseEvent(_trainState);
-            _routeCompletedEventChannel?.RaiseEvent();
         }
 
         private void SetPositionCalculate(Vector3 startPosition, Vector3 endPosition)

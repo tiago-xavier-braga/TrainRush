@@ -45,13 +45,13 @@ namespace XaviGames.Animation
             .id;
         }
 
-        [Button]
+        [Button(true)]
         public void Spawn()
         {
             Animate(gameObject, transform.localScale, Vector3.one);
         }
 
-        [Button]
+        [Button(true)]
         public void Despawn()
         {
             Animate(gameObject, transform.localScale, Vector3.zero);

@@ -4,6 +4,7 @@ using XaviGames.Animation;
 using XaviGames.Audio;
 using XaviGames.EconomySystem;
 using XaviGames.Events;
+using XaviGames.Train;
 using XaviGames.Wagon;
 
 namespace XaviGames.Progression
@@ -24,19 +25,31 @@ namespace XaviGames.Progression
         private SoundEffect _coinSoundEffect;
 
         [SerializeField]
-        private VoidEventChannel _trainDepartedEventChannel;
+        private SingleEventChannel _onTrainStateChanged;
 
         [SerializeField]
         private List<CapacityWagonController> _passengerBoardingControllers;
 
         private void OnEnable()
         {
-            _trainDepartedEventChannel.Subscribe(GrantCoins);
+            _onTrainStateChanged.Subscribe(TrainStateChanged);
         }
 
         private void OnDisable()
         {
-            _trainDepartedEventChannel.Unsubscribe(GrantCoins);
+            _onTrainStateChanged.Unsubscribe(TrainStateChanged);
+        }
+
+        private void TrainStateChanged(object value)
+        {
+            TrainState trainState = (TrainState)value;
+            
+            if (trainState != TrainState.Departing)
+            {
+                return;
+            }
+
+            GrantCoins();
         }
 
         private void GrantCoins()
@@ -59,7 +72,7 @@ namespace XaviGames.Progression
             int totalPassengers = 0;
             foreach (var controller in _passengerBoardingControllers)
             {
-                totalPassengers += controller.CurrentBoardedPassengers;
+                totalPassengers += controller.CurrentBoarded;
             }
 
             return totalPassengers * _ticketPrice;

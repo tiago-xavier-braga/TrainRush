@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace XaviGames.Wagon
 {
-    public class PassengerBoardingAnimation : MonoBehaviour
+    public class WagonBoardingAnimation : MonoBehaviour
     {
         [SerializeField]
-        private WagonUpgradeController _wagonUpgradeController;
+        private WagonSpawnController _wagonUpgradeController;
 
         [Header("Canvas Animation")]
         [SerializeField]
@@ -48,16 +48,16 @@ namespace XaviGames.Wagon
             _canvasTransform.rotation = Quaternion.LookRotation(-directionToCamera);
         }
 
-        public void OnPassengersBoarded(int boardedPassengers)
+        public void UpdateBoardingVisuals(int boardedValue)
         {
-            UpdateWagonScale(boardedPassengers);
-            UpdateBoardingCanvas(boardedPassengers);
+            UpdateWagonScale(boardedValue);
+            UpdateBoardingCanvas(boardedValue);
         }
 
         //TODO: Refactor this code 
-        private void UpdateBoardingCanvas(int boardedPassengers)
+        private void UpdateBoardingCanvas(int boardedValue)
         {
-            //if (boardedPassengers >= _wagonUpgradeController.Capacity)
+            //if (boardedValue >= _wagonUpgradeController.Capacity)
             //{
             //    LeanTween.alphaCanvas(_canvasGroup, 1f, _animationDuration)
             //        .setEase(_easeType);
@@ -73,7 +73,7 @@ namespace XaviGames.Wagon
             //}
         }
 
-        private void UpdateWagonScale(int boardedPassengers)
+        private void UpdateWagonScale(int boardedValue)
         {
             //if (_leantweenId != -1)
             //{
@@ -82,7 +82,7 @@ namespace XaviGames.Wagon
             //}
 
             //int totalCapacity = _wagonUpgradeController.Capacity;
-            //float scaleFactor = (boardedPassengers * (100f / totalCapacity)) / 100f;
+            //float scaleFactor = (boardedValue * (100f / totalCapacity)) / 100f;
             //Vector3 targetScale = Vector3.Lerp(_defaultScale, _expandedScale, scaleFactor);
 
             //_leantweenId = LeanTween.scale(_wagon, targetScale, _animationDuration)

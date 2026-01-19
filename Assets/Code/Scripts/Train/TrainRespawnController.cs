@@ -15,19 +15,23 @@ namespace XaviGames.Train
         private FloatVariable _speedRespawnValue = null;
 
         [SerializeField]
-        private VoidEventChannel _routeCompletedEventChannel;
+        private SingleEventChannel _onTrainStateChanged;
 
         private Coroutine _trainRespawnCoroutine = null;
 
         private void OnEnable()
         {
-            _routeCompletedEventChannel.Subscribe(HandleRouteCompleted);
+            _onTrainStateChanged.Subscribe(TrainStateChanged);
         }
 
         private void OnDisable()
         {
-            StopCoroutine(_trainRespawnCoroutine);
-            _routeCompletedEventChannel.Unsubscribe(HandleRouteCompleted);
+            if (_trainRespawnCoroutine != null)
+            {
+                StopCoroutine(_trainRespawnCoroutine);
+            }
+
+            _onTrainStateChanged.Unsubscribe(TrainStateChanged);
         }
 
         private void Start()
@@ -35,8 +39,15 @@ namespace XaviGames.Train
             _trainMovementController.Approaching();
         }
 
-        private void HandleRouteCompleted()
+        private void TrainStateChanged(object state)
         {
+            TrainState trainState = (TrainState)state;
+
+            if (trainState != TrainState.Finalized)
+            {
+                return;
+            }
+
             if (_trainRespawnCoroutine != null)
             {
                 StopCoroutine(_trainRespawnCoroutine);

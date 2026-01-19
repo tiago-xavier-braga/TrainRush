@@ -1,8 +1,7 @@
 using UnityEngine;
+using UnityEngine.Events;
 using XaviGames.Attributes;
-using XaviGames.Characters;
 using XaviGames.Events;
-using XaviGames.Interaction;
 using XaviGames.Managers;
 using XaviGames.SaveSystem;
 using XaviGames.Train;
@@ -16,19 +15,10 @@ namespace XaviGames.Wagon
         public int Capacity { get; set; } = 0;
 
         [SerializeField]
-        private WagonController _wagonController;
-
-        [SerializeField]
-        private BoardingQueueController _boardingQueueController;
-
-        [SerializeField]
-        private PassengerBoardingAnimation _passengerBoardingAnimation;
+        private WagonBoardingAnimation _wagonBoardingAnimation;
 
         [SerializeField]
         private SingleEventChannel _onTrainStateChanged;
-
-        [SerializeField]
-        private VoidEventChannel _routeCompletedEventChannel;
 
         [Header("Save System")]
         [SerializeField]
@@ -40,20 +30,21 @@ namespace XaviGames.Wagon
         [Header("Debug")]
         [field: SerializeField]
         [field: ReadOnly]
-        public int CurrentBoardedPassengers { get; private set; } = 0;
+        public int CurrentBoarded { get; private set; } = 0;
 
         private TrainState _currentTrainState = TrainState.Idle;
 
+        public UnityAction OnAvailableSeatsChanged = null;
+        public UnityAction<int> OnCapacityChanged = null;
+
         private void OnEnable()
         {
-            _onTrainStateChanged.Subscribe(HandleTrainStateChanged);
-            _routeCompletedEventChannel.Subscribe(HandleTrainMovementFinished);
+            _onTrainStateChanged.Subscribe(TrainStateChanged);
         }
 
         private void OnDisable()
         {
-            _onTrainStateChanged.Unsubscribe(HandleTrainStateChanged);
-            _routeCompletedEventChannel.Unsubscribe(HandleTrainMovementFinished);
+            _onTrainStateChanged.Unsubscribe(TrainStateChanged);
         }
 
         private void Start()
@@ -68,8 +59,24 @@ namespace XaviGames.Wagon
                 return;
             }
 
-            Capacity += value;
+            Capacity = value;
+            OnCapacityChanged?.Invoke(Capacity);
             SaveData();
+        }
+
+        public void OccupySeat()
+        {
+            if (CurrentBoarded < Capacity)
+            {
+                CurrentBoarded++;
+                _wagonBoardingAnimation.UpdateBoardingVisuals(CurrentBoarded);
+            }
+        }
+
+        public void ResetCapacity()
+        {
+            CurrentBoarded = 0;
+            _wagonBoardingAnimation.UpdateBoardingVisuals(CurrentBoarded);
         }
 
         private void Update()
@@ -79,27 +86,21 @@ namespace XaviGames.Wagon
                 return;
             }
 
-            int availableSeats = Capacity - CurrentBoardedPassengers;
+            int availableSeats = Capacity - CurrentBoarded;
 
             if (availableSeats <= 0)
             {
                 return;
             }
 
-            CharacterMovementController characterMovement = _boardingQueueController.ReleaseCharacterPosition();
-
-            //TODO: Refactor boarding process
-            //if (characterMovement != null)
-            //{
-            //    _characterSpawnController.DisableCharacter(characterMovement.gameObject);
-            //    CurrentBoardedPassengers++;
-            //    _passengerBoardingAnimation.OnPassengersBoarded(CurrentBoardedPassengers);
-            //}
+            OnAvailableSeatsChanged?.Invoke();
+            return;
         }
 
         private void LoadData()
         {
             Capacity = _capacityModel.Value;
+            OnCapacityChanged?.Invoke(Capacity);
         }
 
         private void SaveData()
@@ -108,17 +109,16 @@ namespace XaviGames.Wagon
             _dataController.SaveModel(_capacityModel);
         }
 
-        private void HandleTrainMovementFinished()
-        {
-            CurrentBoardedPassengers = 0;
-            _passengerBoardingAnimation.OnPassengersBoarded(CurrentBoardedPassengers);
-        }
-
-        private void HandleTrainStateChanged(object state)
+        private void TrainStateChanged(object state)
         {
             if (state is TrainState trainState)
             {
                 _currentTrainState = trainState;
+            }
+
+            if (_currentTrainState == TrainState.Finalized)
+            {
+                ResetCapacity();
             }
         }
     }

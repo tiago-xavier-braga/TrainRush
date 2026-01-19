@@ -6,5 +6,6 @@ namespace XaviGames.Train
         Approaching,
         WaitingForSignal,
         Departing,
+        Finalized
     }
 }

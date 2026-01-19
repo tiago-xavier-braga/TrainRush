@@ -15,16 +15,17 @@ namespace XaviGames.Progression
         private int _price;
 
         [SerializeField]
-        private PressurePlateController _pressurePlateController;
-
-        [SerializeField]
-        private PressurePlateAnimation _pressurePlateAnimation;
-
-        [SerializeField]
         private IntModel _tierCapacityModel;
 
         [SerializeField]
         private DataController _dataController;
+
+        [Header("Plate Settings")]
+        [SerializeField]
+        private PressurePlateController _pressurePlateController;
+
+        [SerializeField]
+        private PressurePlateAnimation _pressurePlateAnimation;
 
         [Header("Economy References")]
         [SerializeField]
@@ -34,11 +35,7 @@ namespace XaviGames.Progression
         private EconomyController _economyController;
 
         [SerializeField]
-        private List<WagonController> _wagonControllers;
-
-        [SerializeField]
-        [ReadOnly]
-        private List<WagonController> _orderUpgrade;
+        private List<CapacityWagonController> _capacityWagonControllers;
 
         private void OnEnable()
         {
@@ -52,11 +49,12 @@ namespace XaviGames.Progression
 
         private void Start()
         {
-            _orderUpgrade = new List<WagonController>(_wagonControllers);
+            UpgradePrice();
+            UpdatePlateAnimation(_playerCoinsModel.Value);
         }
 
         //TODO: Implement the tier system for capacity upgrades
-        public void IncreaseCapacity()
+        public void TryIncreaseCapacity()
         {
             if (_playerCoinsModel.Value < _price)
             {
@@ -64,28 +62,15 @@ namespace XaviGames.Progression
                 return;
             }
 
-            WagonController wagonController = new();
-
-            foreach (WagonController wagon in _orderUpgrade)
+            foreach (var wagon in _capacityWagonControllers)
             {
-                if (!wagon.IsUnlocked)
-                {
-                    continue;
-                }
-
-                wagonController = wagon;
-                break;
+                wagon.SetCapacity(_tierCapacityModel.Value);
             }
-
-            wagonController.CapacityWagonController.SetCapacity(_amountPerUpgrade);
-
-            _orderUpgrade.Remove(wagonController);
-            _orderUpgrade.Add(wagonController);
 
             _economyController.RemoveCoins(_price);
             _pressurePlateAnimation.SuccessUnlocked();
-            
-            UpdatePrice();
+
+            UpgradePrice();
             SaveData();
         }
 
@@ -94,10 +79,22 @@ namespace XaviGames.Progression
             _dataController.SaveModel(_tierCapacityModel);
         }
 
-        private void UpdatePrice()
+        private void UpgradePrice()
         {
-            //_currentPrice = _initialPrice + (_capacity * 50);
-            //_pressurePlateController.SetNewText(_currentPrice.ToString());
+            _price = GetPrice();
+            _pressurePlateController.SetNewText(_price.ToString());
+        }
+
+        private int GetCapacity()
+        {
+
+            return new int();
+        }
+
+        private int GetPrice()
+        {
+            float baseCost = 35f * Mathf.Pow(_tierCapacityModel.Value + 1, 2.4f);
+            return Mathf.RoundToInt(baseCost / 50f) * 50;
         }
 
         private void UpdatePlateAnimation(int value)

@@ -264,9 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trainState: 0
   _speed: 10
-  <TrainState>k__BackingField: 0
-  _trainUpgradeController: {fileID: 0}
   _spawnTransform: {fileID: 0}
   _stationTransform: {fileID: 0}
   _endTransform: {fileID: 0}
@@ -301,6 +300,9 @@ MonoBehaviour:
   _approachDuration: 0
   _startPos: {x: 0, y: 0, z: 0}
   _endPos: {x: 0, y: 0, z: 0}
+  _trainDepartedEventChannel: {fileID: 11400000, guid: e4d05c6855acb8c4ab81fc0b64ca04ed, type: 2}
+  _routeCompletedEventChannel: {fileID: 11400000, guid: d36700e1f0d394646a2279cf757aa187, type: 2}
+  _onTrainStateChanged: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
 --- !u!114 &9031441572916227501
 MonoBehaviour:
   m_ObjectHideFlags: 0
