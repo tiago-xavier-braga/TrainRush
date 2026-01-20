@@ -15,6 +15,9 @@ namespace XaviGames.Progression
         private int _price;
 
         [SerializeField]
+        private ProgressionSettings _progressionSettings;
+
+        [SerializeField]
         private IntModel _tierCapacityModel;
 
         [SerializeField]
@@ -53,7 +56,6 @@ namespace XaviGames.Progression
             UpdatePlateAnimation(_playerCoinsModel.Value);
         }
 
-        //TODO: Implement the tier system for capacity upgrades
         public void TryIncreaseCapacity()
         {
             if (_playerCoinsModel.Value < _price)
@@ -62,10 +64,8 @@ namespace XaviGames.Progression
                 return;
             }
 
-            foreach (var wagon in _capacityWagonControllers)
-            {
-                wagon.SetCapacity(_tierCapacityModel.Value);
-            }
+            int newTier = _tierCapacityModel.Value + 1;
+            _tierCapacityModel.SetValue(newTier);
 
             _economyController.RemoveCoins(_price);
             _pressurePlateAnimation.SuccessUnlocked();
@@ -81,20 +81,8 @@ namespace XaviGames.Progression
 
         private void UpgradePrice()
         {
-            _price = GetPrice();
+            _price = _progressionSettings.GetPrice(_tierCapacityModel.Value);
             _pressurePlateController.SetNewText(_price.ToString());
-        }
-
-        private int GetCapacity()
-        {
-
-            return new int();
-        }
-
-        private int GetPrice()
-        {
-            float baseCost = 35f * Mathf.Pow(_tierCapacityModel.Value + 1, 2.4f);
-            return Mathf.RoundToInt(baseCost / 50f) * 50;
         }
 
         private void UpdatePlateAnimation(int value)

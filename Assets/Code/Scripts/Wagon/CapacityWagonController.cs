@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using XaviGames.Attributes;
 using XaviGames.Events;
 using XaviGames.Managers;
-using XaviGames.SaveSystem;
+using XaviGames.Progression;
 using XaviGames.Train;
 
 namespace XaviGames.Wagon
@@ -20,12 +20,8 @@ namespace XaviGames.Wagon
         [SerializeField]
         private SingleEventChannel _onTrainStateChanged;
 
-        [Header("Save System")]
         [SerializeField]
-        private IntModel _capacityModel;
-
-        [SerializeField]
-        private DataController _dataController;
+        private ProgressionSettings _progressionSettings;
 
         [Header("Debug")]
         [field: SerializeField]
@@ -47,11 +43,6 @@ namespace XaviGames.Wagon
             _onTrainStateChanged.Unsubscribe(TrainStateChanged);
         }
 
-        private void Start()
-        {
-            LoadData();
-        }
-
         public void SetCapacity(int value)
         {
             if (GameManager.Instance.GameState != GameState.Running)
@@ -61,7 +52,6 @@ namespace XaviGames.Wagon
 
             Capacity = value;
             OnCapacityChanged?.Invoke(Capacity);
-            SaveData();
         }
 
         public void OccupySeat()
@@ -73,7 +63,7 @@ namespace XaviGames.Wagon
             }
         }
 
-        public void ResetCapacity()
+        private void ResetCapacity()
         {
             CurrentBoarded = 0;
             _wagonBoardingAnimation.UpdateBoardingVisuals(CurrentBoarded);
@@ -95,18 +85,6 @@ namespace XaviGames.Wagon
 
             OnAvailableSeatsChanged?.Invoke();
             return;
-        }
-
-        private void LoadData()
-        {
-            Capacity = _capacityModel.Value;
-            OnCapacityChanged?.Invoke(Capacity);
-        }
-
-        private void SaveData()
-        {
-            _capacityModel.SetValue(Capacity);
-            _dataController.SaveModel(_capacityModel);
         }
 
         private void TrainStateChanged(object state)

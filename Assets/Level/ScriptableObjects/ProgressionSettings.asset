@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e96cf0e32acc948a58dec5c6911b84, type: 3}
-  m_Name: CapacityRightModel 2
+  m_Script: {fileID: 11500000, guid: 0458969e2674dae44bd5b95e5e062b35, type: 3}
+  m_Name: ProgressionSettings
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: CapacityRightModel 2
-  <Value>k__BackingField: 0
-  <DefaultValue>k__BackingField: 4
+  _basePrice: 50
+  _priceMultiplier: 1.15
+  _baseCapacity: 2
+  _capacityMultiplier: 6

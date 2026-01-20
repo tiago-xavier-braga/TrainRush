@@ -13,7 +13,10 @@ namespace XaviGames.Progression
         [SerializeField]
         [ReadOnly]
         private int _price;
-        
+
+        [SerializeField]
+        private ProgressionSettings _progressionSettings;
+
         [SerializeField]
         [Min(0f)]
         private float _reducedPerUpgrade;
@@ -111,14 +114,8 @@ namespace XaviGames.Progression
 
         private void UpgradePrice()
         {
-            _price = GetPrice();
+            _price = _progressionSettings.GetPrice(_tierSpeedRespawnModel.Value);
             _pressurePlateController.SetNewText(_price.ToString());
-        }
-
-        private int GetPrice()
-        {
-            float baseCost = 35f * Mathf.Pow(_tierSpeedRespawnModel.Value + 1, 2.4f);
-            return Mathf.RoundToInt(baseCost / 50f) * 50;
         }
 
         private void UpdatePlateAnimation(int value)
