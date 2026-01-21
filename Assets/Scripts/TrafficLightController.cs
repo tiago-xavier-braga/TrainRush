@@ -210,6 +210,7 @@ public class TrafficLightController : MonoBehaviour
 
             case TrafficLightState.Yellow:
                 OnYellow?.Invoke();
+                OnTrainStop?.Invoke();
                 break;
 
             case TrafficLightState.Red:
