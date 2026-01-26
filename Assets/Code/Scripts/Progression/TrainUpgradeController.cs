@@ -12,9 +12,6 @@ namespace XaviGames.Progression
     public class TrainUpgradeController : MonoBehaviour
     {
         [SerializeField]
-        private TrainData _trainData;
-
-        [SerializeField]
         private FloatVariable _speedRespawnValue = null;
 
         [SerializeField]
@@ -32,14 +29,9 @@ namespace XaviGames.Progression
 
         [Header("Save System")]
         [SerializeField]
-        private IntModel _trainOrderSaveModel = null;
-
-        [SerializeField]
         private IntModel _tierSpeedRespawnRight = null;
 
-        [SerializeField]
-        private DataController _dataController;
-
+        private TrainData _trainData;
         private GameObject _currentTrainModel;
         private bool _isFirstSpawn = true;
 
@@ -63,45 +55,34 @@ namespace XaviGames.Progression
         public void OnSpeedRespawnChanged(int value)
         {
             VerifyTrainUpgrade();
-            SaveData();
         }
 
         private void LoadData()
         {
-            int trainOrder = 0;
-
-            trainOrder = _trainOrderSaveModel.Value;
-
-            _trainData = _allTrainData.Find(td => td.TrainOrder == trainOrder);
+            _trainData = _allTrainData.Find(td => td.TierUpdate >= _tierSpeedRespawnRight.Value);
 
             if (_trainData == null)
             {
-                Debug.LogWarning($"No TrainData found for order {trainOrder}. Using the first in the list.");
                 _trainData = _allTrainData[0];
             }
         }
 
-        private void SaveData()
-        {
-            _trainOrderSaveModel.SetValue(_trainData.TrainOrder);
-            _dataController.SaveModel(_trainOrderSaveModel);
-        }
-
         private void VerifyTrainUpgrade()
         {
-            if (_speedRespawnValue.Value > _trainData.MaxUpdateSpeed)
-            {
-                return;
-            }
-
             if (_trainData.TrainOrder >= _allTrainData.Count - 1)
             {
                 return;
             }
+            
+            TrainData nextTrainData = _allTrainData.Find(td => td.TrainOrder == _trainData.TrainOrder + 1);
 
-            _trainData = _allTrainData.Find(td => td.TrainOrder == _trainData.TrainOrder + 1);
+            if (_tierSpeedRespawnRight.Value < nextTrainData.TierUpdate)
+            {
+                return;
+            }
 
-            SaveData();
+            _trainData = nextTrainData;
+
             CreateTrainModel();
         }
 

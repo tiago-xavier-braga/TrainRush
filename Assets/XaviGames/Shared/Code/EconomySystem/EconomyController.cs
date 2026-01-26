@@ -12,9 +12,6 @@ namespace XaviGames.EconomySystem
         private IntModel _playerCoinsModel;
 
         [SerializeField]
-        private IntModel _playerDiamondsModel;
-
-        [SerializeField]
         private DataController _dataController;
 
         [Header("Debug")]
@@ -32,16 +29,11 @@ namespace XaviGames.EconomySystem
         private void Update()
         {
             _debugCoins = _playerCoinsModel.Value;
-            _debugDiamonds = _playerDiamondsModel.Value;
         }
 
         public void AddCoins(int amount) => AddValue(_playerCoinsModel, amount);
 
-        public void AddDiamonds(int amount) => AddValue(_playerDiamondsModel, amount);
-
         public void RemoveCoins(int amount) => RemoveValue(_playerCoinsModel, amount);
-
-        public void RemoveDiamonds(int amount) => RemoveValue(_playerDiamondsModel, amount);
 
         private void AddValue(IntModel model, int amount)
         {

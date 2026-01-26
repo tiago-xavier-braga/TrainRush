@@ -15,15 +15,10 @@ namespace XaviGames.Wagon
         private IntModel _tierCapacityUpgrade;
         
         [SerializeField]
-        private CapacityWagonController _capacityWagonController;
-
-        [Header("Wagons")]
-        [SerializeField]
         private List<WagonData> _availableWagons = new();
 
         [Space()]
         [Header("Spawn")]
-
         [SerializeField]
         private Transform _spawnTransform;
         
@@ -79,17 +74,7 @@ namespace XaviGames.Wagon
 
         private WagonData GetWagonData()
         {
-            int capacity = _capacityWagonController.Capacity;
-            Debug.Log("Current Capacity: " + capacity);
-            foreach (var wagonData in _availableWagons)
-            {
-                if (wagonData.MinCapacity < capacity && capacity <= wagonData.MaxCapacity)
-                {
-                    return wagonData;
-                }
-            }
-
-            return null;
+            return _availableWagons.Find(wagonData => wagonData.TierUpgrade >= _tierCapacityUpgrade.Value);
         }
 
         private void VerifyUpgradeWagon()
@@ -99,7 +84,12 @@ namespace XaviGames.Wagon
                 return;
             }
 
-            if (_capacityWagonController.Capacity > _currentWagonData.MaxCapacity)
+            WagonData wagonData = _availableWagons.Find
+            (
+                wagonData => wagonData.TierUpgrade >= _tierCapacityUpgrade.Value
+            );
+
+            if (_currentWagonData != wagonData)
             {
                 CreateWagon();
                 PlaySound();

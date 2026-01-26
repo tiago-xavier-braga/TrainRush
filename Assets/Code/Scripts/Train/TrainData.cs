@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace XaviGames.Train
@@ -13,6 +12,6 @@ namespace XaviGames.Train
         public GameObject TrainPrefab { get; private set; }
 
         [field: SerializeField]
-        public float MaxUpdateSpeed { get; private set; }
+        public int TierUpdate { get; private set; }
     }
 }

@@ -49,7 +49,7 @@ namespace XaviGames.Progression
 
         private int GetPrice(int tier, int basePrice, float priceMultiplier)
         {
-            return Mathf.RoundToInt(basePrice * Mathf.Pow(priceMultiplier, tier));
+            return Mathf.RoundToInt(basePrice + priceMultiplier * tier);
         }
     }
 }

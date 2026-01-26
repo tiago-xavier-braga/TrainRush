@@ -93,7 +93,7 @@ namespace XaviGames.SaveSystem
         {
             if (string.IsNullOrEmpty(key))
             {
-                Debug.LogError("The key provided does not exist.");
+                Debug.LogError($"The key provided does not exist.");
                 return false;
             }
 
