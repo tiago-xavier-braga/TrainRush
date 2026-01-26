@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XaviGames.Animation;
+using XaviGames.SaveSystem;
 using AudioSettings = XaviGames.Audio.AudioSettings;
 
 namespace XaviGames.Wagon
@@ -9,6 +10,9 @@ namespace XaviGames.Wagon
     {
         [SerializeField]
         private WagonController _wagonController;
+
+        [SerializeField]
+        private IntModel _tierCapacityUpgrade;
         
         [SerializeField]
         private CapacityWagonController _capacityWagonController;
@@ -42,16 +46,15 @@ namespace XaviGames.Wagon
 
         private WagonData _currentWagonData;
         private GameObject _currentWagonObject;
-        private int _currentCapacity = 0;
 
         private void OnEnable()
         {
-            _capacityWagonController.OnCapacityChanged += CapacityValueChanged;
+            _tierCapacityUpgrade.OnValueChanged += TierCapacityChanged;
         }
 
         private void OnDisable()
         {
-            _capacityWagonController.OnCapacityChanged -= CapacityValueChanged;
+            _tierCapacityUpgrade.OnValueChanged -= TierCapacityChanged;
         }
         
         public void CreateWagon()
@@ -76,9 +79,11 @@ namespace XaviGames.Wagon
 
         private WagonData GetWagonData()
         {
+            int capacity = _capacityWagonController.Capacity;
+            Debug.Log("Current Capacity: " + capacity);
             foreach (var wagonData in _availableWagons)
             {
-                if (wagonData.MinCapacity < _currentCapacity && _currentCapacity <= wagonData.MaxCapacity)
+                if (wagonData.MinCapacity < capacity && capacity <= wagonData.MaxCapacity)
                 {
                     return wagonData;
                 }
@@ -89,7 +94,12 @@ namespace XaviGames.Wagon
 
         private void VerifyUpgradeWagon()
         {
-            if (_currentCapacity > _currentWagonData.MaxCapacity)
+            if (!_wagonController.IsUnlocked)
+            {
+                return;
+            }
+
+            if (_capacityWagonController.Capacity > _currentWagonData.MaxCapacity)
             {
                 CreateWagon();
                 PlaySound();
@@ -103,9 +113,8 @@ namespace XaviGames.Wagon
             _audioSource.Play();
         }
 
-        private void CapacityValueChanged(int value)
+        private void TierCapacityChanged(int value)
         {
-            _currentCapacity = value;
             VerifyUpgradeWagon();
         }
 

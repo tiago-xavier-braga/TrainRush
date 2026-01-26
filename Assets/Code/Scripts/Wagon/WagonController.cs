@@ -30,6 +30,7 @@ namespace XaviGames.Wagon
 
             if (IsUnlocked)
             {
+                _capacityWagonController.UpdateCapacity();
                 _wagonSpawnController.CreateWagon();
             }
         }

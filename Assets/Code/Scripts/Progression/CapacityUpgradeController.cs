@@ -37,9 +37,6 @@ namespace XaviGames.Progression
         [SerializeField]
         private EconomyController _economyController;
 
-        [SerializeField]
-        private List<CapacityWagonController> _capacityWagonControllers;
-
         private void OnEnable()
         {
             _playerCoinsModel.OnValueChanged += UpdatePlateAnimation;
@@ -81,7 +78,7 @@ namespace XaviGames.Progression
 
         private void UpgradePrice()
         {
-            _price = _progressionSettings.GetPrice(_tierCapacityModel.Value);
+            _price = _progressionSettings.GetCapacityPrice(_tierCapacityModel.Value);
             _pressurePlateController.SetNewText(_price.ToString());
         }
 

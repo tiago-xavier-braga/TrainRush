@@ -114,7 +114,7 @@ namespace XaviGames.Progression
 
         private void UpgradePrice()
         {
-            _price = _progressionSettings.GetPrice(_tierSpeedRespawnModel.Value);
+            _price = _progressionSettings.GetSpeedPrice(_tierSpeedRespawnModel.Value);
             _pressurePlateController.SetNewText(_price.ToString());
         }
 

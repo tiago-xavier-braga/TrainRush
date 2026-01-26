@@ -182,6 +182,14 @@ PrefabInstance:
       propertyPath: _capacityModel
       value: 
       objectReference: {fileID: 11400000, guid: c34046d042147c748b85865884fb348c, type: 2}
+    - target: {fileID: 1651776744675751791, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _progressionSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e509bd6805f8b4cab8aa4cdef8e1db, type: 2}
+    - target: {fileID: 1651776744675751791, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 1671116738649331544, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _endTransform
       value: 
@@ -206,6 +214,14 @@ PrefabInstance:
       propertyPath: _capacityModel
       value: 
       objectReference: {fileID: 11400000, guid: 0272d69dacd3f3247afb5144506863e8, type: 2}
+    - target: {fileID: 1884334383024683139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _progressionSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e509bd6805f8b4cab8aa4cdef8e1db, type: 2}
+    - target: {fileID: 1884334383024683139, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 1985113657431587764, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -262,6 +278,10 @@ PrefabInstance:
       propertyPath: _characterSpawnController
       value: 
       objectReference: {fileID: 238344525}
+    - target: {fileID: 3527113912019647682, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 4003391983803663595, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
@@ -274,6 +294,10 @@ PrefabInstance:
       propertyPath: _wagonUpgradeController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4339246259205272366, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 4969287319071273483, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonUpgradeController
       value: 
@@ -302,10 +326,22 @@ PrefabInstance:
       propertyPath: _capacityModel
       value: 
       objectReference: {fileID: 11400000, guid: 3cad11ef27eca924ab50d8918b1dbe1f, type: 2}
+    - target: {fileID: 5472031697456091595, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _progressionSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e509bd6805f8b4cab8aa4cdef8e1db, type: 2}
+    - target: {fileID: 5472031697456091595, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 5884348660686793158, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: m_Name
       value: Train Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 6031798827842996859, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 7271227134474793689, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _cameraTransform
       value: 
@@ -330,6 +366,10 @@ PrefabInstance:
       propertyPath: _wagonOrderSaveModel
       value: 
       objectReference: {fileID: 11400000, guid: ab571edfc8be52446931cab801e4404f, type: 2}
+    - target: {fileID: 7921293597833337446, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 8403093568564931051, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonUnlockedModel
       value: 
@@ -338,6 +378,14 @@ PrefabInstance:
       propertyPath: _capacityModel
       value: 
       objectReference: {fileID: 11400000, guid: 2b96bcae8b7f69c4da9e750de6ae096d, type: 2}
+    - target: {fileID: 8479108543189991894, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _progressionSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e509bd6805f8b4cab8aa4cdef8e1db, type: 2}
+    - target: {fileID: 8479108543189991894, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
+      propertyPath: _tierCapacityUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d97218ed21ee8488a2f2ed9930fd54, type: 2}
     - target: {fileID: 8671402930222736903, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _wagonUnlockedModel
       value: 
@@ -2134,6 +2182,34 @@ PrefabInstance:
       propertyPath: _playerCollider
       value: 
       objectReference: {fileID: 630585933}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2008794631}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryIncreaseCapacity
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: XaviGames.Progression.CapacityUpgradeController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463899940627613090, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
+      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8802800007884132301, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2443,7 +2519,6 @@ MonoBehaviour:
   _pressurePlateAnimation: {fileID: 482177643}
   _playerCoinsModel: {fileID: 11400000, guid: 723cd2cde3e5b294aa110db0193f2b2a, type: 2}
   _economyController: {fileID: 579487581}
-  _capacityWagonControllers: []
 --- !u!1 &2093589564
 GameObject:
   m_ObjectHideFlags: 0

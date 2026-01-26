@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0458969e2674dae44bd5b95e5e062b35, type: 3}
   m_Name: ProgressionSettings
   m_EditorClassIdentifier: 
-  _basePrice: 50
-  _priceMultiplier: 1.15
+  _baseCapacityPrice: 10
+  _capacityPriceMultiplier: 1.12
+  _baseSpeedPrice: 25
+  _speedPriceMultiplier: 1.15
   _baseCapacity: 2
-  _capacityMultiplier: 6
+  _capacityMultiplier: 1

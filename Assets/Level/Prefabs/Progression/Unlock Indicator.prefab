@@ -242,6 +242,7 @@ MonoBehaviour:
   _maxPitch: 1
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1 &3088231173451315718
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,10 +696,10 @@ MonoBehaviour:
   _controller: {fileID: 8463899940627613090}
   _isAnimationEnabled: 1
   _containerTransform: {fileID: 8591800281399944124}
-  _animationSpeed: 0.5
+  _animationSpeed: 0.2
   _holdAnimationSpeed: 5
   _minYPosition: 0.01
-  _maxYPosition: 0.5
+  _maxYPosition: 0.2
   _floorMarkingRenderer: {fileID: 7069717276409094702}
   _colorAnimationDuration: 2
   _blinkSpeed: 6
@@ -828,6 +829,7 @@ MonoBehaviour:
   _maxPitch: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1 &5207885454273103628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1031,7 @@ MonoBehaviour:
   _maxPitch: 1
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1 &6270889452393662098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1115,7 @@ MonoBehaviour:
   _maxPitch: 0
   _audioSettings: {fileID: 11400000, guid: 1a3c2a6285a2ec74fb91e18a68a2e439, type: 2}
   _isPlaying: 0
+  _isPaused: 0
 --- !u!1 &8504297499380158901
 GameObject:
   m_ObjectHideFlags: 0

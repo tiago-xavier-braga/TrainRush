@@ -4,6 +4,7 @@ using XaviGames.Attributes;
 using XaviGames.Events;
 using XaviGames.Managers;
 using XaviGames.Progression;
+using XaviGames.SaveSystem;
 using XaviGames.Train;
 
 namespace XaviGames.Wagon
@@ -12,13 +13,16 @@ namespace XaviGames.Wagon
     {
         [field: SerializeField]
         [field: ReadOnly]
-        public int Capacity { get; set; } = 0;
+        public int Capacity { get; private set; } = 0;
 
         [SerializeField]
         private WagonBoardingAnimation _wagonBoardingAnimation;
 
         [SerializeField]
         private SingleEventChannel _onTrainStateChanged;
+
+        [SerializeField]
+        private IntModel _tierCapacityUpgrade;
 
         [SerializeField]
         private ProgressionSettings _progressionSettings;
@@ -36,21 +40,18 @@ namespace XaviGames.Wagon
         private void OnEnable()
         {
             _onTrainStateChanged.Subscribe(TrainStateChanged);
+            _tierCapacityUpgrade.OnValueChanged += (_) => UpdateCapacity();
         }
 
         private void OnDisable()
         {
             _onTrainStateChanged.Unsubscribe(TrainStateChanged);
+            _tierCapacityUpgrade.OnValueChanged -= (_) => UpdateCapacity();
         }
 
-        public void SetCapacity(int value)
+        public void UpdateCapacity()
         {
-            if (GameManager.Instance.GameState != GameState.Running)
-            {
-                return;
-            }
-
-            Capacity = value;
+            Capacity = _progressionSettings.GetCapacity(_tierCapacityUpgrade.Value);
             OnCapacityChanged?.Invoke(Capacity);
         }
 
