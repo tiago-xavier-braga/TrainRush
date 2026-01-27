@@ -24,7 +24,7 @@ namespace XaviGames.Interaction
                 {
                     characterMovement.SetDestination(emptyPosition.Transform);
                     emptyPosition.SetCharacter(characterMovement);
-                    return;
+                    break;
                 }
             }
         }

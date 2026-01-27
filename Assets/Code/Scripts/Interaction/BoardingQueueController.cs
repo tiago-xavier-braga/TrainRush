@@ -4,29 +4,80 @@ using System.Linq;
 using UnityEngine;
 using XaviGames.Attributes;
 using XaviGames.Characters;
+using XaviGames.Events;
+using XaviGames.Train;
+using XaviGames.Wagon;
 
 namespace XaviGames.Interaction
 {
     public class BoardingQueueController : MonoBehaviour
     {
+        [field: SerializeField]
+        [field: ReadOnly]
+        public bool IsUnlocked { get; private set; } = false;
+
         [SerializeField]
-        private List<CharacterQueuePosition> _characterQueuePositions = new List<CharacterQueuePosition>();
+        private WagonController _wagonController;
+
+        [SerializeField]
+        private CapacityWagonController _capacityWagonController;
+
+        [SerializeField]
+        private SingleEventChannel _onTrainStateChanged;
 
         [SerializeField]
         private int _intervalMoveCharacters = 1;
+        
+        [SerializeField]
+        private List<CharacterQueuePosition> _characterQueuePositions = new List<CharacterQueuePosition>();
+
+        private TrainState _trainState = TrainState.Idle;
+
+        private void OnEnable()
+        {
+            _wagonController.OnWagonUnlocked += HandleWagonUnlocked;
+            _onTrainStateChanged.Subscribe(TrainStateChanged);
+        }
+
+        private void OnDisable()
+        {
+            _wagonController.OnWagonUnlocked -= HandleWagonUnlocked;
+            _onTrainStateChanged.Unsubscribe(TrainStateChanged);
+        }
 
         private void Start()
         {
             StartCoroutine(ProcessQueueLoop());
         }
 
+        private void FixedUpdate()
+        {
+            if (_trainState != TrainState.WaitingForSignal)
+            {
+                return;
+            }
+
+            _capacityWagonController.OccupySeat();
+            ReleaseCharacterPosition();
+        }
+
         public bool HasEmptyPosition()
         {
-            return _characterQueuePositions.Any(position => position.CharacterMovementController == null);
+            if (!IsUnlocked)
+            {
+                return false;
+            }
+
+            return _characterQueuePositions.Last().CharacterMovementController == null;
         }
 
         public CharacterQueuePosition GetLastEmptyPosition()
         {
+            if (!IsUnlocked)
+            {
+                return null;
+            }
+
             CharacterQueuePosition position = _characterQueuePositions.Last();
             if (position.CharacterMovementController == null)
             {
@@ -36,18 +87,30 @@ namespace XaviGames.Interaction
             return null;
         }
 
-        public CharacterMovementController ReleaseCharacterPosition()
+        private void ReleaseCharacterPosition()
         {
             CharacterQueuePosition position = _characterQueuePositions.First();
 
             if (!position.IsCharacterAtPosition())
             {
-                return null;
+                return;
             }
 
             CharacterMovementController characterMovement = position.CharacterMovementController;
             position.ClearCharacter();
-            return characterMovement;
+        }
+
+        private void HandleWagonUnlocked(bool isUnlocked)
+        {
+            IsUnlocked = isUnlocked;
+        }
+
+        private void TrainStateChanged(object state)
+        {
+            if (state is TrainState trainState)
+            {
+                _trainState = trainState;
+            }
         }
 
         private IEnumerator ProcessQueueLoop()

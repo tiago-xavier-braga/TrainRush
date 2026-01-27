@@ -1,8 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
 using XaviGames.Attributes;
 using XaviGames.Events;
-using XaviGames.Managers;
 using XaviGames.Progression;
 using XaviGames.SaveSystem;
 using XaviGames.Train;
@@ -14,6 +12,10 @@ namespace XaviGames.Wagon
         [field: SerializeField]
         [field: ReadOnly]
         public int Capacity { get; private set; } = 0;
+
+        [field: SerializeField]
+        [field: ReadOnly]
+        public int CurrentBoarded { get; private set; } = 0;
 
         [SerializeField]
         private WagonBoardingAnimation _wagonBoardingAnimation;
@@ -27,32 +29,22 @@ namespace XaviGames.Wagon
         [SerializeField]
         private ProgressionSettings _progressionSettings;
 
-        [Header("Debug")]
-        [field: SerializeField]
-        [field: ReadOnly]
-        public int CurrentBoarded { get; private set; } = 0;
-
-        private TrainState _currentTrainState = TrainState.Idle;
-
-        public UnityAction OnAvailableSeatsChanged = null;
-        public UnityAction<int> OnCapacityChanged = null;
-
         private void OnEnable()
         {
             _onTrainStateChanged.Subscribe(TrainStateChanged);
-            _tierCapacityUpgrade.OnValueChanged += (_) => UpdateCapacity();
+            _tierCapacityUpgrade.OnValueChanged += TierUpgradeChanged;
         }
 
         private void OnDisable()
         {
             _onTrainStateChanged.Unsubscribe(TrainStateChanged);
-            _tierCapacityUpgrade.OnValueChanged -= (_) => UpdateCapacity();
+            _tierCapacityUpgrade.OnValueChanged += TierUpgradeChanged;
         }
 
-        public void UpdateCapacity()
+        private void Start()
         {
-            Capacity = _progressionSettings.GetCapacity(_tierCapacityUpgrade.Value);
-            OnCapacityChanged?.Invoke(Capacity);
+            TierUpgradeChanged(_tierCapacityUpgrade.Value);
+            ResetCapacity();
         }
 
         public void OccupySeat()
@@ -70,35 +62,19 @@ namespace XaviGames.Wagon
             _wagonBoardingAnimation.UpdateBoardingVisuals(CurrentBoarded);
         }
 
-        private void Update()
-        {
-            if (_currentTrainState != TrainState.WaitingForSignal)
-            {
-                return;
-            }
-
-            int availableSeats = Capacity - CurrentBoarded;
-
-            if (availableSeats <= 0)
-            {
-                return;
-            }
-
-            OnAvailableSeatsChanged?.Invoke();
-            return;
-        }
-
         private void TrainStateChanged(object state)
         {
-            if (state is TrainState trainState)
-            {
-                _currentTrainState = trainState;
-            }
+            TrainState _currentTrainState = (TrainState)state;
 
             if (_currentTrainState == TrainState.Finalized)
             {
                 ResetCapacity();
             }
+        }
+
+        private void TierUpgradeChanged(int newTier)
+        {
+            Capacity = _progressionSettings.GetCapacity(newTier);
         }
     }
 }
