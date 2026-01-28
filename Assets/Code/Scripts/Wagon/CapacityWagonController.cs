@@ -47,13 +47,17 @@ namespace XaviGames.Wagon
             ResetCapacity();
         }
 
-        public void OccupySeat()
+        public bool OccupySeat()
         {
             if (CurrentBoarded < Capacity)
             {
                 CurrentBoarded++;
                 _wagonBoardingAnimation.UpdateBoardingVisuals(CurrentBoarded);
+
+                return true;
             }
+
+            return false;
         }
 
         private void ResetCapacity()

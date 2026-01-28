@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
-using XaviGames.Attributes;
 using XaviGames.Characters;
 
 namespace XaviGames.Interaction
@@ -14,118 +11,74 @@ namespace XaviGames.Interaction
         private FenceGateUnlockController _fenceGateUnlockController;
 
         [SerializeField]
-        private FenceGateStateController _fenceGateStateController;
-
-        [SerializeField]
         private CharacterSpawnController _characterSpawnController;
 
         [SerializeField]
-        private GroupBoardingQueueController _groupBoardingQueueController;
+        private BoardingQueueController _boardingQueueController;
 
         [SerializeField]
-        private int _intervalMoveCharacters = 1;
+        private List<QueuePosition> _queuePositions = new List<QueuePosition>();
 
-        [SerializeField]
-        private List<CharacterQueuePosition> _characterQueuePositions = new List<CharacterQueuePosition>();
-
-        private void Start()
-        {
-            StartCoroutine(ProcessQueueLoop());
-        }
-
-        public void ReleaseCharacterPosition()
+        private void FixedUpdate()
         {
             if (!_fenceGateUnlockController.IsUnlocked)
             {
                 return;
             }
 
-            if (!_fenceGateStateController.IsOpen)
-            {
-                return;
-            }
 
-            if (!_groupBoardingQueueController.CanJoinQueue())
-            {
-                return;
-            }
-
-            CharacterQueuePosition position = _characterQueuePositions.First();
-
-            if (!position.IsCharacterAtPosition())
-            {
-                return;
-            }
-
-            CharacterMovementController characterMovement = position.CharacterMovementController;
-            position.ClearCharacter();
-            _groupBoardingQueueController.RedirectEmptyPosition(characterMovement);
+            CheckLastPosition();
+            OrganizeQueue();
         }
 
-        private IEnumerator ProcessQueueLoop()
+        public void ReleaseCharacter()
         {
-            yield return new WaitForSeconds(1f);
-            FillQueue();
-
-            while (true)
+            QueuePosition firstPosition = _queuePositions.First();
+            
+            if (!firstPosition.IsOccupied)
             {
-                MoveCharactersInQueue();
-                CheckEmptyPosition();
-                yield return new WaitForSeconds(_intervalMoveCharacters);
+                return;
             }
+            
+            if (!firstPosition.IsEntityAtPosition())
+            {
+                return;
+            }
+
+            _boardingQueueController.AddCharacter(firstPosition.OccupiedEntity);
+            firstPosition.ClearOccupiedEntity();
+            OrganizeQueue();
         }
 
-        private void MoveCharactersInQueue()
+        private void CheckLastPosition()
         {
-            for (int i = _characterQueuePositions.Count - 1; i > 0; i--)
-            {
-                CharacterQueuePosition currentPosition = _characterQueuePositions[i];
-                CharacterQueuePosition previousPosition = _characterQueuePositions[i - 1];
+            QueuePosition lastPosition = _queuePositions.Last();
 
-                if (currentPosition.CharacterMovementController != null &&
-                    previousPosition.CharacterMovementController == null)
+            if (lastPosition.IsOccupied)
+            {
+                return;
+            }
+
+            GameObject characterSpawn = _characterSpawnController.ActivateCharacter();
+            CharacterManager characterManager = characterSpawn.GetComponent<CharacterManager>();
+            characterManager.CharacterMovementController.SetDestination(lastPosition.transform);
+            lastPosition.SetOccupiedEntity(characterSpawn);
+        }
+
+        private void OrganizeQueue()
+        {
+            for (int i = 0; i < _queuePositions.Count - 1; i++)
+            {
+                QueuePosition queuePosition = _queuePositions[i];
+                QueuePosition nextQueuePosition = _queuePositions[Mathf.Clamp(i + 1, 0, _queuePositions.Count - 1)];
+
+                if (!queuePosition.IsOccupied && nextQueuePosition.IsOccupied)
                 {
-                    CharacterMovementController characterToMove = currentPosition.CharacterMovementController;
-                    previousPosition.SetCharacter(characterToMove);
-                    characterToMove.SetDestination(previousPosition.Transform);
-                    currentPosition.ClearCharacter();
+                    CharacterManager characterManager = nextQueuePosition.OccupiedEntity.GetComponent<CharacterManager>();
+                    characterManager.CharacterMovementController.SetDestination(queuePosition.transform);
+                    queuePosition.SetOccupiedEntity(nextQueuePosition.OccupiedEntity);
+                    nextQueuePosition.SetOccupiedEntity(null);
                 }
-            }
-        }
-
-        [Button]
-        private void FillQueue()
-        {
-            if (!_fenceGateUnlockController.IsUnlocked)
-            {
-                return;
-            }
-
-            foreach (var position in _characterQueuePositions)
-            {
-                GameObject characterObject = _characterSpawnController.ActivateCharacter();
-                var characterManager = characterObject.GetComponent<CharacterManager>();
-                CharacterMovementController characterMovementController = characterManager.CharacterMovementController;
-                position.SetCharacter(characterMovementController);
-                characterMovementController.SetDestination(position.Transform);
-            }
-        }
-
-        private void CheckEmptyPosition()
-        {
-            if (!_fenceGateUnlockController.IsUnlocked)
-            {
-                return;
-            }
-
-            CharacterQueuePosition position = _characterQueuePositions.Last();
-            if (position.CharacterMovementController == null)
-            {
-                GameObject characterObject = _characterSpawnController.ActivateCharacter();
-                var characterManager = characterObject.GetComponent<CharacterManager>();
-                CharacterMovementController characterMovementController = characterManager.CharacterMovementController;
-                position.SetCharacter(characterMovementController);
-                characterMovementController.SetDestination(position.Transform);
             }
         }
     }

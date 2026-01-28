@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3517808882961957515}
-  - component: {fileID: 81262103905527525}
+  - component: {fileID: 4167020854388067798}
   m_Layer: 0
   m_Name: Position (2)
   m_TagString: Untagged
@@ -350,7 +350,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3843837365057513673}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &81262103905527525
+--- !u!114 &4167020854388067798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,11 +359,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4999002582784532908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea88bcc872b57b479050bf9166d9f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharacterMovementController>k__BackingField: {fileID: 0}
-  _gizmoSize: 0.5
 --- !u!1 &5557793800056349690
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8213834058604224437}
-  - component: {fileID: 6502547031072640380}
+  - component: {fileID: 3513954995398038199}
   m_Layer: 0
   m_Name: Position (1)
   m_TagString: Untagged
@@ -396,7 +394,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3843837365057513673}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &6502547031072640380
+--- !u!114 &3513954995398038199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,11 +403,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5557793800056349690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea88bcc872b57b479050bf9166d9f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharacterMovementController>k__BackingField: {fileID: 0}
-  _gizmoSize: 0.5
 --- !u!1 &6866517525682393680
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,9 +416,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8408434044202990269}
   - component: {fileID: 1942648423560108590}
-  - component: {fileID: 2745441381031734369}
   - component: {fileID: 8862963199644564991}
   - component: {fileID: 8214811453528153877}
+  - component: {fileID: 9083279158213493300}
   m_Layer: 0
   m_Name: Fence Door Rotate
   m_TagString: Untagged
@@ -469,28 +465,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 1, z: 0.4}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &2745441381031734369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6866517525682393680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce879ce72ccbec3498f2817c031ed6ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fenceGateUnlockController: {fileID: 8862963199644564991}
-  _fenceGateStateController: {fileID: 8214811453528153877}
-  _characterSpawnController: {fileID: 0}
-  _groupBoardingQueueController: {fileID: 0}
-  _intervalMoveCharacters: 1
-  _characterQueuePositions:
-  - {fileID: 6502547031072640380}
-  - {fileID: 81262103905527525}
-  - {fileID: 4861606423277936823}
-  - {fileID: 4432289463444911315}
 --- !u!114 &8862963199644564991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +502,25 @@ MonoBehaviour:
   _fenceDoorState: 0
   _animator: {fileID: 4255117534775363889}
   _buttonHoldAnimation: {fileID: 4663354091873094230}
+--- !u!114 &9083279158213493300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866517525682393680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce879ce72ccbec3498f2817c031ed6ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fenceGateUnlockController: {fileID: 8862963199644564991}
+  _characterSpawnController: {fileID: 0}
+  _queuePositions:
+  - {fileID: 3513954995398038199}
+  - {fileID: 4167020854388067798}
+  - {fileID: 3872477204958895338}
+  - {fileID: 3659304308746339027}
 --- !u!1 &6886525983687208960
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8887440190653666789}
-  - component: {fileID: 4861606423277936823}
+  - component: {fileID: 3872477204958895338}
   m_Layer: 0
   m_Name: Position (3)
   m_TagString: Untagged
@@ -560,7 +553,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3843837365057513673}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &4861606423277936823
+--- !u!114 &3872477204958895338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,11 +562,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6886525983687208960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea88bcc872b57b479050bf9166d9f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharacterMovementController>k__BackingField: {fileID: 0}
-  _gizmoSize: 0.5
 --- !u!1 &8607792965344973680
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4246930938995727434}
-  - component: {fileID: 4432289463444911315}
+  - component: {fileID: 3659304308746339027}
   m_Layer: 0
   m_Name: Position (4)
   m_TagString: Untagged
@@ -606,7 +597,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3843837365057513673}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &4432289463444911315
+--- !u!114 &3659304308746339027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,11 +606,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8607792965344973680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea88bcc872b57b479050bf9166d9f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharacterMovementController>k__BackingField: {fileID: 0}
-  _gizmoSize: 0.5
 --- !u!1001 &6517283270665406723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,7 +744,7 @@ PrefabInstance:
     - target: {fileID: 8314923169446637322, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
       propertyPath: OnStayEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2745441381031734369}
+      objectReference: {fileID: 9083279158213493300}
     - target: {fileID: 8314923169446637322, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
       propertyPath: OnEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -790,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8314923169446637322, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
       propertyPath: OnStayEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReleaseCharacterPosition
+      value: ReleaseCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 8314923169446637322, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
       propertyPath: OnEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
