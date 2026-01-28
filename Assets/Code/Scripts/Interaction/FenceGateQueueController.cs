@@ -34,13 +34,18 @@ namespace XaviGames.Interaction
         public void ReleaseCharacter()
         {
             QueuePosition firstPosition = _queuePositions.First();
-            
+
             if (!firstPosition.IsOccupied)
             {
                 return;
             }
-            
+
             if (!firstPosition.IsEntityAtPosition())
+            {
+                return;
+            }
+
+            if (!_boardingQueueController.IsAnyQueueEmpty())
             {
                 return;
             }

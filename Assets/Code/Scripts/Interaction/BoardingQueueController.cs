@@ -27,5 +27,17 @@ namespace XaviGames.Interaction
 
             wagonQueueController?.AddCharacter(Character);
         }
+
+        public bool IsAnyQueueEmpty()
+        {
+            foreach (WagonQueueController wagonQueue in _wagonQueueController)
+            {
+                if (wagonQueue.IsLastPositionEmpty())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

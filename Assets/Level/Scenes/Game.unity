@@ -2571,9 +2571,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1960224561}
     - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _onTrainStateChanged
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: _capacityWagonController
       value: 
       objectReference: {fileID: 1960224557}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _characterSpawnController
+      value: 
+      objectReference: {fileID: 238344525}
     - target: {fileID: 7856664907835508805, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.612
@@ -2763,6 +2771,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1076b3225f2515145a5cb08c52dec390, type: 2}
     - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _boardingQueueController
+      value: 
+      objectReference: {fileID: 8508535758797510296}
+    - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: _characterSpawnController
       value: 
       objectReference: {fileID: 238344525}
@@ -2904,6 +2916,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a39df9d8454163c40a0fc1ba163f8829, type: 2}
     - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _boardingQueueController
+      value: 
+      objectReference: {fileID: 8508535758797510296}
+    - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: _characterSpawnController
       value: 
       objectReference: {fileID: 238344525}
@@ -2929,9 +2945,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1726614461}
     - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _onTrainStateChanged
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: _capacityWagonController
       value: 
       objectReference: {fileID: 1726614457}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _characterSpawnController
+      value: 
+      objectReference: {fileID: 238344525}
     - target: {fileID: 7856664907835508805, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.012
@@ -3399,9 +3423,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1769085458}
     - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _onTrainStateChanged
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: _capacityWagonController
       value: 
       objectReference: {fileID: 1769085454}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _characterSpawnController
+      value: 
+      objectReference: {fileID: 238344525}
     - target: {fileID: 7856664907835508805, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.446
@@ -3475,9 +3507,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2011963371}
     - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _onTrainStateChanged
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: _capacityWagonController
       value: 
       objectReference: {fileID: 1485150173}
+    - target: {fileID: 1926582039875861124, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
+      propertyPath: _characterSpawnController
+      value: 
+      objectReference: {fileID: 238344525}
     - target: {fileID: 7856664907835508805, guid: a380660da08e88f4bb22f497329b3ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.994
@@ -3666,6 +3706,10 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2fbba4b9e24a83e40ad7c87601411a85, type: 2}
+    - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _boardingQueueController
+      value: 
+      objectReference: {fileID: 8508535758797510296}
     - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: _characterSpawnController
       value: 
@@ -3870,6 +3914,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c8501f4bb7f7a4a4c9ffba01bf5c1dd1, type: 2}
     - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _boardingQueueController
+      value: 
+      objectReference: {fileID: 8508535758797510296}
+    - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: _characterSpawnController
       value: 
       objectReference: {fileID: 238344525}
@@ -4010,6 +4058,10 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2581cd5d688ee7e4bb14062de221e11c, type: 2}
+    - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: _boardingQueueController
+      value: 
+      objectReference: {fileID: 8508535758797510296}
     - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: _characterSpawnController
       value: 
