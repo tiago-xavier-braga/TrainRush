@@ -18,5 +18,5 @@ MonoBehaviour:
   _speedPriceMultiplier: 10
   _baseCapacity: 2
   _capacityMultiplier: 1
-  _baseWagonPrice: 250
+  _baseWagonPrice: 150
   _wagonPriceMultiplier: 50

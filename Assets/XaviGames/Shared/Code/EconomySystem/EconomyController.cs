@@ -20,10 +20,6 @@ namespace XaviGames.EconomySystem
         private int _debugCoins = 0;
 
         [SerializeField]
-        [ReadOnly]
-        private int _debugDiamonds = 0;
-
-        [SerializeField]
         private int numberToAddForTest = 100;
 
         private void Update()
