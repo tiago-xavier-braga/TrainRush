@@ -26,7 +26,6 @@ namespace XaviGames.Interaction
                 return;
             }
 
-
             CheckLastPosition();
             OrganizeQueue();
         }

@@ -24,10 +24,13 @@ namespace XaviGames.Wagon
 
         public UnityAction<bool> OnWagonUnlocked;
 
-        private void Start()
+        private void Awake()
         {
             LoadData();
+        }
 
+        private void Start()
+        {
             if (IsUnlocked)
             {
                 _wagonSpawnController.CreateWagon();

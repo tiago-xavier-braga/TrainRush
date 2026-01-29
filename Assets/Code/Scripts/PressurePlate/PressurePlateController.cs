@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using XaviGames.Animation;
 using XaviGames.Attributes;
 
 namespace XaviGames.PressurePlate
@@ -14,6 +15,9 @@ namespace XaviGames.PressurePlate
 
         [SerializeField]
         private float _timeToHold;
+
+        [SerializeField]
+        private SpawnAnimation _spawnAnimation;
 
         [Header("Canvas References")]
         [SerializeField]
@@ -107,6 +111,16 @@ namespace XaviGames.PressurePlate
             _canvasGroup.alpha = 0f;
             _canvasGroup.blocksRaycasts = false;
         }
+
+        public void Spawn()
+        {
+            _spawnAnimation.Spawn();
+        }
+
+        public void Despawn()
+        {
+            _spawnAnimation.Despawn();
+        }   
 
         public void SetNewText(string text)
         {

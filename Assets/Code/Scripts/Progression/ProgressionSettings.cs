@@ -8,29 +8,38 @@ namespace XaviGames.Progression
         [Header("Capacity Price Settings")]
         [SerializeField]
         [Min(0f)]
-        private int _baseCapacityPrice = 0;
+        private int _baseCapacityPrice;
 
         [SerializeField]
         [Min(1f)]
-        private float _capacityPriceMultiplier = 1f;
+        private float _capacityPriceMultiplier;
 
         [Header("Train Speed Settings")]
         [SerializeField]
         [Min(0f)]
-        private int _baseSpeedPrice = 0;
+        private int _baseSpeedPrice;
 
         [SerializeField]
         [Min(0f)]
-        private float _speedPriceMultiplier = 0f;
+        private float _speedPriceMultiplier;
 
         [Header("Capacity Settings")]
         [SerializeField]
         [Min(0)]
-        private int _baseCapacity = 0;
+        private int _baseCapacity;
 
         [SerializeField]
         [Min(0f)]
-        private float _capacityMultiplier = 0f;
+        private float _capacityMultiplier;
+
+        [Header("Wagons Settings")]
+        [SerializeField]
+        [Min(0)]
+        private int _baseWagonPrice;
+
+        [SerializeField]
+        [Min(0f)]
+        private float _wagonPriceMultiplier;
 
         public int GetCapacityPrice(int tier)
         {
@@ -47,9 +56,15 @@ namespace XaviGames.Progression
             return _baseCapacity + Mathf.RoundToInt(_capacityMultiplier * tier);
         }
 
+        public int GetWagonPrice(int tier)
+        {
+            return GetPrice(tier, _baseWagonPrice, _wagonPriceMultiplier);
+        }
+
         private int GetPrice(int tier, int basePrice, float priceMultiplier)
         {
             return Mathf.RoundToInt(basePrice + priceMultiplier * tier);
         }
+
     }
 }

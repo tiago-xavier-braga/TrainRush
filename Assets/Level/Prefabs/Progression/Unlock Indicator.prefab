@@ -664,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCollider: {fileID: 0}
   _timeToHold: 2
+  _spawnAnimation: {fileID: 5388843776130499524}
   _canvasGroup: {fileID: 93143634710872373}
   _iconImage: {fileID: 4580900868486526538}
   _textMeshPro: {fileID: 6409098001667739480}
@@ -1183,8 +1184,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e13b2846a1c407a4e900c7c7ca0c2db6, type: 2}
+  m_sharedMaterial: {fileID: -4077162273827030810, guid: e13b2846a1c407a4e900c7c7ca0c2db6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
