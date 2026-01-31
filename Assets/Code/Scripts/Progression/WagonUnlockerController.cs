@@ -35,8 +35,6 @@ namespace XaviGames.Progression
             int lockedWagonsCount = _wagonControllers.Count(wagon => !wagon.IsUnlocked);
             _pressurePlateController.gameObject.SetActive(lockedWagonsCount > 0);
 
-            Debug.Log($" {lockedWagonsCount} {lockedWagonsCount > 0}");
-
             UpdatePrice();
         }
 
@@ -80,7 +78,6 @@ namespace XaviGames.Progression
         {
             int unlockedCount = _wagonControllers.Count(wagon => wagon.IsUnlocked);
             price = _progressionSettings.GetWagonPrice(unlockedCount);
-            Debug.Log($"Next wagon price updated to: {price}");
             _pressurePlateController.SetNewText(price.ToString());
         }
     }

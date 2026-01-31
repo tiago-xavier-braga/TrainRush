@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using XaviGames.Attributes;
 
 namespace XaviGames.Animation
 {
     public class SpawnAnimation : MonoBehaviour
     {
-        [SerializeField]
-        private float _duration = 1.0f;
+        [FormerlySerializedAs("_duration")]
+        [field: SerializeField]
+        public float Duration = 1.0f;
 
         [SerializeField]
         private LeanTweenType _leanTweenType;
@@ -22,15 +24,15 @@ namespace XaviGames.Animation
 
         public void Animate(GameObject gameObject, Vector3 from, Vector3 to, UnityAction onFinish = null)
         {
+            if (_id != -1)
+            {
+                LeanTween.cancel(_id);
+            }
+
             _initialScale = from;
             gameObject.transform.localScale = _initialScale;
             
-            _id = LeanTween.scale
-            (
-                gameObject, 
-                to, 
-                _duration
-            )
+            _id = LeanTween.scale(gameObject, to, Duration)
             .setEase
             (
                 _leanTweenType
