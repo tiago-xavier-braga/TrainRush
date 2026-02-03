@@ -4201,6 +4201,10 @@ PrefabInstance:
       propertyPath: _fenceDoorRotateModel
       value: 
       objectReference: {fileID: 11400000, guid: 2fbba4b9e24a83e40ad7c87601411a85, type: 2}
+    - target: {fileID: 8862963199644564991, guid: a9972d25f94cb0c438434ce838810758, type: 3}
+      propertyPath: <IsUnlocked>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9083279158213493300, guid: a9972d25f94cb0c438434ce838810758, type: 3}
       propertyPath: _boardingQueueController
       value: 

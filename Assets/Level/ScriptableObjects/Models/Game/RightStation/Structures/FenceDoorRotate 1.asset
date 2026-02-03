@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FenceDoorRotate 1
   m_EditorClassIdentifier: 
   <Key>k__BackingField: FenceDoorRotate 1
-  <Value>k__BackingField: 0
-  <DefaultValue>k__BackingField: 0
+  <Value>k__BackingField: 1
+  <DefaultValue>k__BackingField: 1

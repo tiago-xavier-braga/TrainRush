@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ProgressionSettings
   m_EditorClassIdentifier: 
   <TicketPrice>k__BackingField: 5
-  _baseCapacityPrice: 5
+  _baseCapacityPrice: 10
   _capacityPriceMultiplier: 5
-  _baseSpeedPrice: 10
+  _baseSpeedPrice: 5
   _speedPriceMultiplier: 10
   _baseCapacity: 2
   _capacityMultiplier: 1

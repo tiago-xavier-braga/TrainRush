@@ -41,6 +41,11 @@ namespace XaviGames.Interaction
             _onTrainStateChanged?.Unsubscribe(OnTrainStateChanged);
         }
 
+        private void Start()
+        {
+            _pressurePlateAnimation.SetAnimationEnabled(_trainState == TrainState.WaitingForSignal);
+        }
+
         public void ReleaseTrain()
         {
             if (_trainState != TrainState.WaitingForSignal)
@@ -54,6 +59,7 @@ namespace XaviGames.Interaction
             _trainMovementController.Departing();
             _leverAnimation.EnableAnimation();
             _pressurePlateAnimation.SuccessUnlocked();
+            _pressurePlateAnimation.SetAnimationEnabled(false);
         }
 
         private void ResetTrafficLight()
@@ -72,6 +78,9 @@ namespace XaviGames.Interaction
             {
                 case TrainState.Approaching:
                     ResetTrafficLight();
+                    break;
+                case TrainState.WaitingForSignal:
+                    _pressurePlateAnimation.SetAnimationEnabled(true);
                     break;
                 case TrainState.Finalized:
                     _greenLight.Disable();
