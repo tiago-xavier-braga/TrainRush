@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bba069e5819cc40984aa8ff8e5f82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ticketPrice: 5
+  _progressionSettings: {fileID: 11400000, guid: 31e509bd6805f8b4cab8aa4cdef8e1db, type: 2}
   _economyController: {fileID: 0}
-  _trainMovementController: {fileID: 0}
-  _cameraFacingTextAnimation: {fileID: 0}
+  _cameraFacingTextAnimation: {fileID: 7559775139616041683}
   _coinSoundEffect: {fileID: 3262595838145766986}
+  _onTrainStateChanged: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
   _passengerBoardingControllers: []
 --- !u!114 &3262595838145766986
 MonoBehaviour:
@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Camera Facing Text '
       objectReference: {fileID: 0}
+    - target: {fileID: 5469566339592890569, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 755158313, guid: 669ce424f5e40b746b0fe70ff998dd7e, type: 3}
     - target: {fileID: 6030350209153693442, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -256,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8985556490080190528, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
       propertyPath: m_Alpha
-      value: 0.13
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -268,3 +272,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6030350209153693442, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
   m_PrefabInstance: {fileID: 2054784627511586814}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7559775139616041683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8389564904862270765, guid: b23bff4ccc2377743ac5d24066965fdb, type: 3}
+  m_PrefabInstance: {fileID: 2054784627511586814}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944e277ffc787c546a357c0440e76c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

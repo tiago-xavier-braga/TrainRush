@@ -1306,17 +1306,6 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.74, z: 0}
---- !u!114 &651705118 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7559775139616041683, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
-  m_PrefabInstance: {fileID: 1985329574777313271}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944e277ffc787c546a357c0440e76c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &766398907
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,17 +3677,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 579487581}
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
-      propertyPath: _onTrainStateChanged
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
-    - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: _trainMovementController
       value: 
       objectReference: {fileID: 1553470819}
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
-      propertyPath: _cameraFacingTextAnimation
+      propertyPath: _capacityWagonController.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
+      propertyPath: '_capacityWagonController.Array.data[0]'
       value: 
-      objectReference: {fileID: 651705118}
+      objectReference: {fileID: 1726614457}
+    - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
+      propertyPath: '_capacityWagonController.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1769085454}
+    - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
+      propertyPath: '_capacityWagonController.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1485150173}
+    - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
+      propertyPath: '_capacityWagonController.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1960224557}
     - target: {fileID: 1694073483876849689, guid: fba155f1732a8784da03108e6b120e4b, type: 3}
       propertyPath: _passengerBoardingControllers.Array.size
       value: 4
@@ -3811,6 +3812,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 849617288}
     m_Modifications:
+    - target: {fileID: 4517315030389434905, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
+      propertyPath: _trainMovementController
+      value: 
+      objectReference: {fileID: 1553470819}
     - target: {fileID: 5642307495148901894, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.779
@@ -3859,34 +3864,6 @@ PrefabInstance:
       propertyPath: _playerCollider
       value: 
       objectReference: {fileID: 630585933}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1553470819}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Departing
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: XaviGames.Train.TrainMovementController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033088293070180976, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
-      propertyPath: OnHoldEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

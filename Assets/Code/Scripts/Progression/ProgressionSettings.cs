@@ -5,6 +5,10 @@ namespace XaviGames.Progression
     [CreateAssetMenu(fileName = "ProgressionSettings", menuName = "XaviGames/ProgressionSettings")]
     public class ProgressionSettings : ScriptableObject
     {
+        [field: Header("Revenue")]
+        [field: SerializeField]
+        public int TicketPrice {  get; private set; }
+
         [Header("Capacity Price Settings")]
         [SerializeField]
         [Min(0f)]

@@ -13,7 +13,7 @@ namespace XaviGames.Progression
     {
         [Header("Settings")]
         [SerializeField]
-        private int _ticketPrice;
+        private ProgressionSettings _progressionSettings;
 
         [SerializeField]
         private EconomyController _economyController;
@@ -28,7 +28,7 @@ namespace XaviGames.Progression
         private SingleEventChannel _onTrainStateChanged;
 
         [SerializeField]
-        private List<CapacityWagonController> _passengerBoardingControllers;
+        private List<CapacityWagonController> _capacityWagonController;
 
         private void OnEnable()
         {
@@ -70,12 +70,12 @@ namespace XaviGames.Progression
         private int CalculateReward()
         {
             int totalPassengers = 0;
-            foreach (var controller in _passengerBoardingControllers)
+            foreach (var controller in _capacityWagonController)
             {
                 totalPassengers += controller.CurrentBoarded;
             }
 
-            return totalPassengers * _ticketPrice;
+            return totalPassengers * _progressionSettings.TicketPrice;
         }
     }
 }
