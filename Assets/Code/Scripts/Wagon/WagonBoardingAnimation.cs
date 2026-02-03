@@ -5,7 +5,7 @@ namespace XaviGames.Wagon
     public class WagonBoardingAnimation : MonoBehaviour
     {
         [SerializeField]
-        private WagonSpawnController _wagonUpgradeController;
+        private CapacityWagonController _capacityWagonController;
 
         [Header("Canvas Animation")]
         [SerializeField]
@@ -36,7 +36,6 @@ namespace XaviGames.Wagon
         private int _leantweenId = -1;
         private bool _isCanvasVisible = false;
 
-
         private void Update()
         {
             if (!_isCanvasVisible)
@@ -54,42 +53,40 @@ namespace XaviGames.Wagon
             UpdateBoardingCanvas(boardedValue);
         }
 
-        //TODO: Refactor this code 
         private void UpdateBoardingCanvas(int boardedValue)
         {
-            //if (boardedValue >= _wagonUpgradeController.Capacity)
-            //{
-            //    LeanTween.alphaCanvas(_canvasGroup, 1f, _animationDuration)
-            //        .setEase(_easeType);
+            if (boardedValue >= _capacityWagonController.Capacity)
+            {
+                LeanTween.alphaCanvas(_canvasGroup, 1f, _animationDuration)
+                    .setEase(_easeType);
 
-            //    _isCanvasVisible = true;
-            //}
-            //else
-            //{
-            //    LeanTween.alphaCanvas(_canvasGroup, 0f, _animationDuration)
-            //        .setEase(_easeType);
+                _isCanvasVisible = true;
+            }
+            else
+            {
+                LeanTween.alphaCanvas(_canvasGroup, 0f, _animationDuration)
+                    .setEase(_easeType);
 
-            //    _isCanvasVisible = false;
-            //}
+                _isCanvasVisible = false;
+            }
         }
 
         private void UpdateWagonScale(int boardedValue)
         {
-            //if (_leantweenId != -1)
-            //{
-            //    LeanTween.cancel(_leantweenId);
-            //    _leantweenId = -1;
-            //}
+            if (_leantweenId != -1)
+            {
+                LeanTween.cancel(_leantweenId);
+                _leantweenId = -1;
+            }
 
-            //int totalCapacity = _wagonUpgradeController.Capacity;
-            //float scaleFactor = (boardedValue * (100f / totalCapacity)) / 100f;
-            //Vector3 targetScale = Vector3.Lerp(_defaultScale, _expandedScale, scaleFactor);
+            int totalCapacity = _capacityWagonController.Capacity;
+            float scaleFactor = (boardedValue * (100f / totalCapacity)) / 100f;
+            Vector3 targetScale = Vector3.Lerp(_defaultScale, _expandedScale, scaleFactor);
 
-            //_leantweenId = LeanTween.scale(_wagon, targetScale, _animationDuration)
-            //    .setEase(_easeType)
-            //    .setOnComplete(() => _leantweenId = -1)
-            //    .id;
+            _leantweenId = LeanTween.scale(_wagon, targetScale, _animationDuration)
+                .setEase(_easeType)
+                .setOnComplete(() => _leantweenId = -1)
+                .id;
         }
-
     }
 }

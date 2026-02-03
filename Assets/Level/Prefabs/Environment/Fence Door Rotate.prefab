@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OccupiedEntity>k__BackingField: {fileID: 0}
 --- !u!1 &5557793800056349690
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OccupiedEntity>k__BackingField: {fileID: 0}
 --- !u!1 &6866517525682393680
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fenceGateUnlockController: {fileID: 8862963199644564991}
   _characterSpawnController: {fileID: 0}
+  _boardingQueueController: {fileID: 0}
   _queuePositions:
   - {fileID: 3513954995398038199}
   - {fileID: 4167020854388067798}
@@ -565,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OccupiedEntity>k__BackingField: {fileID: 0}
 --- !u!1 &8607792965344973680
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8654f93bac92a994b93d95655769f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OccupiedEntity>k__BackingField: {fileID: 0}
 --- !u!1001 &6517283270665406723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -681,6 +686,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4144432773558295778, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 483610877, guid: 669ce424f5e40b746b0fe70ff998dd7e, type: 3}
     - target: {fileID: 4985376424558827961, guid: 6fb88f22c5368674ba9296e040bfd58c, type: 3}
       propertyPath: m_Name
       value: Unlock Revolving Doors

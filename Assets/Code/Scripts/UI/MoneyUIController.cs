@@ -6,18 +6,18 @@ using XaviGames.SaveSystem;
 
 namespace XaviGames.UI
 {
-    public class StatusBoxController : MonoBehaviour
+    public class MoneyUIController : MonoBehaviour
     {
         [SerializeField]
-        private IntModel _intModel;
+        protected IntModel _intModel;
 
         [SerializeField]
-        private TextMeshProUGUI _textMeshProUGUI;
+        protected TextMeshProUGUI _textMeshProUGUI;
 
         [SerializeField]
-        private SpawnAnimation _textSpawnAnimation;
+        protected SpawnAnimation _textSpawnAnimation;
 
-        private Coroutine _textCoroutine;
+        protected Coroutine _textCoroutine;
 
         private void OnEnable()
         {
@@ -41,7 +41,7 @@ namespace XaviGames.UI
                 StopCoroutine(_textCoroutine);
             }
 
-            _textCoroutine = StartCoroutine(TextAnimation());    
+            _textCoroutine = StartCoroutine(TextAnimation());
         }
 
         private IEnumerator TextAnimation()
