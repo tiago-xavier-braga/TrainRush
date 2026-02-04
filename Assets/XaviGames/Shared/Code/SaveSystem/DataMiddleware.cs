@@ -42,9 +42,10 @@ namespace XaviGames.SaveSystem
             }
             else if (_option == Option.Delete)
             {
+#if UNITY_EDITOR
                 _saveSystem.DeleteAllModels();
+#endif
             }
-
             Shutdown(onFinshCallback);
         }
 
