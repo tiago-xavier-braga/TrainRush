@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276c468a062e65d4981440a6e0aa6a2e, type: 3}
   m_Name: SpeedRespawnValueLeft
   m_EditorClassIdentifier: 
-  _value: 20
-  Value: 19.5
+  _value: 10
+  Value: 10

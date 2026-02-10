@@ -47,6 +47,11 @@ namespace XaviGames.Animation
             .id;
         }
 
+        public void Animate(Vector3 from, Vector3 to, UnityAction onFinish = null)
+        {
+            Animate(gameObject, from, to, onFinish);
+        }
+
         [Button(true)]
         public void Spawn()
         {

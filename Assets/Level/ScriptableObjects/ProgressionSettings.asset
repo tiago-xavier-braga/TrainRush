@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0458969e2674dae44bd5b95e5e062b35, type: 3}
   m_Name: ProgressionSettings
   m_EditorClassIdentifier: 
-  <TicketPrice>k__BackingField: 5
+  <TicketPrice>k__BackingField: 1
   _baseCapacityPrice: 10
   _capacityPriceMultiplier: 5
   _baseSpeedPrice: 5

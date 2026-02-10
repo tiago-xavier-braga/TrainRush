@@ -10,7 +10,7 @@ namespace XaviGames.Characters
         private Animator _animator;
 
         [SerializeField]
-        private CharactersState _currentState;
+        public CharactersState CurrentState { get; private set; }
 
         private static readonly int StateParameterHash = Animator.StringToHash("State");
 
@@ -21,9 +21,9 @@ namespace XaviGames.Characters
 
         public void SetState(CharactersState newState)
         {
-            if (_currentState != newState)
+            if (CurrentState != newState)
             {
-                _currentState = newState;
+                CurrentState = newState;
                 UpdateAnimatorState();
             }
         }
@@ -31,7 +31,7 @@ namespace XaviGames.Characters
         [Button]
         private void UpdateAnimatorState()
         {
-            _animator.SetInteger(StateParameterHash, (int)_currentState);
+            _animator.SetInteger(StateParameterHash, (int)CurrentState);
         }
     }
 
