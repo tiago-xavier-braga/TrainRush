@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +13,14 @@ namespace XaviGames.Characters
         private CharacterAnimationController _characterAnimationController;
 
         [SerializeField]
+        private LookAtPlayer _lookAtPlayer;
+        
+        [Header("Animation Settings")] 
+        [SerializeField]
         private SpawnAnimation _spawnAnimation;
 
         [SerializeField]
-        private LookAtPlayer _lookAtPlayer;
-
-        [SerializeField]
-        private float _maxTime;
+        private float _dissatisfactionLimitTime;
 
         [SerializeField]
         private float _animateTime;
@@ -61,7 +62,7 @@ namespace XaviGames.Characters
 
             _currentTime += Time.deltaTime;
             
-            if (_currentTime >= _maxTime)
+            if (_currentTime >= _dissatisfactionLimitTime)
             {
                 _animateCoroutine = StartCoroutine(AnimateCanvas());
             }

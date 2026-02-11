@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterAnimationController: {fileID: 1795903349103285052}
-  _spawnAnimation: {fileID: 1628539902676179300}
   _lookAtPlayer: {fileID: 6840268666725948844}
-  _maxTime: 20
+  _spawnAnimation: {fileID: 1628539902676179300}
+  _dissatisfactionLimitTime: 15
   _animateTime: 5
   _minCanvasScale: {x: 0, y: 0, z: 0}
   _maxCanvasScale: {x: 0.0015, y: 0.0015, z: 0.0015}
