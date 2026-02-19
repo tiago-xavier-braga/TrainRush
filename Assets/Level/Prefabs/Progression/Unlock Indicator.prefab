@@ -624,6 +624,7 @@ GameObject:
   - component: {fileID: 2077531599492704765}
   - component: {fileID: 4827083556847405548}
   - component: {fileID: 5388843776130499524}
+  - component: {fileID: 1792435764344316840}
   m_Layer: 0
   m_Name: Unlock Indicator
   m_TagString: Untagged
@@ -744,8 +745,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1642bb55e461d54fa1de5fea4f3a6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 1
+  Duration: 1
   _leanTweenType: 30
+--- !u!114 &1792435764344316840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4845529903646946065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8788ef32a09ea4a9893ae1b1d977e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TargetTransform>k__BackingField: {fileID: 0}
+  <IsAvailable>k__BackingField: 0
 --- !u!1 &4957781087189243276
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5e96cf0e32acc948a58dec5c6911b84, type: 3}
-  m_Name: FenceDoorRotateRight 1
+  m_Name: IsTutorialCompleted
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: FenceDoorRotateRight 1
-  <Value>k__BackingField: 1
+  <Key>k__BackingField: 
+  <Value>k__BackingField: 0
   <DefaultValue>k__BackingField: 0

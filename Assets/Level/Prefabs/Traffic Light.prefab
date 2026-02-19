@@ -642,6 +642,7 @@ MonoBehaviour:
   _trainMovementController: {fileID: 0}
   _onTrainStateChanged: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
   _pressurePlateAnimation: {fileID: 1511791294040931887}
+  _trafficLightTask: {fileID: 0}
   _leverAnimation: {fileID: 3722109532572329234}
   _redLight: {fileID: 4798887299072257964}
   _yellowLight: {fileID: 292217315193478787}
