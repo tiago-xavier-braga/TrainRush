@@ -5159,7 +5159,7 @@ MonoBehaviour:
   _isTutorialCompletedModel: {fileID: 11400000, guid: 9eee7f532ead0f3488c71530d9afcc13, type: 2}
   _dataController: {fileID: 11400000, guid: 680b1ea5b2c87674cb9b908c25e425e4, type: 2}
   _trainMovementController: {fileID: 1553470819}
-  _trainSpeedRespawn: {fileID: 0}
+  _trainSpeedRespawn: {fileID: 11400000, guid: 03b2d797124b74347acffb10991970b6, type: 2}
   _tutorialArrow: {fileID: 429364951}
   _arrowSpawnAnimation: {fileID: 429364954}
   _fenceTransform: {fileID: 573891679}
