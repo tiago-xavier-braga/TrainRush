@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5206599809548193015}
   - component: {fileID: 2911201750927811014}
   - component: {fileID: 34526606071036960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2524805261916602036}
   - component: {fileID: 8507415771885663344}
   - component: {fileID: 1432517906430163300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 5123675649285475973}
   - component: {fileID: 9210732362226440958}
   - component: {fileID: 8910152477546139503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4059586466688236432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Train Model 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

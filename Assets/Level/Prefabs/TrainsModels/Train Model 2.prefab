@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4279361176329110943}
   - component: {fileID: 752580702957615911}
   - component: {fileID: 6420520865868672564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3936531819879117308}
   - component: {fileID: 390033682153835647}
   - component: {fileID: 3682632850546573531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8812249571842772735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Train Model 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 54948959024056282}
   - component: {fileID: 7026610446006654794}
   - component: {fileID: 4657442007982737357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 6690874690933486391, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7310442665297728458, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.055
@@ -389,6 +393,10 @@ PrefabInstance:
     - target: {fileID: 6690874690933486391, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
       propertyPath: m_Name
       value: Particle System (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690874690933486391, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7310442665297728458, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
       propertyPath: m_LocalPosition.x

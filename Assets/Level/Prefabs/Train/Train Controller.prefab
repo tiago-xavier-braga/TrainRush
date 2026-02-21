@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3296578823307078593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Group Wagons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2633047661222040338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 521570592394339075}
   - component: {fileID: 77160682568732264}
   - component: {fileID: 257671379374111179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Movement Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1985113657431587764}
   - component: {fileID: 1671116738649331544}
   - component: {fileID: 9031441572916227501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Train Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127c39dd7cab28d48847c13fcd951f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trainState: 0
+  <TrainState>k__BackingField: 0
   _speed: 10
   _spawnTransform: {fileID: 0}
   _stationTransform: {fileID: 0}
@@ -300,8 +300,6 @@ MonoBehaviour:
   _approachDuration: 0
   _startPos: {x: 0, y: 0, z: 0}
   _endPos: {x: 0, y: 0, z: 0}
-  _trainDepartedEventChannel: {fileID: 11400000, guid: e4d05c6855acb8c4ab81fc0b64ca04ed, type: 2}
-  _routeCompletedEventChannel: {fileID: 11400000, guid: d36700e1f0d394646a2279cf757aa187, type: 2}
   _onTrainStateChanged: {fileID: 11400000, guid: 2e73add3d3ab8084c9d4349f0cc070b7, type: 2}
 --- !u!114 &9031441572916227501
 MonoBehaviour:
@@ -315,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1642bb55e461d54fa1de5fea4f3a6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 1
+  Duration: 1
   _leanTweenType: 30
 --- !u!1 &6554162759102994277
 GameObject:
@@ -326,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4339040482379022393}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Audio Sources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +360,7 @@ GameObject:
   - component: {fileID: 8689769586375933532}
   - component: {fileID: 614526135862565824}
   - component: {fileID: 8931178915391813147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Horn Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +510,7 @@ GameObject:
   - component: {fileID: 1928147627904741850}
   - component: {fileID: 7788538398773589186}
   - component: {fileID: 5195310470874674473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sound Effect Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,14 +657,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
+    - target: {fileID: 607268863901438423, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016918782940512845, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217046643101529331, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933036339690797023, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _trainMovementController
       value: 
       objectReference: {fileID: 1671116738649331544}
+    - target: {fileID: 4376387546071636439, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975611420530792849, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -711,6 +733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wagon Controller (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9064838444966919377, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -729,14 +755,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
+    - target: {fileID: 607268863901438423, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016918782940512845, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217046643101529331, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933036339690797023, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _trainMovementController
       value: 
       objectReference: {fileID: 1671116738649331544}
+    - target: {fileID: 4376387546071636439, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975611420530792849, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -781,6 +831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wagon Controller (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9064838444966919377, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -799,14 +853,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
+    - target: {fileID: 607268863901438423, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016918782940512845, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217046643101529331, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933036339690797023, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _trainMovementController
       value: 
       objectReference: {fileID: 1671116738649331544}
+    - target: {fileID: 4376387546071636439, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975611420530792849, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -851,6 +929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wagon Controller (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9064838444966919377, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -869,14 +951,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3296578823307078593}
     m_Modifications:
+    - target: {fileID: 607268863901438423, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016918782940512845, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217046643101529331, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1423326777096270516, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _wagonOrderSaveModel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933036339690797023, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3561837603025399068, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: _trainMovementController
       value: 
       objectReference: {fileID: 1671116738649331544}
+    - target: {fileID: 4376387546071636439, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975611420530792849, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6198096693316275002, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -920,6 +1026,10 @@ PrefabInstance:
     - target: {fileID: 9064838444966919377, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
       propertyPath: m_Name
       value: Wagon Controller (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064838444966919377, guid: 0927802487e763c49b8acfc0037afd3b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

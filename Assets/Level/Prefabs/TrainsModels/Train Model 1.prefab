@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4081862190392875786}
   - component: {fileID: 8657439345745867171}
   - component: {fileID: 6205085244745521829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8150441425784249067}
   - component: {fileID: 60365980835284710}
   - component: {fileID: 4378222713650343917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 5578955196052508332}
   - component: {fileID: 7587469797442446474}
   - component: {fileID: 773506208954058457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 3950565887345154291}
   - component: {fileID: 2006385298138965554}
   - component: {fileID: 5551361652880839440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 7606054734302051104}
   - component: {fileID: 5780841505698464516}
   - component: {fileID: 4141254173743531470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3833059489415353140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Train Model 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 7177942042535459901}
   - component: {fileID: 8048304811845235017}
   - component: {fileID: 5530305617464570450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,6 +595,10 @@ PrefabInstance:
     - target: {fileID: 6690874690933486391, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690874690933486391, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7310442665297728458, guid: 451b84ca7731f524c8d085bae1865e27, type: 3}
       propertyPath: m_LocalPosition.x

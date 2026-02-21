@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1768020861351378306}
   - component: {fileID: 3083513420883136818}
   - component: {fileID: 3284433406865778389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3397121806315099591}
   - component: {fileID: 7056021702532082690}
   - component: {fileID: 8559526786515317744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 7259241004207471343}
   - component: {fileID: 7397350607136755593}
   - component: {fileID: 2687355153886026242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheels-back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8732179609769160222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wagon Model 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
