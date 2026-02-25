@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startMiddlewares:
+  - {fileID: 11400000, guid: cf0ff44d2abc3514f95c09e5bc0d72d3, type: 2}
   - {fileID: 11400000, guid: b3ac028033867834ab94b7f46888dcbb, type: 2}
   _finishMiddlewares:
   - {fileID: 11400000, guid: f5d768519e48c3a498ddf36bd7af9322, type: 2}

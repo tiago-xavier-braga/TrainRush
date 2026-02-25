@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using XaviGames.Attributes;
 
 namespace XaviGames.SaveSystem
 {
@@ -12,9 +12,6 @@ namespace XaviGames.SaveSystem
 
         [SerializeField]
         private List<DataStorageSO> _dataStorages = new List<DataStorageSO>();
-
-        [SerializeField]
-        private int _storagePriority = 0;
 
         public void SaveAllModels()
         {
@@ -33,13 +30,12 @@ namespace XaviGames.SaveSystem
 
         public void LoadAllModels()
         {
-            foreach (DataStorageSO dataStorage in _dataStorages)
+            DataStorageSO dataStorage = _dataStorages.First();
+
+            IDataStorage loadStorage = dataStorage.Create();
+            foreach (var model in _models)
             {
-                IDataStorage loadStorage = dataStorage.Create();
-                foreach (var model in _models)
-                {
-                    model.Load(loadStorage);
-                }
+                model.Load(loadStorage);
             }
         }
 
@@ -67,20 +63,6 @@ namespace XaviGames.SaveSystem
                 model.Save(saveStorage);
                 saveStorage.Save();
             }
-        }
-
-        public void LoadModel(Model model)
-        {
-            DataStorageSO highestPriorityStorage = _dataStorages[_storagePriority];
-
-            if (highestPriorityStorage == null)
-            {
-                Debug.LogError("There is no reference to storage.");
-                return;
-            }
-
-            IDataStorage loadStorage = highestPriorityStorage.Create();
-            model.Load(loadStorage);
         }
     }
 }

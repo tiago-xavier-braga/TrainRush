@@ -11,7 +11,6 @@ namespace XaviGames.Applications
         [Header("Middlewares")]
         [SerializeField]
         private List<Middleware> _startMiddlewares;
-
         [Space(8f)]
         [SerializeField]
         private List<Middleware> _finishMiddlewares;
@@ -29,50 +28,45 @@ namespace XaviGames.Applications
                 Destroy(this.gameObject);
                 return;
             }
+
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-
             InitializeApplication();
         }
 
         [Button(true)]
         public void InitializeApplication()
         {
-            _startMiddlewares.ForEach(middleware => middleware.Initialize
-            (
-                () => 
-                { 
-                    OnActionFinished(_startMiddlewares, _gameSceneBundle.LoadScenesAsync);
-                })
-            );
+            ExecuteMiddlewaresSequentially(_startMiddlewares, 0, _gameSceneBundle.LoadScenesAsync);
         }
 
         [Button(true)]
         public void ShutdownApplication()
         {
-            _finishMiddlewares.ForEach(middleware => middleware.Initialize
-            (
-                () =>
-                {
-                    OnActionFinished(_finishMiddlewares, ApplicationQuit);
-                })
-            );
+            ExecuteMiddlewaresSequentially(_finishMiddlewares, 0, ApplicationQuit);
         }
 
-        private void OnActionFinished(List<Middleware> middlewares, UnityAction nextAction = null)
+        private void ExecuteMiddlewaresSequentially(List<Middleware> middlewares, int index, UnityAction finalAction)
         {
-            if (middlewares.TrueForAll(middleware => middleware.IsFinished()))
+            if (index >= middlewares.Count)
             {
-                nextAction?.Invoke();
+                finalAction?.Invoke();
+                return;
             }
+
+            middlewares[index].Initialize(() =>
+            {
+                if (middlewares[index].IsFinished())
+                {
+                    ExecuteMiddlewaresSequentially(middlewares, index + 1, finalAction);
+                }
+            });
         }
 
         private void ApplicationQuit()
         {
-
 #if UNITY_EDITOR
             UnityEngine.Application.Quit();
-
             if (UnityEngine.Application.isEditor)
             {
                 UnityEditor.EditorApplication.isPlaying = false;
