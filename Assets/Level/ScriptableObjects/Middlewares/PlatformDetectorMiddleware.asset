@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b326169abe8a7264ebffb48ed9ca4c17, type: 3}
+  m_Name: PlatformDetectorMiddleware
+  m_EditorClassIdentifier: 
+  <IsMobile>k__BackingField: 0
+  <IsTablet>k__BackingField: 0
+  <IsDesktop>k__BackingField: 0
+  <IsWeb>k__BackingField: 0
+  <CountryCode>k__BackingField: 
+  <Locale>k__BackingField: 
+  <BrowserName>k__BackingField: 
+  <BrowserVersion>k__BackingField: 
+  <OsName>k__BackingField: 
+  <OsVersion>k__BackingField: 
+  <DeviceType>k__BackingField: 
+  <ApplicationType>k__BackingField: 
