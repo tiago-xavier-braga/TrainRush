@@ -763,7 +763,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849617288}
+    m_TransformParent: {fileID: 1622800697}
     m_Modifications:
     - target: {fileID: 553666728529937504, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _cameraTransform
@@ -1216,7 +1216,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1149954332}
+    m_TransformParent: {fileID: 1524541221}
     m_Modifications:
     - target: {fileID: 647328407985140489, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2373,7 +2373,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1149954332}
+    m_TransformParent: {fileID: 1676718102}
     m_Modifications:
     - target: {fileID: 4517315030389434905, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
       propertyPath: _onTrainStateChanged
@@ -2710,13 +2710,6 @@ Transform:
   - {fileID: 604106469}
   - {fileID: 1622800697}
   - {fileID: 1571870998}
-  - {fileID: 73633470}
-  - {fileID: 482177647}
-  - {fileID: 1155643856}
-  - {fileID: 8073904161978949872}
-  - {fileID: 8508535758797510295}
-  - {fileID: 1553470817}
-  - {fileID: 2845386338940176961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &850909877
@@ -2725,7 +2718,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849617288}
+    m_TransformParent: {fileID: 1571870998}
     m_Modifications:
     - target: {fileID: 647328407985140489, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3504,7 +3497,7 @@ Transform:
   - {fileID: 84912374}
   - {fileID: 98274865}
   - {fileID: 1281950362}
-  m_Father: {fileID: 1149954332}
+  m_Father: {fileID: 1676718102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140768130
 GameObject:
@@ -3617,13 +3610,6 @@ Transform:
   - {fileID: 9376151}
   - {fileID: 1676718102}
   - {fileID: 1524541221}
-  - {fileID: 2010172788}
-  - {fileID: 266372219}
-  - {fileID: 1444096647}
-  - {fileID: 1140687810}
-  - {fileID: 2121328008}
-  - {fileID: 1247123766}
-  - {fileID: 784418051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1155643856 stripped
@@ -3690,7 +3676,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1149954332}
+    m_TransformParent: {fileID: 1676718102}
     m_Modifications:
     - target: {fileID: 553666728529937504, guid: efc2d198a4b67784baf29a928dd6d358, type: 3}
       propertyPath: _cameraTransform
@@ -4762,7 +4748,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1149954332}
+    m_TransformParent: {fileID: 1524541221}
     m_Modifications:
     - target: {fileID: 647328407985140489, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4999,6 +4985,9 @@ Transform:
   - {fileID: 1972552158}
   - {fileID: 2083418310}
   - {fileID: 1904267975}
+  - {fileID: 2010172788}
+  - {fileID: 266372219}
+  - {fileID: 1444096647}
   m_Father: {fileID: 1149954332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1553470817 stripped
@@ -5050,6 +5039,9 @@ Transform:
   - {fileID: 354394733}
   - {fileID: 1577811241}
   - {fileID: 874098582}
+  - {fileID: 73633470}
+  - {fileID: 482177647}
+  - {fileID: 1155643856}
   m_Father: {fileID: 849617288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577811239
@@ -5201,6 +5193,10 @@ Transform:
   - {fileID: 238344524}
   - {fileID: 196018061}
   - {fileID: 2093589565}
+  - {fileID: 8073904161978949872}
+  - {fileID: 8508535758797510295}
+  - {fileID: 1553470817}
+  - {fileID: 2845386338940176961}
   m_Father: {fileID: 849617288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676718101
@@ -5235,6 +5231,10 @@ Transform:
   - {fileID: 1599469448}
   - {fileID: 1434010860}
   - {fileID: 68648815}
+  - {fileID: 1140687810}
+  - {fileID: 2121328008}
+  - {fileID: 1247123766}
+  - {fileID: 784418051}
   m_Father: {fileID: 1149954332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687810250
@@ -5680,7 +5680,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849617288}
+    m_TransformParent: {fileID: 1571870998}
     m_Modifications:
     - target: {fileID: 647328407985140489, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6121,7 +6121,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1149954332}
+    m_TransformParent: {fileID: 1524541221}
     m_Modifications:
     - target: {fileID: 647328407985140489, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6547,7 +6547,7 @@ Transform:
   - {fileID: 605771}
   - {fileID: 1727250357}
   - {fileID: 1783570590}
-  m_Father: {fileID: 1149954332}
+  m_Father: {fileID: 1676718102}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &2121328009
 MonoBehaviour:
@@ -7030,7 +7030,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849617288}
+    m_TransformParent: {fileID: 1571870998}
     m_Modifications:
     - target: {fileID: 647328407985140489, guid: 46a9347b96f277042a5d839e3ff3d4d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7322,7 +7322,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 849617288}
+    m_TransformParent: {fileID: 1622800697}
     m_Modifications:
     - target: {fileID: 4517315030389434905, guid: e9cf27e7ec105e342903b65ea8ff7632, type: 3}
       propertyPath: _trafficLightTask
@@ -7966,7 +7966,7 @@ Transform:
   - {fileID: 8672605472840867396}
   - {fileID: 3210904649394469901}
   - {fileID: 8119559077229605844}
-  m_Father: {fileID: 849617288}
+  m_Father: {fileID: 1622800697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8119559077229605844 stripped
 Transform:
@@ -7990,7 +7990,7 @@ Transform:
   - {fileID: 2410513050818624264}
   - {fileID: 4126253994508713878}
   - {fileID: 8053838449097083280}
-  m_Father: {fileID: 849617288}
+  m_Father: {fileID: 1622800697}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &8508535758797510296
 MonoBehaviour:

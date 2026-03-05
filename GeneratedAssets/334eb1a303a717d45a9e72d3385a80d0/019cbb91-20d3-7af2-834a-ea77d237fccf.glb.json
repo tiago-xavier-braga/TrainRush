@@ -1,0 +1,11 @@
+{
+    "asset": "334eb1a303a717d45a9e72d3385a80d0",
+    "fileName": "019cbb91-20d3-7af2-834a-ea77d237fccf.glb",
+    "prompt": "a realistic 3D car wheel with a rubber tire and a metallic rim, highly detailed textures",
+    "negativePrompt": "",
+    "model": "f923f4af-999c-47c7-b9bf-b8952ffe003e",
+    "modelName": "Rodin Hyper 3D",
+    "customSeed": -1,
+    "w3CTraceId": "92351104f48003c9e38788841510fc81",
+    "refinementMode": "Generation"
+}
